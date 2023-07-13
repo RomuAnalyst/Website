@@ -82,11 +82,11 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/index.html</loc>
-    <lastmod>2023-07-13T23:08:39.518Z</lastmod>
+    <lastmod>2023-07-13T23:22:59.575Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts.html</loc>
-    <lastmod>2023-07-13T23:12:31.442Z</lastmod>
+    <lastmod>2023-07-13T23:22:12.861Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/index.html</loc>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/Shiny.html</loc>
-    <lastmod>2023-07-13T22:49:54.011Z</lastmod>
+    <lastmod>2023-07-13T23:22:03.355Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/projects/index.html</loc>
@@ -143,5 +143,9 @@
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/index.html</loc>
     <lastmod>2023-07-13T23:08:36.482Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/about.html</loc>
+    <lastmod>2023-07-13T23:23:04.848Z</lastmod>
   </url>
 </urlset>
