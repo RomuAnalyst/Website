@@ -1,56 +1,70 @@
 ---
-title: ""
-image: images/sam_cropped.jpg
-toc: false
-about: 
+about:
   template: jolla
-  image-shape: round
-  image-width: 14em
+  id: about-block
+  image: "img/Avatar.png"
   links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/samanthacsik/
     - icon: twitter
       text: Twitter
-      href: https://twitter.com/SamanthaCsik
+      href: https://twitter.com/MarvinSchmittML
     - icon: github
-      text: GitHub
-      href: https://github.com/samanthacsik
+      text: Github
+      href: https://github.com/marvinschmitt
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/marvin-schmitt-a85b321a2/
     - icon: envelope
       text: Email
-      href: mailto:scsik@ucsb.edu
+      href: "mailto:titi.minet971@gmail.com"
+knitr:
+  opts_chunk: 
+    collapse: true
+execute: 
+  echo: false
+page-layout: full
+listing:
+  id: sample-listings
+  contents: posts
+  sort: "date desc"
+  max-items: 2
+  type: table
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title, subtitle]
+  date-format: "DD/MM/YY"
+output-directory : docs
 ---
 
-<!-- ::: {.small-text} -->
-Hi there! I'm Sam (and my last name is pronounced "chick"). Professionally, I love teaching data science skills, learning and implementing inclusive pedagogical approaches, and the communities that supports both of those things. Outside of work, I'm an avid hiker, novice (but passionate) meal-maker, and I really love the color green. You can learn more by poking around my website!
-<!-- ::: -->
-
-<!-- ### hi there!     -->
-
-<!-- I'm Sam (and my last name is pronounced "chick"). I'm the Data Training Coordinator at the [National Center for Ecological Analysis & Synthesis](https://www.nceas.ucsb.edu/) (NCEAS) located at UC Santa Barbara, where I'm working to develop and teach data science training curricula for the [Master of Environmental Data Science](https://bren.ucsb.edu/masters-programs/master-environmental-data-science) (MEDS) program and other data science initiatives across NCEAS and UCSB. I am also a co-organizer of [R-Ladies Santa Barbara](https://www.meetup.com/rladies-santa-barbara/), a local data science group which works to promote gender diversity in the R community. In my spare time, you'll typically find me hiking with my pup or cooking family dinners with friends. -->
-
-<!-- ----------------------------------------------------------------------------------------------------------------------------------- -->
-
-<!-- ### education -->
-
-<!-- <div class="topbr"> -->
-<!-- <p class="custom-subtitle">{{< fa graduation-cap title="A graduation cap" >}} **MS in Ecology, Evolution & Marine Biology, 2020**</p>   -->
-<!-- <p class="custom-subtitle2">University of California, Santa Barbara</p> -->
-
-<!-- <p class="custom-subtitle">{{< fa graduation-cap title="A graduation cap" >}} **BS in Marine Biology, 2016**</p>   -->
-<!-- <p class="custom-subtitle2">Northeastern University</p> -->
-<!-- </div> -->
-
-<!-- ----------------------------------------------------------------------------------------------------------------------------------- -->
-
-<!-- ### experience -->
-
-<!-- <div class="topbr"> -->
-<!-- <p class="custom-subtitle">{{< fa chalkboard-teacher title="A teacher at a chalkboard" >}} **Data Training Coordinator, 2021-present**</p>    -->
-<!-- <p class="custom-subtitle2">National Center for Ecological Analysis & Synthesis</p>   -->
-
-<!-- <p class="custom-subtitle">{{< fa chart-bar title="A bar chart" >}} **Data Science Fellow, 2020-2021**</p>     -->
-<!-- <p class="custom-subtitle2">National Center for Ecological Analysis & Synthesis</p> -->
-<!-- </div> -->
-
-<!-- FOR REFERENCE: `r fontawesome::fa("graduation-cap", fill = "#98A08D", a11y = "sem")` # stopped working 5/1/2023? -->
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+<div class="card h-100">
+<div class="card-body d-flex flex-column">
+<p class="card-text">Cours d'introduction à {{< fa brands r-project >}} et Posit (ex-Rstudio)</p>
+<div style="margin-top: auto;"><a href="test2.qmd" class="card-link third-color-link heading-font">Cours</a></div>
+</div>
+</div>
+:::
+::: {.g-col-12 .g-col-md-4}
+<div class="card h-100">
+<div class="card-body d-flex flex-column">
+<p class="card-text">Vous voulez en savoir plus sur moi?<br> Voici un petit résumé</p>
+<div style="margin-top: auto;"><a href=https://quarto.org/ class="card-link third-color-link heading-font">BIO</a></div>
+</div>
+</div>
+:::
+::: {.g-col-12 .g-col-md-4}
+<div class="card h-100">
+<div class="card-body d-flex flex-column">
+<p class="card-text">Vous voulez en savoir plus sur moi?<br> Voici un petit résumé</p>
+<div style="margin-top: auto;"><a href="About.qmd" class="card-link third-color-link heading-font">Bio</a></div>
+</div>
+</div>
+:::
+::: {.g-col-3}
+<div class="card-body d-flex flex-column"> 
+<div style="margin-top: auto;"><p class="card-text"><b><u>2 derniers articles :</u></b></p>
+</div></div>
+:::
+::: {.g-col-9 #sample-listings}
+:::
+:::

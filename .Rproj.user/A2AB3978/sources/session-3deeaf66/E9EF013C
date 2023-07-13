@@ -12,14 +12,16 @@
     "properties": {
         "rmdVisualMode": "false",
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "0,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1687238918,
+    "lastKnownWriteTime": 1689260021,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1687238918,
+    "last_content_update": 1689260021,
     "read_only": false,
     "read_only_alternatives": []
 }

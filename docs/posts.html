@@ -45,7 +45,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,9 +74,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -141,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-r">    
         <li>
     <a class="dropdown-item" href="./R et Posit.html" rel="" target="">
- <span class="dropdown-text"><i class="fa-brands fa-r-project" aria-hidden="true"></i> et Posit</span></a>
+ <span class="dropdown-text"><i class="fa-brands fa-r-project"></i> et Posit</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./test2.html" rel="" target="">
@@ -200,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(3)</span></div><div class="category" data-category="MEDS">MEDS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Openscapes">Openscapes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R-Ladies">R-Ladies <span class="quarto-category-count">(1)</span></div><div class="category" data-category="distill">distill <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Authoring">Authoring <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Extensions">Extensions <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Features">Features <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Layout">Layout <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Tables">Tables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Web">Web <span class="quarto-category-count">(1)</span></div><div class="category" data-category="conf">conf <span class="quarto-category-count">(1)</span></div><div class="category" data-category="talk">talk <span class="quarto-category-count">(1)</span></div><div class="category" data-category="workshop">workshop <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -227,131 +226,236 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Quarto,R,MEDS" data-listing-date-sort="1666562400000" data-listing-file-modified-sort="1687238918000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17">
+<div class="quarto-post image-right" data-index="0" data-categories="R,Web,Tables" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1689259861589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
 <div class="thumbnail">
-<p><a href="./posts/2022-10-24-quarto-blogs/index.html"> <img src="./posts/2022-10-24-quarto-blogs/penguins.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/2022-02-15-feature-tables/index.html"> <img src="./posts/2022-02-15-feature-tables/data in the cloud.png" class="thumbnail-image" alt="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure."> </a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-10-24-quarto-blogs/index.html">
+<a href="./posts/2022-02-15-feature-tables/index.html">
 <h3 class="no-anchor listing-title">
-Adding a blog to your existing Quarto website
+Scraping et base Excel
 </h3>
 <div class="listing-subtitle">
-
+Collecte de données web et création de fichiers excel
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
-Quarto
-</div>
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('MEDS'); return false;">
-MEDS
+<div class="listing-category" onclick="window.quartoListingCategory('Web'); return false;">
+Web
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Tables'); return false;">
+Tables
 </div>
 </div>
-<a href="./posts/2022-10-24-quarto-blogs/index.html">
+<a href="./posts/2022-02-15-feature-tables/index.html">
 <div class="listing-description">
-<p>Got a Quarto website, but no blog? We can fix that!</p>
+<p>Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines…</p>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-10-24-quarto-blogs/index.html">
+<a href="./posts/2022-02-15-feature-tables/index.html">
 <div class="listing-date">
-24 oct. 2022
+12 juil. 2023
 </div>
 <div class="listing-author">
-Samantha Csik
+Romuanalyst
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="R-Ladies,Openscapes,R,Python,Quarto" data-listing-date-sort="1655848800000" data-listing-file-modified-sort="1687238918000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="1" data-categories="Extensions,Features" data-listing-date-sort="1666648800000" data-listing-file-modified-sort="1689259861622" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
-<p><a href="./posts/2022-06-22-hello_quarto/index.html"> <img src="./posts/2022-06-22-hello_quarto/quarto.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/2022-10-25-shinylive-extension/index.html"> <img src="./posts/2022-10-25-shinylive-extension/shinylive-embedded-app.png" class="thumbnail-image" alt="Screenshot of a Quarto document with an embedded Shinylive application."> </a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-06-22-hello_quarto/index.html">
+<a href="./posts/2022-10-25-shinylive-extension/index.html">
 <h3 class="no-anchor listing-title">
-Hello Quarto!
+Shinylive Extension
 </h3>
 <div class="listing-subtitle">
-
+Embed Shinylive applications in Quarto documents
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R-Ladies'); return false;">
-R-Ladies
+<div class="listing-category" onclick="window.quartoListingCategory('Extensions'); return false;">
+Extensions
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Openscapes'); return false;">
-Openscapes
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
-Quarto
+<div class="listing-category" onclick="window.quartoListingCategory('Features'); return false;">
+Features
 </div>
 </div>
-<a href="./posts/2022-06-22-hello_quarto/index.html">
+<a href="./posts/2022-10-25-shinylive-extension/index.html">
 <div class="listing-description">
-<p>a Quarto Chat with NASA Openscapes, co-hosted with R-Ladies Santa Barbara [orginally published on the Openscapes blog]</p>
+<p>With Shinylive, you can embed Shiny for Python applications into Quarto documents and run the entire application (including the Python runtime) inside the user’s web…</p>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-06-22-hello_quarto/index.html">
+<a href="./posts/2022-10-25-shinylive-extension/index.html">
 <div class="listing-date">
-22 juin 2022
+25 oct. 2022
 </div>
 <div class="listing-author">
-Samantha Csik, Julie Lowndes, Amy Steiker, Catalina Oaida Taglialatela, Aaron Friesz, J.J. Allaire, Erin Robinson, Stefanie Butland
+Winston Chang
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="distill,R,MEDS" data-listing-date-sort="1632434400000" data-listing-file-modified-sort="1687238918000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="quarto-post image-right" data-index="2" data-categories="Extensions,Features" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1689259861620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
-<p><a href="./posts/2021-09-21-distill-blogs/index.html"> <img src="./posts/2021-09-21-distill-blogs/barney_blog.gif" class="thumbnail-image"> </a></p>
+<p><a href="./posts/2022-07-25-feature-extensions/index.html"> <img src="./posts/2022-07-25-feature-extensions/extensions.png" class="thumbnail-image" alt="The main page for the quarto-ext GitHub organization which lists extensions published by the Quarto core team."> </a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-09-21-distill-blogs/index.html">
+<a href="./posts/2022-07-25-feature-extensions/index.html">
 <h3 class="no-anchor listing-title">
-Why create presentation slides about blogging when you can just blog about it instead?
+Quarto Extensions
 </h3>
 <div class="listing-subtitle">
-
+Extend Quarto with new capabilities
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('distill'); return false;">
-distill
+<div class="listing-category" onclick="window.quartoListingCategory('Extensions'); return false;">
+Extensions
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('MEDS'); return false;">
-MEDS
+<div class="listing-category" onclick="window.quartoListingCategory('Features'); return false;">
+Features
 </div>
 </div>
-<a href="./posts/2021-09-21-distill-blogs/index.html">
+<a href="./posts/2022-07-25-feature-extensions/index.html">
 <div class="listing-description">
-<p>I started putting together some slides on the whys and hows of blogging using {distill} when I realized…maybe I’ve just found the content for my first blog post??</p>
+<p>Quarto Extensions are a powerful way to modify or extend the behavior of Quarto, and can be created and distributed by anyone. Extension types include filters, shortcodes…</p>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-09-21-distill-blogs/index.html">
+<a href="./posts/2022-07-25-feature-extensions/index.html">
 <div class="listing-date">
-24 sept. 2021
+25 juil. 2022
 </div>
 <div class="listing-author">
-Samantha Csik
+J.J. Allaire
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="conf,workshop,talk" data-listing-date-sort="1655762400000" data-listing-file-modified-sort="1689259861599" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
+<div class="thumbnail">
+<p><a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html"> <img src="./posts/2022-06-21-rstudio-conf-2022-quarto/conf2022.png" class="thumbnail-image" alt="rstudio:conf(2022) logo: orange background with the outline of the Washington DC skyline."> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html">
+<h3 class="no-anchor listing-title">
+Quarto at rstudio::conf(2022)
+</h3>
+<div class="listing-subtitle">
+Quarto-related workshops and talks at rstudio::conf(2022)
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('conf'); return false;">
+conf
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('workshop'); return false;">
+workshop
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('talk'); return false;">
+talk
+</div>
+</div>
+<a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html">
+<div class="listing-description">
+<p><span>rstudio::conf(2022)</span> will feature a variety of workshops and talks on Quarto. Join us in Washington DC this July 25-28 to learn more about Quarto and…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html">
+<div class="listing-date">
+21 juin 2022
+</div>
+<div class="listing-author">
+Mine Çetinkaya-Rundel
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Features,Layout" data-listing-date-sort="1645052400000" data-listing-file-modified-sort="1689259861589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="./posts/2022-02-17-advanced-layout/index.html"> <img src="./posts/2022-02-17-advanced-layout/margin-content.png" class="thumbnail-image" alt="Screenshot of two sections of post: Margin Figures, which has a plot in the margin; and Arbitrary Margin Content, which has text with a LaTeX equation in the margin."> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2022-02-17-advanced-layout/index.html">
+<h3 class="no-anchor listing-title">
+Positioning Content in the Margin
+</h3>
+<div class="listing-subtitle">
+Create ‘Tufte’ style documents with sidenotes, margin tables and figures, and other margin content
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Features'); return false;">
+Features
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Layout'); return false;">
+Layout
+</div>
+</div>
+<a href="./posts/2022-02-17-advanced-layout/index.html">
+<div class="listing-description">
+<p>This post demonstrates a few of the capabilities for positioning content in the margin of the page. You can read more about the complete capabilities in the the [Article…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-02-17-advanced-layout/index.html">
+<div class="listing-date">
+17 févr. 2022
+</div>
+<div class="listing-author">
+Charles Teague
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Features,Authoring" data-listing-date-sort="1644706800000" data-listing-file-modified-sort="1689259861581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/2022-02-13-feature-callouts/index.html"> <img src="./posts/2022-02-13-feature-callouts/callouts.png" class="thumbnail-image" alt="Three calout boxes: A note (has a blue banner with info icon preceding the header), a tip (has a green banner with lightbulb icon preceding the header), and an important (has a red banner with info exclamation-point icon preceding the header)."> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2022-02-13-feature-callouts/index.html">
+<h3 class="no-anchor listing-title">
+Using Callouts
+</h3>
+<div class="listing-subtitle">
+Use callouts to draw attention to important complementary content without interupting the document flow
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Features'); return false;">
+Features
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Authoring'); return false;">
+Authoring
+</div>
+</div>
+<a href="./posts/2022-02-13-feature-callouts/index.html">
+<div class="listing-description">
+<p>Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-02-13-feature-callouts/index.html">
+<div class="listing-date">
+13 févr. 2022
+</div>
+<div class="listing-author">
+Charles Teague
 </div>
 </a>
 </div>
