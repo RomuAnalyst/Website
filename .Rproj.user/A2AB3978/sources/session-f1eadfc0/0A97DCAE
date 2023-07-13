@@ -3,7 +3,7 @@
     "path": "~/Documents/Sans titre/posts/2021-09-21-distill-blogs/index.qmd",
     "project_path": "posts/2021-09-21-distill-blogs/index.qmd",
     "type": "quarto_markdown",
-    "hash": "3003553967",
+    "hash": "1076193026",
     "contents": "",
     "dirty": false,
     "created": 1689286400886.0,
@@ -13,15 +13,15 @@
         "rmdVisualMode": "false",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "12,44",
+        "cursorPosition": "12,50",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1689286688,
+    "lastKnownWriteTime": 1689287175,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1689286688911,
+    "last_content_update": 1689287175129,
     "read_only": false,
     "read_only_alternatives": []
 }
