@@ -37,5 +37,20 @@
   },
   "Shiny.qmd": {
     "Shiny.html": "ed32d234"
+  },
+  "posts/2022-06-21-rstudio-conf-2022-quarto/index.qmd": {
+    "index.html": "62325035"
+  },
+  "posts/2022-10-25-shinylive-extension/index.qmd": {
+    "index.html": "459526a8"
+  },
+  "posts/2022-07-25-feature-extensions/index.qmd": {
+    "index.html": "058376a5"
+  },
+  "posts/2022-02-13-feature-callouts/index.qmd": {
+    "index.html": "90f0c71b"
+  },
+  "posts/2022-02-17-advanced-layout/index.qmd": {
+    "index.html": "f50c85f8"
   }
 }

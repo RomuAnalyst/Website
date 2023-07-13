@@ -74,9 +74,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-image','listing-subtitle','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -224,21 +224,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,Web,Tables" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1689259861589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="thumbnail">
-<p><a href="./posts/2022-02-15-feature-tables/index.html"> <img src="./posts/2022-02-15-feature-tables/data in the cloud.png" class="thumbnail-image" alt="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure."> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2022-02-15-feature-tables/index.html">
-<h3 class="no-anchor listing-title">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="R,Web,Tables" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1689259861589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<a href="./posts/2022-02-15-feature-tables/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/2022-02-15-feature-tables/data in the cloud.png" class="thumbnail-image card-img" style="height: 150px;" alt="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure.">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Scraping et base Excel
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 Collecte de données web et création de fichiers excel
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -250,36 +250,28 @@ Web
 Tables
 </div>
 </div>
-<a href="./posts/2022-02-15-feature-tables/index.html">
-<div class="listing-description">
-<p>Cet article traite de l’extraction de données à partir d’un site web afin de constituer une base de données exploitable. Vous trouverez des informations sur certaines…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2022-02-15-feature-tables/index.html">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 12 juil. 2023
 </div>
-<div class="listing-author">
-Romuanalyst
+</div>
+</div>
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Extensions,Features" data-listing-date-sort="1666648800000" data-listing-file-modified-sort="1689259861622" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/2022-10-25-shinylive-extension/index.html"> <img src="./posts/2022-10-25-shinylive-extension/shinylive-embedded-app.png" class="thumbnail-image" alt="Screenshot of a Quarto document with an embedded Shinylive application."> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2022-10-25-shinylive-extension/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="1" data-categories="Extensions,Features" data-listing-date-sort="1666648800000" data-listing-file-modified-sort="1689259861622" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<a href="./posts/2022-10-25-shinylive-extension/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/2022-10-25-shinylive-extension/shinylive-embedded-app.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of a Quarto document with an embedded Shinylive application.">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Shinylive Extension
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 Embed Shinylive applications in Quarto documents
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Extensions'); return false;">
 Extensions
@@ -288,36 +280,28 @@ Extensions
 Features
 </div>
 </div>
-<a href="./posts/2022-10-25-shinylive-extension/index.html">
-<div class="listing-description">
-<p>With Shinylive, you can embed Shiny for Python applications into Quarto documents and run the entire application (including the Python runtime) inside the user’s web…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2022-10-25-shinylive-extension/index.html">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 25 oct. 2022
 </div>
-<div class="listing-author">
-Winston Chang
+</div>
+</div>
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Extensions,Features" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1689259861620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/2022-07-25-feature-extensions/index.html"> <img src="./posts/2022-07-25-feature-extensions/extensions.png" class="thumbnail-image" alt="The main page for the quarto-ext GitHub organization which lists extensions published by the Quarto core team."> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2022-07-25-feature-extensions/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="2" data-categories="Extensions,Features" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1689259861620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<a href="./posts/2022-07-25-feature-extensions/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/2022-07-25-feature-extensions/extensions.png" class="thumbnail-image card-img" style="height: 150px;" alt="The main page for the quarto-ext GitHub organization which lists extensions published by the Quarto core team.">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Quarto Extensions
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 Extend Quarto with new capabilities
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Extensions'); return false;">
 Extensions
@@ -326,36 +310,28 @@ Extensions
 Features
 </div>
 </div>
-<a href="./posts/2022-07-25-feature-extensions/index.html">
-<div class="listing-description">
-<p>Quarto Extensions are a powerful way to modify or extend the behavior of Quarto, and can be created and distributed by anyone. Extension types include filters, shortcodes…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2022-07-25-feature-extensions/index.html">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 25 juil. 2022
 </div>
-<div class="listing-author">
-J.J. Allaire
+</div>
+</div>
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="conf,workshop,talk" data-listing-date-sort="1655762400000" data-listing-file-modified-sort="1689259861599" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
-<div class="thumbnail">
-<p><a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html"> <img src="./posts/2022-06-21-rstudio-conf-2022-quarto/conf2022.png" class="thumbnail-image" alt="rstudio:conf(2022) logo: orange background with the outline of the Washington DC skyline."> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="3" data-categories="conf,workshop,talk" data-listing-date-sort="1655762400000" data-listing-file-modified-sort="1689259861599" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
+<a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/2022-06-21-rstudio-conf-2022-quarto/conf2022.png" class="thumbnail-image card-img" style="height: 150px;" alt="rstudio:conf(2022) logo: orange background with the outline of the Washington DC skyline.">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Quarto at rstudio::conf(2022)
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 Quarto-related workshops and talks at rstudio::conf(2022)
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('conf'); return false;">
 conf
@@ -367,36 +343,28 @@ workshop
 talk
 </div>
 </div>
-<a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html">
-<div class="listing-description">
-<p><span>rstudio::conf(2022)</span> will feature a variety of workshops and talks on Quarto. Join us in Washington DC this July 25-28 to learn more about Quarto and…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2022-06-21-rstudio-conf-2022-quarto/index.html">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 21 juin 2022
 </div>
-<div class="listing-author">
-Mine Çetinkaya-Rundel
+</div>
+</div>
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Features,Layout" data-listing-date-sort="1645052400000" data-listing-file-modified-sort="1689259861589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/2022-02-17-advanced-layout/index.html"> <img src="./posts/2022-02-17-advanced-layout/margin-content.png" class="thumbnail-image" alt="Screenshot of two sections of post: Margin Figures, which has a plot in the margin; and Arbitrary Margin Content, which has text with a LaTeX equation in the margin."> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2022-02-17-advanced-layout/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="4" data-categories="Features,Layout" data-listing-date-sort="1645052400000" data-listing-file-modified-sort="1689259861589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<a href="./posts/2022-02-17-advanced-layout/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/2022-02-17-advanced-layout/margin-content.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of two sections of post: Margin Figures, which has a plot in the margin; and Arbitrary Margin Content, which has text with a LaTeX equation in the margin.">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Positioning Content in the Margin
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 Create ‘Tufte’ style documents with sidenotes, margin tables and figures, and other margin content
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Features'); return false;">
 Features
@@ -405,36 +373,28 @@ Features
 Layout
 </div>
 </div>
-<a href="./posts/2022-02-17-advanced-layout/index.html">
-<div class="listing-description">
-<p>This post demonstrates a few of the capabilities for positioning content in the margin of the page. You can read more about the complete capabilities in the the [Article…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2022-02-17-advanced-layout/index.html">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 17 févr. 2022
 </div>
-<div class="listing-author">
-Charles Teague
+</div>
+</div>
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="Features,Authoring" data-listing-date-sort="1644706800000" data-listing-file-modified-sort="1689259861581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/2022-02-13-feature-callouts/index.html"> <img src="./posts/2022-02-13-feature-callouts/callouts.png" class="thumbnail-image" alt="Three calout boxes: A note (has a blue banner with info icon preceding the header), a tip (has a green banner with lightbulb icon preceding the header), and an important (has a red banner with info exclamation-point icon preceding the header)."> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2022-02-13-feature-callouts/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="5" data-categories="Features,Authoring" data-listing-date-sort="1644706800000" data-listing-file-modified-sort="1689259861581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/2022-02-13-feature-callouts/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/2022-02-13-feature-callouts/callouts.png" class="thumbnail-image card-img" style="height: 150px;" alt="Three calout boxes: A note (has a blue banner with info icon preceding the header), a tip (has a green banner with lightbulb icon preceding the header), and an important (has a red banner with info exclamation-point icon preceding the header).">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Using Callouts
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 Use callouts to draw attention to important complementary content without interupting the document flow
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Features'); return false;">
 Features
@@ -443,22 +403,14 @@ Features
 Authoring
 </div>
 </div>
-<a href="./posts/2022-02-13-feature-callouts/index.html">
-<div class="listing-description">
-<p>Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2022-02-13-feature-callouts/index.html">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 13 févr. 2022
 </div>
-<div class="listing-author">
-Charles Teague
+</div>
+</div>
 </div>
 </a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
