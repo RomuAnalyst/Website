@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./images/favicon.png" rel="icon" type="image/png">
+<link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -107,10 +107,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:locale" content="fr-FR">
 <meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
-<meta name="twitter:image" content="https://romuanalyst.github.io/RomuAnalyst_website/images/logo.png">
+<meta name="twitter:image" content="https://romuanalyst.github.io/RomuAnalyst_website/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
 <meta name="twitter:site" content="@Romu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="18">
+<meta name="twitter:image-width" content="18">
 </head>
 
 <body class="nav-fixed">
@@ -161,11 +163,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
+    <a class="nav-link" href="./posts.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
+    <a class="nav-link" href="./blog.qmd" rel="" target="">
  <span class="menu-text">Rendu élèves</span></a>
   </li>  
   <li class="nav-item">
@@ -780,7 +782,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/romuanalyst\.github\.io\/RomuAnalyst_website");
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/romuanalyst.github.io/Website2/**");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }

@@ -7,5 +7,26 @@
   },
   "index.qmd": {
     "index.html": "3ac9a5a3"
+  },
+  "test2.qmd": {
+    "test2.html": "cac1e3a4"
+  },
+  "posts/2022-10-24-quarto-blogs/index.qmd": {
+    "index.html": "b5670cef"
+  },
+  "posts/2022-06-22-hello_quarto/index.qmd": {
+    "index.html": "f2ef841c"
+  },
+  "posts/2021-09-21-distill-blogs/index.qmd": {
+    "index.html": "41e96bee"
+  },
+  "ia2.qmd": {
+    "ia2.html": "feeb7598"
+  },
+  "projects/index.qmd": {
+    "index.html": "925bbef1"
+  },
+  "ia.qmd": {
+    "ia.html": "2e08e072"
   }
 }

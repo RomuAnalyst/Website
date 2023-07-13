@@ -17,754 +17,1132 @@
 <width>100</width>
 </image>
 <generator>quarto-1.3.353</generator>
-<lastBuildDate>Tue, 11 Jul 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 23 Oct 2022 22:00:00 GMT</lastBuildDate>
 <item>
-  <title>Scraping et base Excel</title>
-  <dc:creator>Romuanalyst </dc:creator>
-  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-15-feature-tables/index.html</link>
+  <title>Adding a blog to your existing Quarto website</title>
+  <dc:creator>Samantha Csik</dc:creator>
+  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/index.html</link>
   <description><![CDATA[ 
 
 
 
-<hr>
-<p>Le scraping (ou web scraping) est le processus de collecte automatique de données à partir de sites web en utilisant des logiciels ou des scripts. Il permet d’extraire des informations telles que des textes, des images, des prix, etc. à partir de pages web. Dans notre exemple, nous utiliserons un script R pour que cette collecte nous crée notre base de données</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La légalité du scraping dépend de plusieurs facteurs, notamment les lois du pays dans lequel vous vous trouvez et les conditions d’utilisation du site web que vous souhaitez scraper. Dans de nombreux cas, le scraping peut être considéré comme une violation des conditions d’utilisation d’un site, ce qui pourrait entraîner des problèmes légaux.<br> Certains sites autorisent le scraping dans leurs conditions d’utilisation tant que cela n’engendre pas de surcharge du serveur ni de violations de la propriété intellectuelle. D’autres sites interdisent explicitement le scraping.<br> Il est important de revoir attentivement les conditions d’utilisation du site web ciblé et de consulter les lois en vigueur dans votre pays avant de vous engager dans le scraping. Il est recommandé de demander la permission du propriétaire du site web ou d’utiliser des sources de données publiques et librement accessibles pour éviter d’éventuels problèmes légaux.</p>
-</div>
-</div>
-<p>Quarto includes a number of features aimed at making it easy to to author and customize markdown table output, including:</p>
+
+<p>About a year ago, I wrote my first ever blog post ~ about blogging ~ and tbh I’m a <em>little</em> embarrassed that this is only my third post here (does it count that I have <em>ideas</em> for blog posts squirreled away at least?? <svg aria-label="Face Grin Beam Sweat" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Face Grin Beam Sweat</title><path d="M476.8 126.3C497.1 120.8 512 102.7 512 81c0-20-28.6-60.4-41.6-77.7c-3.2-4.4-9.6-4.4-12.8 0c-9.5 12.6-27.1 37.2-36 57.5c-.3 .7-.6 1.4-.9 2.1C417.8 69.7 416 76 416 81c0 26 21.5 47 48 47c4.4 0 8.7-.6 12.8-1.7zM395.4 41.2C355.3 15.2 307.4 0 256 0C114.6 0 0 114.6 0 256S114.6 512 256 512s256-114.6 256-256c0-35.8-7.3-69.9-20.6-100.8c-8.6 3.1-17.8 4.8-27.4 4.8c-8.9 0-17.6-1.5-25.7-4.2C454.7 185.5 464 219.7 464 256c0 114.9-93.1 208-208 208S48 370.9 48 256S141.1 48 256 48c48.7 0 93.4 16.7 128.9 44.7c-.6-3.8-.9-7.7-.9-11.7c0-11.4 3.8-22.4 7.1-30.5c1.3-3.1 2.7-6.2 4.3-9.3zM375 336.5c10.4-16.1-6.8-32.5-25.5-28.1c-28.9 6.8-60.5 10.5-93.6 10.5s-64.7-3.7-93.6-10.5c-18.7-4.4-35.9 12-25.5 28.1c24.6 38.1 68.7 63.5 119.1 63.5s94.5-25.4 119.1-63.5zM217.6 228.8l0 0 0 0 0 0c2.1 2.8 5.7 3.9 8.9 2.8s5.5-4.1 5.5-7.6c0-17.9-6.7-35.6-16.6-48.8c-9.8-13-23.9-23.2-39.4-23.2s-29.6 10.2-39.4 23.2C126.7 188.4 120 206.1 120 224c0 3.4 2.2 6.5 5.5 7.6s6.9 0 8.9-2.8l0 0 0 0 0 0 .2-.2c.2-.2 .4-.5 .7-.9c.6-.8 1.6-2 2.8-3.4c2.5-2.8 6-6.6 10.2-10.3c8.8-7.8 18.8-14 27.7-14s18.9 6.2 27.7 14c4.2 3.7 7.7 7.5 10.2 10.3c1.2 1.4 2.2 2.6 2.8 3.4c.3 .4 .6 .7 .7 .9l.2 .2 0 0zm160 0l0 0 0 0c2.1 2.8 5.7 3.9 8.9 2.8s5.5-4.1 5.5-7.6c0-17.9-6.7-35.6-16.6-48.8c-9.8-13-23.9-23.2-39.4-23.2s-29.6 10.2-39.4 23.2C286.7 188.4 280 206.1 280 224c0 3.4 2.2 6.5 5.5 7.6s6.9 0 8.9-2.8l0 0 0 0 0 0 .2-.2c.2-.2 .4-.5 .7-.9c.6-.8 1.6-2 2.8-3.4c2.5-2.8 6-6.6 10.2-10.3c8.8-7.8 18.8-14 27.7-14s18.9 6.2 27.7 14c4.2 3.7 7.7 7.5 10.2 10.3c1.2 1.4 2.2 2.6 2.8 3.4c.3 .4 .6 .7 .7 .9l.2 .2 0 0 0 0z"></path></svg>). Regardless, you should trust me<sup>1</sup> when I say that blogging is a great exercise for you to practice as regularly as you can – it can help you to:</p>
 <ul>
-<li>Specifying column alignment and widths.</li>
-<li>Providing captions, subcaptions, and cross-references.</li>
-<li>Generating tables dynamically from executable code cells.</li>
+<li><p>build your online profile/portfolio</p>
+<ul>
+<li><em>“…sharing anything is almost always better than sharing nothing”</em> -<a href="https://twitter.com/drob"><code>@drob</code></a> in his post, <a href="http://varianceexplained.org/r/start-blog/">Advice to aspiring data scientists: start a blog</a></li>
+</ul></li>
+<li><p>practice your writing &amp; communication skills</p></li>
+<li><p>stay atop data science trends</p></li>
+<li><p>solicit feedback from the community</p></li>
+<li><p>network</p></li>
+<li><p>learn something new and/or solidify your understanding</p></li>
+<li><p>combat imposter syndrome</p>
+<ul>
+<li><em>“Once you’ve shared some analyses and code, you’ll probably find that you were underrating yourself in some areas.”</em> -also <a href="https://twitter.com/drob"><code>@drob</code></a> in his post, <a href="http://varianceexplained.org/r/start-blog/">Advice to aspiring data scientists: start a blog</a></li>
+</ul></li>
 </ul>
-<p>This post provides an overview of these capabilities in Quarto. For more detail about all the features Quarto for authoring tables, see <a href="../../docs/authoring/tables.qmd">Tables</a>.</p>
-<section id="markdown-tables" class="level2">
-<h2 class="anchored" data-anchor-id="markdown-tables">Markdown Tables</h2>
-<p>The most commonly used markdown table is known as a pipe table. Pipe tables support specifying per column alignment as well as captions. For example:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1">| Default | Left | Right | Center |</span>
-<span id="cb1-2">|---------|:-----|------:|:------:|</span>
-<span id="cb1-3">| 12      | 12   |    12 |   12   |</span>
-<span id="cb1-4">| 123     | 123  |   123 |  123   |</span>
-<span id="cb1-5">| 1       | 1    |     1 |   1    |</span>
-<span id="cb1-6"></span>
-<span id="cb1-7">: Demonstration of pipe table sytnax</span></code></pre></div>
-<p>Here is the table rendered to HTML:</p>
-<table class="table">
-<caption>Demonstration of pipe table syntax</caption>
-<thead>
-<tr class="header">
-<th>Default</th>
-<th style="text-align: left;">Left</th>
-<th style="text-align: right;">Right</th>
-<th style="text-align: center;">Center</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>12</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: center;">12</td>
-</tr>
-<tr class="even">
-<td>123</td>
-<td style="text-align: left;">123</td>
-<td style="text-align: right;">123</td>
-<td style="text-align: center;">123</td>
-</tr>
-<tr class="odd">
-<td>1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: center;">1</td>
-</tr>
-</tbody>
-</table>
-<section id="caption-location" class="level4">
-<h4 class="anchored" data-anchor-id="caption-location">Caption Location</h4>
-<p>By default, table captions are positioned above tables. You can modify this behavior using the <code>tbl-cap-location</code> option. For example:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">---</span></span>
-<span id="cb2-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tbl-cap-location</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">:</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;"> top</span></span>
-<span id="cb2-3"><span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">---</span></span></code></pre></div>
+<p>Rather than repeat more content here, take a peek at my <a href="https://samanthacsik.github.io/posts/2021-09-21-distill-blogs/">first post</a>, which touches more reasons why you should blog and provides some ideas on how to structure your blog posts. Before jumping into things, I’ll leave you with one last piece of advice from <a href="https://twitter.com/drob"><code>@drob</code></a>:</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+</p><p>When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post</p>
+<p></p>
+<p>— David Robinson (<span class="citation" data-cites="drob">(<strong>drob?</strong>)</span>) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a></p>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<section id="i.-before-we-chat-about-blogs" class="level2">
+<h2 class="anchored" data-anchor-id="i.-before-we-chat-about-blogs">I. Before we chat about blogs…</h2>
+<p>Our <a href="https://bren.ucsb.edu/masters-programs/master-environmental-data-science">Master of Environmental Data Science</a> (MEDS) students created the bones of their Quarto websites a few months ago, and more recently took a little dive into website customization using Sass &amp; CSS. For anyone who’s looking to get started on their website-building journey, feel free to explore the following resources:</p>
+<p><svg aria-label="Window Maximize" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Window Maximize</title><path d="M.3 89.5C.1 91.6 0 93.8 0 96V224 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64V224 96c0-35.3-28.7-64-64-64H64c-2.2 0-4.4 .1-6.5 .3c-9.2 .9-17.8 3.8-25.5 8.2C21.8 46.5 13.4 55.1 7.7 65.5c-3.9 7.3-6.5 15.4-7.4 24zM48 224H464l0 192c0 8.8-7.2 16-16 16L64 432c-8.8 0-16-7.2-16-16l0-192z"></path></svg> <a href="https://ucsb-meds.github.io/creating-quarto-websites/">Creating your personal website using Quarto</a></p>
+<p><svg aria-label="Palette" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Palette</title><path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"></path></svg> <a href="https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide">Customizing Quarto Websites: Make your website stand out using Sass &amp; CSS</a></p>
 </section>
-</section>
-<section id="explicit-column-widths" class="level2">
-<h2 class="anchored" data-anchor-id="explicit-column-widths">Explicit Column Widths</h2>
-<p>Beyond standard pipe table syntax for expressing column width, you can also explicitly specify columns widths using the <code>tbl-colwidths</code> attribute or document-level option. For an individual markdown table, add the attribute after the caption. For example:</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1">| fruit  | price  |</span>
-<span id="cb3-2">|--------|--------:</span>
-<span id="cb3-3">| apple  | 2.05   |</span>
-<span id="cb3-4">| pear   | 1.37   |</span>
-<span id="cb3-5">| orange | 3.09   |</span>
-<span id="cb3-6"></span>
-<span id="cb3-7">: Fruit prices {tbl-colwidths="<span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">75,25</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">]</span>"}</span></code></pre></div>
-<p>Note that this option is specified at the top level so that it can be shared by both PDF and HTML formats. If you are only targeting a single format you can place it alongside other <code>format</code> specific options.</p>
-<p>Valid values for the caption location include:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>top</code></td>
-<td>Position the caption above the table.</td>
-</tr>
-<tr class="even">
-<td><code>bottom</code></td>
-<td>Position the caption below the table.</td>
-</tr>
-<tr class="odd">
-<td><code>margin</code></td>
-<td>Position the caption in the margin.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="computations" class="level2">
-<h2 class="anchored" data-anchor-id="computations">Computations</h2>
-<p>All of the options described above work for tables produced by executable code cells. For example, here we apply the <code>tbl-cap</code>, <code>tbl-colwidths</code> and <code>tbl-caption-location</code> options to a code cell:</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{r}</span></span>
-<span id="cb4-2"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| tbl-cap: "Cars"</span></span>
-<span id="cb4-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| tbl-colwidths: [60,40]</span></span>
-<span id="cb4-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| tbl-cap-location: margin</span></span>
-<span id="cb4-5"></span>
-<span id="cb4-6"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(knitr)</span>
-<span id="cb4-7"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span>(cars))</span>
-<span id="cb4-8"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-<p>In addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the <a href="../../docs/authoring/tables.qmd">documentation</a>. for more detail.</p>
-<hr>
-
-
-</section>
-
- ]]></description>
-  <category>R</category>
-  <category>Web</category>
-  <category>Tables</category>
-  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-15-feature-tables/index.html</guid>
-  <pubDate>Tue, 11 Jul 2023 22:00:00 GMT</pubDate>
-  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-15-feature-tables/data in the cloud.png" medium="image" type="image/png" height="144" width="144"/>
-</item>
-<item>
-  <title>Shinylive Extension</title>
-  <dc:creator>Winston Chang</dc:creator>
-  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-25-shinylive-extension/index.html</link>
-  <description><![CDATA[ 
-
-
-
-<p>The new <a href="https://github.com/quarto-ext/shinylive">Shinylive Quarto extension</a> makes it easy to embed Shiny for Python applications in your Quarto documents. This makes it possible to add interactivity to your documents with just Python code. For example, you can include an interactive Shiny application like this, directly inside your Quarto document.</p>
+<section id="ii.-whats-the-difference-between-a-website-and-a-blog" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="ii.-whats-the-difference-between-a-website-and-a-blog">II. What’s the difference between a website and a blog?</h2>
+<p>If you’ve spent some time poking around the official <a href="https://quarto.org/">Quarto documentation</a>, you may have noticed instructions for creating either a <a href="https://quarto.org/docs/websites/"><strong>Website</strong></a> or a <a href="https://quarto.org/docs/websites/website-blog.html"><strong>Blog</strong></a> – but what’s the difference? Not much, aside from the initial structure:</p>
+<div class="cell column-page quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://quarto-ext.github.io/shinylive/sine.html"><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-25-shinylive-extension/shinylive-embedded-app.png" class="img-fluid figure-img" alt="Shinylive appplication embedded in a Quarto document."></a></p>
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/website.png" class="img-fluid figure-img" width="1292"></p>
+<figcaption class="figure-caption">When you create a new Quarto website, it’ll look like this (it has a traditional landing (i.e.&nbsp;‘Home’) page and no incorporated blog)…</figcaption>
 </figure>
 </div>
-<p>In case you’re not already familiar with Shiny, here’s some background: <a href="https://shiny.rstudio.com/">Shiny</a> is a framework for creating web applications. Shiny was originally just for R, but we’ve recently released an alpha version of <a href="https://shiny.rstudio.com/py/">Shiny for Python</a>.</p>
-<p>One of the exciting new features of Shiny for Python is a deployment method called Shinylive: the application can be run entirely within the browser, without needing a remote server running Python. Instead, Python runs <em>in the web browser</em>, thanks to the magic of <a href="https://webassembly.org/">WebAssembly</a>. In essence, but the server and client sides of the Shiny application run in the browser.</p>
-<p>The Shiny for Python <a href="https://shiny.rstudio.com/py/">website</a> contains many interactive, editable Shiny applications, and is built using this extension.</p>
-<p>Bear in mind that not all Shiny applications can be deployed with Shinylive, in part because not all Python packages can run in WebAssembly – but for those that can, this extension makes it possible to deploy the Quarto document with the embedded application on any web hosting service. To learn more about Shinylive, see <a href="https://shiny.rstudio.com/py/docs/shinylive.html">this page</a>.</p>
-<p>The new Shinylive Quarto extension makes it easy to embed Shiny for Python applications in Quarto documents. This is a great way of adding interactive components to your Quarto document. And, once again, you don’t need a server running Python to share these Quarto documents – just deploy the generated files as you would for any other Quarto website.</p>
-
-
-
- ]]></description>
-  <category>Extensions</category>
-  <category>Features</category>
-  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-25-shinylive-extension/index.html</guid>
-  <pubDate>Mon, 24 Oct 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-25-shinylive-extension/shinylive-embedded-app.png" medium="image" type="image/png" height="97" width="144"/>
-</item>
-<item>
-  <title>Quarto Extensions</title>
-  <dc:creator>J.J. Allaire</dc:creator>
-  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-07-25-feature-extensions/index.html</link>
-  <description><![CDATA[ 
-
-
-
-<p>Quarto Extensions are a powerful way to modify or extend the behavior of Quarto, and can be created and distributed by anyone. There are three types of extensions available:</p>
-<ul>
-<li><p><a href="../../../extensions/shortcodes.qmd">Shortcodes</a> are special markdown directives that generate various types of content. For example, you could create shortcodes to embed tweets or videos in a document.</p></li>
-<li><p><a href="../../../extensions/filters.qmd">Filters</a> are a flexible and powerful tool for introducing new global behaviors and/or new markdown rendering behaviors. For example, you could create filters to implement output folding, an image carousel, or just about anything you can imagine!</p></li>
-<li><p><a href="../../../extensions/formats.qmd">Formats</a> enable you to create new output formats by bundling together document options, templates, stylesheets, and other content.</p></li>
-</ul>
-<p>Extensions are a recently released Quarto feature so you should be sure to install the <a href="https://quarto.org/docs/get-started/">very latest version</a> of Quarto (at least v1.0.36) if you want to try them out.</p>
-<p>Here are some examples of extensions developed and maintained by the core Quarto team:</p>
-<table class="table">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 70%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Extension</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://github.com/quarto-ext/lightbox/">lightbox</a></td>
-<td>Create lightbox treatments for images in your HTML documents.</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/quarto-ext/fancy-text">fancy-text</a></td>
-<td>Output nicely formatted versions of fancy strings such as LaTeX and BibTeX in multiple formats.</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/quarto-ext/fontawesome">fontawesome</a></td>
-<td>Use Font Awesome icons in HTML and PDF documents.</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/quarto-ext/latex-environment">latex-environment</a></td>
-<td>Quarto extension to output custom LaTeX environments.</td>
-</tr>
-</tbody>
-</table>
-<p>To learn more about using extensions, see the <a href="../../../extensions/index.qmd">Extensions</a> documentation on the Quarto website. If you want to dive in to creating your own extensions check out the articles on <a href="../../../extensions/shortcodes.qmd">Creating Shortcodes</a>, <a href="../../../extensions/filters.qmd">Creating Filters</a>, and <a href="../../../extensions/formats.qmd">Creating Formats</a>.</p>
-
-
-
- ]]></description>
-  <category>Extensions</category>
-  <category>Features</category>
-  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-07-25-feature-extensions/index.html</guid>
-  <pubDate>Sun, 24 Jul 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-07-25-feature-extensions/extensions.png" medium="image" type="image/png" height="72" width="144"/>
-</item>
-<item>
-  <title>Quarto at rstudio::conf(2022)</title>
-  <dc:creator>Mine Çetinkaya-Rundel</dc:creator>
-  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-21-rstudio-conf-2022-quarto/index.html</link>
-  <description><![CDATA[ 
-
-
-
-<p><a href="https://rstd.io/conf">rstudio::conf(2022)</a> will feature a variety of workshops and talks on Quarto. Join us in Washington DC this July 25-28 to learn more about Quarto and hear from folks using Quarto to create, share, and collaborate.</p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-21-rstudio-conf-2022-quarto/conf2022.png" class="preview-image img-fluid figure-img" alt="rstudio::conf(2022) logo: orange background with the outline of the Washington DC skyline."></p>
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/blog.png" class="img-fluid figure-img" width="1292"></p>
+<figcaption class="figure-caption">… while a new Quarto blog will look like this (with a listing page as your landing page)</figcaption>
 </figure>
 </div>
-<p>Here is a list of Quarto-related talks and workshops (and scroll down for details on each):</p>
-<ul>
-<li>Keynote: <a href="https://sched.co/11iZo">Reimagine + Collaborate + Share with Quarto</a></li>
-<li>Workshops:
-<ul>
-<li><a href="https://www.rstudio.com/conference/2022/workshops/get-started-quarto/">Getting Started with Quarto</a></li>
-<li><a href="https://www.rstudio.com/conference/2022/workshops/rmd-to-quarto/">From R Markdown to Quarto</a></li>
-</ul></li>
-<li>Talks:
-<ul>
-<li><a href="https://sched.co/11iZa">Quarto for R Markdown users</a></li>
-<li><a href="https://sched.co/11ibN">These are a few of my favorite things (about Quarto presentations)</a></li>
-<li><a href="https://sched.co/11ibe">Literate Programming With Jupyter Notebooks and Quarto</a></li>
-<li><a href="https://sched.co/11ibV">Websites &amp; Books &amp; Blogs, oh my! Creating Rich Content with Quarto</a></li>
-</ul></li>
-</ul>
-<section id="keynote" class="level2">
-<h2 class="anchored" data-anchor-id="keynote">Keynote</h2>
-<p><a href="https://sched.co/11iZo"><strong>Reimagine + Collaborate + Share with Quarto</strong></a> <strong>(Keynote)</strong>: <a href="https://www.rstudio.com/conference/2022/keynotes/collaborate-with-quarto/">(Talk recording)</a></p>
-<ul>
-<li>Presented by <a href="https://jules32.github.io/">Julia Stewart Lowndes</a> (Director, Openscapes) and <a href="http://mine-cr.com/">Mine Çetinkaya-Rundel</a> (Developer Educator at RStudio and Professor at Duke University).</li>
-<li>Thursday July 28, 9:00am - 10:00am EDT.</li>
-<li>What is Quarto? In this talk, in four acts, we will discuss how Quarto unifies and extends the R Markdown ecosystem. Through our work with NASA Openscapes, Duke University, and RStudio, we will share our experiences authoring, teaching, and collaborating with Quarto. Full of demos with Quarto in RStudio and Jupyter and weaving together narrative, R, and Python code, we will showcase features of Quarto that have enabled us to reimagine our reproducible workflows. This talk will help you get the most out of Quarto regardless of your background with R Markdown, the computing language(s) you use, and your tool of choice for authoring.</li>
-</ul>
+</div>
+</div>
+</div>
+<p>A Quarto Blog is <em>a type</em> of Quarto Website – according to the Quarto documentation, you can create websites that consist of just a single blog (like the above right-hand example), websites that have multiple blogs, or you can add a blog to a website that contains other content (which is what we’ll be doing today).</p>
 </section>
-<section id="workshops" class="level2">
-<h2 class="anchored" data-anchor-id="workshops">Workshops</h2>
-<p>We will have two Quarto workshops at the conference, held on July 25-26, one for those who have no or little prior experience with R Markdown and the other for those who want to take their R Markdown skills and expertise and apply them in Quarto.</p>
-<ul>
-<li><p><a href="https://www.rstudio.com/conference/2022/workshops/get-started-quarto/"><strong>Getting Started with Quarto</strong></a><strong>:</strong> This workshop is designed for those who have no or little prior experience with R Markdown. In this 2 day workshop you will learn about the Quarto format for technical communication and computation. The workshop will teach you how to get started creating and fully customizing Quarto outputs (HTML, PDF, Presentations) and the use of RStudio’s Visual Editor which provides a user interface for editing all of Pandoc markdown. The workshop will also provide an overview of Quarto’s developer tooling support in alternative tools such as Jupyter, VS Code, and any text editors. The workshop will briefly cover how to add interactivity to Quarto with Shiny, Observable JS, htmlwidgets or Jupyter Widgets. Lastly, the workshop will cover Quarto Projects for aggregating many files such as complex web sites or entire books. Presented by <a href="https://themockup.blog/about.html">Tom Mock</a>, Customer Enablement Lead at RStudio, this workshop will be appropriate for attendees who answer yes to these questions:</p>
-<ul>
-<li>Have you programmed in R and want to better encapsulate your code, documentation, and outputs in a cohesive “data product”?</li>
-<li>Do you want to learn about the next generation of RMarkdown for data science?</li>
-<li>Do you want to have a better interactive experience when writing technical or scientific documents with literate programming?</li>
-</ul>
-<p>Find out more about this workshop and register at <a href="https://www.rstudio.com/conference/2022/workshops/get-started-quarto">https://www.rstudio.com/conference/2022/workshops/get-started-quarto/</a>.</p></li>
-<li><p><a href="https://www.rstudio.com/conference/2022/workshops/rmd-to-quarto"><strong>From R Markdown to Quarto</strong></a><strong>:</strong> This workshop is designed for those who want to take their R Markdown skills and expertise and apply them in Quarto. In this workshop you will learn how to apply your reproducible authoring skills to the Quarto format and learn about new tools and workflows for authoring with Quarto in RStudio. You will learn to create static documents, to add interactivity to them with Shiny and htmlwidgets, and to create presentations in various formats such as reveal.js, beamer, and pptx. The workshop will also introduce you to Quarto projects which you can use to build websites and write blogs and books. Finally, you will learn various ways to deploy and publish your Quarto projects on the web. Independent modules will also highlight authoring in Quarto with Jupyter and VS Code as well as other text editors. Presented by <a href="https://bids.berkeley.edu/people/andrew-bray">Andrew Bray</a>, Associate Teaching Professor in the Department of Statistics at UC Berkeley, this workshop will be appropriate for you if you answer yes to any of these questions:</p>
-<ul>
-<li>Have you authored R Markdown documents and are you interested in migrating your workflow to its successor format, Quarto?</li>
-<li>Are you interested in exploring the wide spectrum of documents that can be produced with Quarto, including static documents, websites, and slides?</li>
-</ul>
-<p>Find out more about this workshop and register at <a href="https://www.rstudio.com/conference/2022/workshops/rmd-to-quarto" class="uri">https://www.rstudio.com/conference/2022/workshops/rmd-to-quarto</a>.</p></li>
-</ul>
-</section>
-<section id="talks" class="level2">
-<h2 class="anchored" data-anchor-id="talks">Talks</h2>
-<ul>
-<li><a href="https://sched.co/11iZa"><strong>Quarto for R Markdown users</strong></a>: <a href="https://www.rstudio.com/conference/2022/talks/quarto-for-rmarkdown-users/">(Talk recording)</a>
-<ul>
-<li>Presented by <a href="https://themockup.blog/about.html">Tom Mock</a>, Customer Enablement Lead at RStudio.</li>
-<li>Wednesday July 27, 3:20pm - 3:40pm EDT.</li>
-<li>Are you curious about Quarto? Maybe you saw it on Twitter or the RStudio::conf agenda. Perhaps this raised questions like: What exactly is Quarto? What about RMarkdown? (don’t worry it’s not going away!) What features does Quarto add? What should I do with my existing Rmd/ipynb files? This talk will answer all of those questions and more! I’ll present Quarto as a next-gen version of RMarkdown, compare the similarities, and then discuss the new features in Quarto for publishing documents, presentations, blog posts, lab notebooks and more! Lastly, I’ll cover what this means for our customers using RStudio Team, and the exciting new world for Python users.</li>
-</ul></li>
-<li><a href="https://sched.co/11ibN"><strong>These are a few of my favorite things (about Quarto presentations)</strong></a>: <a href="https://www.rstudio.com/conference/2022/talks/my-favorite-things-quarto-presentations/">(Talk recording)</a>
-<ul>
-<li>Presented by <a href="https://twitter.com/tracykteal">Tracy Teal</a>, Open Source Program Director at RStudio.</li>
-<li>Thursday July 28, 2022 3:20pm - 3:40pm EDT.</li>
-<li>Quarto is the next generation of RMarkdown, and comes with a new presentation format, revealjs. In this talk, I’ll show a few of my favorite things about making interactive HTML presentations with Quarto. Along the way you’ll learn about the visual editor, multiple columns, delivering an effective talk with speaker notes and mode, making your presentations pop with transitions, effective ways to incorporate code into your presentation, beautiful themes (and how to match your corporate style guide), and sharing it as pdf and HTML. I’ll finish off with a brief look at generating a PowerPoint presentation from a template.</li>
-</ul></li>
-<li><a href="https://sched.co/11ibe"><strong>Literate Programming With Jupyter Notebooks and Quarto</strong></a>: <a href="https://www.rstudio.com/conference/2022/talks/literate-programming-quarto/">(Talk recording)</a>
-<ul>
-<li>Presented by <a href="https://hamel.dev/">Hamel Husain</a>, head of Data Science at <a href="https://outerbounds.com/">Outerbounds</a> (the developers of <a href="https://metaflow.org/">Metaflow</a>) and core developer at <a href="https://www.fast.ai/">fast.ai</a>.</li>
-<li>Thursday July 28, 3:40pm - 4:00pm EDT.</li>
-<li>Jupyter Notebooks play a critical role in in the workflow of many users. Notebooks are used to document existing code, to quickly prototype and iterate on ideas, and as a medium of technical communication. However, package developers typically use an entirely separate set of more traditional development tools, and the context switching between these tools and notebooks can be frustrating. Not only do you lose the ability to iterate fast, but you lose the ability to document and test your code in-situ, requiring you to create documentation and tests separately from source code. Nbdev is a literate programming framework that allows you to develop Python libraries within Jupyter Notebooks. This talk will describe the integration between Nbdev and Quarto, which enables library developers to author their documentation right alongside their code, and automatically produce a Quarto website for their package. The result is a seamless workflow for developing, documenting, and testing software packages all within Jupyter Notebooks, with no context-switching required.</li>
-</ul></li>
-<li><a href="https://sched.co/11ibV"><strong>Websites &amp; Books &amp; Blogs, oh my! Creating Rich Content with Quarto</strong></a>: <a href="https://www.rstudio.com/conference/2022/talks/sessions/quarto-deep-dive/websites-books-blogs-quarto/">(Talk recording)</a>
-<ul>
-<li>Presented by <a href="https://github.com/dpastoor">Devin Pastoor</a>, Solutions Engineer at RStudio.</li>
-<li>Thursday July 28, 4:00pm - 4:20pm EDT.</li>
-<li>A number of packages have emerged in the R ecosystem to help create websites (hugodown), books (bookdown), and blogs (blogdown). In this talk, I’ll show you how Quarto handles creating these types of content and more. Whether you’re a grad student considering your first blog post about R, or a python expert about to write a technical book, I’ll show you how Quarto enables you to focus on content while it takes care of the rest. In addition, I’ll show the RStudio team is making it as easy as possible to publish and share content within your organization and to the whole community.</li>
-</ul></li>
-</ul>
-<p>To find out more about the conference and register, visit <a href="https://rstd.io/conf">rstd.io/conf</a>. Looking forward to seeing you in DC!</p>
-<p>Can’t make it to the conference in person, but don’t want to miss this content? You can follow along with the talks remotely via the live stream and we will share materials from the workshops in a post-conf roundup post.</p>
-
-
-</section>
-
- ]]></description>
-  <category>conf</category>
-  <category>workshop</category>
-  <category>talk</category>
-  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-21-rstudio-conf-2022-quarto/index.html</guid>
-  <pubDate>Mon, 20 Jun 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-21-rstudio-conf-2022-quarto/conf2022.png" medium="image" type="image/png" height="72" width="144"/>
-</item>
-<item>
-  <title>Positioning Content in the Margin</title>
-  <dc:creator>Charles Teague</dc:creator>
-  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/index.html</link>
-  <description><![CDATA[ 
-
-
-
-<p>Quarto supports a variety of page layout options that enable you to author content that</p>
-<ul>
-<li>Fills the main content region</li>
-<li>Overflows the content region</li>
-<li>Spans the entire page</li>
-<li>Occupies the document margin</li>
-</ul>
-<p>This post will demonstrate a few of the capabilities for positioning content in the margin of the page. You can read more about the complete capabilities in the the <a href="../../docs/authoring/article-layout.qmd">Article Layout Guide</a>.<br>
-</p>
-<section id="margin-figures" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="margin-figures">Margin Figures</h2>
-<p>Figures that you create using code cells can be placed in the margin by using the <code>column: margin</code> code cell option. If the code produces more than one figure, each of the figures will be placed in the margin.</p>
-<div class="cell page-columns page-full">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><span class="in" style="color: #5E5E5E;
+<section id="iii.-adding-a-blog-to-your-personal-quarto-website" class="level2">
+<h2 class="anchored" data-anchor-id="iii.-adding-a-blog-to-your-personal-quarto-website">III. Adding a blog to your personal Quarto website</h2>
+<p>TL;DR: A couple of steps are required for setting up your blog, but generally speaking, you’ll need:</p>
+<p><svg aria-label="Angle Right" viewbox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Angle Right</title><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg> a folder (i.e.&nbsp;subdirectory) to hold all of your individual blog posts – I called my folder <code>posts</code> (though the name is up to you). I also (optionally) added a <code>_metadata.yml</code> file to this folder which includes some formatting and configuration options that will apply to <em>all</em> blog posts in this folder</p>
+<p><svg aria-label="Angle Right" viewbox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Angle Right</title><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg> a listing page, which lists all of your blog posts for viewers to browse and click through – this is a <code>.qmd</code> file that you’ll add to your website’s navbar by including it in <code>_quarto.yml</code></p>
+<p><svg aria-label="Angle Right" viewbox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Angle Right</title><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg> blog posts! Your listing page will be blank until you actually add your first blog post</p>
+<p>Let’s create those together now.</p>
+<ol type="1">
+<li><p><strong>Create a <code>/posts</code> folder:</strong> Open up your Quarto website project (I find it easiest to do this in RStudio) and make sure you’re in your root directory. Here, we’ll create a new subdirectory, called <code>posts</code> (you can call this whatever you want), where all of our blog posts will eventually live. To do so, you can either (a) click on the <strong>add folder</strong> button, <img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/add-folder.png" style="display: inline-block; margin: 0; position: relative; top: 2px; width:20px;height:20px;">, in the Files pane, or (b) in the RStudio Terminal, run <code>mkdir posts</code>.</p></li>
+<li><p><strong><em>Optional:</em></strong> <strong>Add a <code>_metadata.yml</code> file to <code>/posts</code>:</strong> While not required, a <code>_metadata.yml</code> file can make your life easier if you want certain options to apply to all blog posts that you create. In the RStudio Terminal, run <code>cd posts</code> to move into that directory, then <code>touch _metadata.yml</code> to create the file. Open your <code>_metadata.yml</code> in the Source pane to add options. I like these options<sup>2</sup>, but it’s entirely up to you what you want to include (if anything at all):</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">```{r}</span></span>
-<span id="cb1-2"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| label: fig-mtcars</span></span>
+font-style: inherit;"># options specified here will apply to all posts in this folder</span></span>
+<span id="cb1-2"></span>
 <span id="cb1-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#| fig-cap: "MPG vs horsepower, colored by transmission."</span></span>
-<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+font-style: inherit;"># prevents posts from re-rendering unless explicitly told to do so (for more, see https://quarto.org/docs/projects/code-execution.html#freeze)</span></span>
+<span id="cb1-4">freeze<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#| column: margin</span></span>
+font-style: inherit;">:</span> true</span>
 <span id="cb1-5"></span>
-<span id="cb1-6"><span class="fu" style="color: #4758AB;
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb1-7">mtcars2 <span class="ot" style="color: #003B4F;
+font-style: inherit;"># enable banner style title blocks (see https://quarto.org/docs/authoring/title-blocks.html)</span></span>
+<span id="cb1-7">title<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">&lt;-</span> mtcars</span>
-<span id="cb1-8">mtcars2<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">-</span>block<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>am <span class="ot" style="color: #003B4F;
+font-style: inherit;">-</span>banner<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">factor</span>(</span>
-<span id="cb1-9">  mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>am, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'automatic'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'manual'</span>)</span>
-<span id="cb1-10">)</span>
-<span id="cb1-11"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(mtcars2, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(hp, mpg, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">color =</span> am)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb1-12">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb1-13">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">formula =</span> y <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> x, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"loess"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb1-14">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'bottom'</span>)</span>
-<span id="cb1-15"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-mtcars" class="quarto-figure quarto-figure-center anchored">
+font-style: inherit;">:</span> true</span></code></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>Create a <a href="https://quarto.org/docs/websites/website-listings.html">listing page</a>:</strong> A listing page is a page with content that is automatically generated from a list of documents – in this case, that would be a list of blog posts – and looks something like this (or check out my blog’s listing page <a href="https://samanthacsik.github.io/posts.html">here</a>):</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/index_files/figure-html/fig-mtcars-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: MPG vs horsepower, colored by transmission.</figcaption>
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/listing-page.png" class="img-fluid figure-img" width="1235"></p>
+<figcaption class="figure-caption">The <a href="https://ucsb-meds.github.io/blog.html">MEDS Community Blog</a> listing page, with multiple blog posts arranged in the default-style layout – Quarto has multiple listing page layout options (default, grid, table) for you to explore</figcaption>
 </figure>
 </div>
-</div></div></div>
+</div>
+</div>
+<ul>
+<li>To create a listing page, add a <code>posts.qmd</code> file to your <em>root</em> directory. First, click on the R Project icon, <img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/rproj.png" style="display: inline-block; margin: 0; position: relative; top: 2px; width:20px;height:20px;">, in the Files pane to jump back to your project’s root directory. There are a bunch of ways to create a new <code>.qmd</code> file, but one easy way is to choose <em>File</em> &gt; <em>New File</em> &gt; <em>Quarto Document…</em>. Below, I give mine the title “My Blog” when prompted (this name appears at the top of your listing page), then saved it as <code>posts.qmd</code> (but you can choose whatever title and/or file name you’d like).</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Configure your listing page:</strong> Specify how you’d like your listing page to be arranged by updating the YAML section of <code>posts.qmd</code>. There are a variety of options that you can specify. Below are just a few, but check out other options <a href="https://quarto.org/docs/websites/website-listings.html">here</a>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"My Blog"</span></span>
+<span id="cb2-2">listing<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> </span>
+<span id="cb2-3">  contents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> posts <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># all Quarto docs in the `posts` directory will be included on your listing page</span></span>
+<span id="cb2-4">  type<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> grid <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># or `default` or `table`; each type has its own set of yaml options to include</span></span>
+<span id="cb2-5">  sort<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"date desc"</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># can also sort on more than one field</span></span>
+<span id="cb2-6">  categories<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> true <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># allows you to sort posts by assigned categories </span></span></code></pre></div>
+</div>
+<ol start="5" type="1">
+<li><strong>Add your listing page to your website’s navbar:</strong> Update <code>_quarto.yml</code> with your new listing page to add it to your site’s navbar:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ~ parts of `_quarto.yml` omitted for brevity ~</span></span>
+<span id="cb3-2"></span>
+<span id="cb3-3">website<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-4">  navbar<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-5">    title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> myWebsiteTitle</span>
+<span id="cb3-6">    right<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-7">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> href<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> index.qmd</span>
+<span id="cb3-8">        text<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> home</span>
+<span id="cb3-9">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> about.qmd</span>
+<span id="cb3-10">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> posts.qmd <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add your posts.qmd file to your navbar!</span></span></code></pre></div>
+</div>
+<ol start="6" type="1">
+<li><strong>Preview or Render your website:</strong> Make sure your listing page shows up by previewing or rendering your website (you can do either of these from the <strong>Build</strong> tab in RStudio. You should have something that looks like this (we haven’t created any posts yet, so it’ll be empty for now):</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/blog-added.png" class="img-fluid" width="1245"></p>
+</div>
+</div>
 </section>
-<section id="margin-tables" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="margin-tables">Margin Tables</h2>
-<p>You an also place tables in the margin of your document by specifying <code>column: margin</code>.</p>
-<div class="cell page-columns page-full">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{r}</span></span>
-<span id="cb2-2"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| column: margin</span></span>
-<span id="cb2-3"></span>
-<span id="cb2-4">knitr<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">kable</span>(</span>
-<span id="cb2-5">  mtcars[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>]</span>
-<span id="cb2-6">)</span>
-<span id="cb2-7"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">mpg</th>
-<th style="text-align: right;">cyl</th>
-<th style="text-align: right;">disp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Mazda RX4</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mazda RX4 Wag</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Datsun 710</td>
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">108</td>
-</tr>
-</tbody>
-</table>
-</div></div></div>
-</section>
-<section id="other-content" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="other-content">Other Content</h2>
-<p>You can also place content in the margin by targeting the margin column using a div with the .<code>column-margin</code> class. For example:</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1">::: {.column-margin}</span>
-<span id="cb3-2">We know from *the first fundamental theorem of calculus* that for $x$ in $<span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">a, b</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">]</span>$:</span>
-<span id="cb3-3"></span>
-<span id="cb3-4">$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$</span>
-<span id="cb3-5">:::</span></code></pre></div>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>We know from <em>the first fundamental theorem of calculus</em> that for <img src="https://latex.codecogs.com/png.latex?x"> in <img src="https://latex.codecogs.com/png.latex?%5Ba,%20b%5D">:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%7D%7Bdx%7D%5Cleft(%20%5Cint_%7Ba%7D%5E%7Bx%7D%20f(u)%5C,du%5Cright)=f(x)."></p>
-</div></div></section>
-<section id="margin-references" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="margin-references">Margin References</h2>
-<p>Footnotes and the bibliography typically appear at the end of the document, but you can choose to have them placed in the margin by setting the following option[^1] in the document front matter:</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><span class="pp" style="color: #AD0000;
+<section id="iv.-add-a-blog-post-to-your-blog" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="iv.-add-a-blog-post-to-your-blog">IV. Add a blog post to your blog</h2>
+<p>Now that you have your listing page set up, we can start populating it with blog posts. Repeat the following steps each time you want to add a new post.</p>
+<ol type="1">
+<li><p><strong>Create a subdirectory <em>inside</em> your <code>posts</code> directory:</strong> To stay organized, I usually name mine <code>YYYY-MM-DD-short-post-description</code>. This folder name will also become the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Slug">slug</a> for your published post.</p></li>
+<li><p><strong>Inside your new subdirectory, create an <code>index.qmd</code> file.</strong> The name here is important! It <em>must</em> be called <code>index.qmd</code>. Your file path should look something like this: <code>mywebsite/posts/2022-10-24-my-blog-post/index.qmd</code>. This file is your blog post. Write all your content here!</p></li>
+<li><p><strong>Configure your blog post:</strong> You can add a variety of different options to the YAML section of <code>index.qmd</code>. Here are my go-to options:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">---</span></span>
-<span id="cb4-2"><span class="fu" style="color: #4758AB;
+<span id="cb4-2">title<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">reference-location</span><span class="kw" style="color: #003B4F;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">:</span><span class="at" style="color: #657422;
+font-style: inherit;">"blog post title"</span></span>
+<span id="cb4-3">description<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"> margin</span></span>
-<span id="cb4-3"><span class="fu" style="color: #4758AB;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">citation-location</span><span class="kw" style="color: #003B4F;
+font-style: inherit;">"blog post description (appears underneath the title in smaller text) which is included on the listing page"</span></span>
+<span id="cb4-4">author<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">:</span><span class="at" style="color: #657422;
+font-style: inherit;">:</span></span>
+<span id="cb4-5">  <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"> margin</span></span>
-<span id="cb4-4"><span class="pp" style="color: #AD0000;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Samantha Csik</span>
+<span id="cb4-6">    url<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>samanthacsik.github.io<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span></span>
+<span id="cb4-7">    orcid<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0000-0002-5300-3075</span></span>
+<span id="cb4-8">    affiliation<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Master of Environmental Data Science Program <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span> The Bren <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">School</span> (UCSB) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> The National Center <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> Ecological Analysis <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> Synthesis</span>
+<span id="cb4-9">    affiliation<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>url<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>ucsb<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>meds.github.io<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> </span>
+<span id="cb4-10">date<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10-24-2022</span></span>
+<span id="cb4-11">categories<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> [Quarto, R, MEDS] <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># self-defined categories</span></span>
+<span id="cb4-12">citation<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> </span>
+<span id="cb4-13">  url<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>samanthacsik.github.io<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>posts<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2022-10-24</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>blogs<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> </span>
+<span id="cb4-14">image<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> preview_image.jpg</span>
+<span id="cb4-15">draft<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> false <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># setting this to `true` will prevent your post from appearing on your listing page until you're ready!</span></span>
+<span id="cb4-16"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">---</span></span></code></pre></div>
-<p>With these options set, footnotes and citations will (respectively) be automatically be placed in the margin of the document rather than the bottom of the page. As an example, when I cite <span class="citation" data-cites="xie2018">@xie2018</span>, the citation bibliography entry itself will now appear in the margin.</p>
-<section id="asides" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="asides">Asides</h3>
-<div class="page-columns page-full"><p>Asides allow you to place content aside from the content it is placed in. Asides look like footnotes, but do not include the footnote mark (the superscript number). </p><div class="no-row-height column-margin column-container"><span class="">This is a span that has the class <code>aside</code> which places it in the margin without a footnote number.</span></div></div>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">This is a span that has the class aside which places it in the margin without a footnote number.</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">]</span>{.aside}</span></code></pre></div>
-</section>
-</section>
-<section id="margin-captions" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="margin-captions">Margin Captions</h2>
-<p>For figures and tables, you may leave the content in the body of the document while placing the caption in the margin of the document. Using <code>cap-location: margin</code> in a code cell or document front matter to control this. For example:</p>
-<div class="cell page-columns page-full">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```{r}</span></span>
-<span id="cb6-2"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| label: fig-cap-margin</span></span>
-<span id="cb6-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| fig-cap: "MPG vs horsepower, colored by transmission."</span></span>
-<span id="cb6-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| cap-location: margin</span></span>
-<span id="cb6-5"></span>
-<span id="cb6-6"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb6-7">mtcars2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> mtcars</span>
-<span id="cb6-8">mtcars2<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>am <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">factor</span>(</span>
-<span id="cb6-9">  mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>am, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'automatic'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'manual'</span>)</span>
-<span id="cb6-10">)</span>
-<span id="cb6-11"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(mtcars2, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(hp, mpg, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">color =</span> am)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-12">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-13">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">formula =</span> y <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> x, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"loess"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb6-14">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'bottom'</span>)</span>
-<span id="cb6-15"><span class="in" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-<div class="cell-output-display page-columns page-full">
-<div id="fig-cap-margin" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/index_files/figure-html/fig-cap-margin-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;2: MPG vs horsepower, colored by transmission.</figcaption>
+</div>
+<p>Some notes on the above options:</p>
+<ul>
+<li><p>You should include a <em>title</em>, but don’t necessarily need a <em>description</em> (although I think they’re nice to have!). Both of these fields will appear on your listing page.</p></li>
+<li><p>You can include more than one <em>author</em> – see <a href="https://samanthacsik.github.io/posts/2022-06-22-hello_quarto/">this post</a> and <a href="https://github.com/samanthacsik/samanthacsik.github.io/blob/main/posts/2022-06-22-hello_quarto/index.qmd">source code</a> as an example.</p></li>
+<li><p>You may include as many self-defined <em>categories</em> as you’d like. Make sure that your spelling/capitalization/punctuation is consistent across blog posts should you apply the same categories to multiple posts.</p></li>
+<li><p>Adding the <em>citation</em> option automatically generates both a <a href="https://en.wikipedia.org/wiki/BibTeX">BibTeX citation</a> and reference for your blog post, and adds them to the bottom of your post.</p></li>
+<li><p>Include an image (or gif) to add as a <em>preview image</em>, which will appear on your listing page alongside your post. Your image should live inside your post’s subdirectory (e.g.&nbsp;<code>mywebsite/posts/2022-10-24-my-blog-post/preview-image.png</code>).</p></li>
+<li><p>Set <code>draft: true</code> while you’re still working on your blog post to prevent it from showing up on your listing page, site map, or site search. When you’re ready to publish, just remove <code>draft: true</code> from your YAML (or set to <code>false</code>) then render your post.</p></li>
+</ul>
+<div class="cell column-page quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/ex-listing-page.png" class="img-fluid figure-img" width="1284"></p>
+<figcaption class="figure-caption">A grid-style listing page featuring one blog post with a preview image, title, three categories, description, author, and publishing date</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/my-first-post.png" class="img-fluid figure-img" width="1284"></p>
+<figcaption class="figure-caption">An example blog post, with a banner style title block</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</div>
+<p>If things aren’t working as expected, double check your repository structure – it should look something like this:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/repo-structure.png" class="img-fluid figure-img" width="1634"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="v.-some-additional-authoring-features-to-explore" class="level2">
+<h2 class="anchored" data-anchor-id="v.-some-additional-authoring-features-to-explore">V. Some additional authoring features to explore</h2>
+<p>Blog posts are just Quarto documents, meaning you can combine prose, code, and embedded outputs all in one place, just like you would in any other <code>.qmd</code> file (which makes your blog the <em>perfect</em> place to create data science/programming tutorials both for yourself and others <svg aria-label="Face Smile Wink" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Face Smile Wink</title><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm177.6 62.1C192.8 334.5 218.8 352 256 352s63.2-17.5 78.4-33.9c9-9.7 24.2-10.4 33.9-1.4s10.4 24.2 1.4 33.9c-22 23.8-60 49.4-113.6 49.4s-91.7-25.5-113.6-49.4c-9-9.7-8.4-24.9 1.4-33.9s24.9-8.4 33.9 1.4zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm165.8 21.7c-7.6 8.1-20.2 8.5-28.3 .9s-8.5-20.2-.9-28.3c14.5-15.5 35.2-22.3 54.6-22.3s40.1 6.8 54.6 22.3c7.6 8.1 7.1 20.7-.9 28.3s-20.7 7.1-28.3-.9c-5.5-5.8-14.8-9.7-25.4-9.7s-19.9 3.8-25.4 9.7z"></path></svg>). If you’re looking for additional ways to enhance your posts, read on below:</p>
+<section id="adding-footnotes" class="level4">
+<h4 class="anchored" data-anchor-id="adding-footnotes">Adding footnotes</h4>
+<p>There are multiple ways to include footnotes throughout your blog posts:</p>
+<ol type="1">
+<li>Use the <code>[^#]</code> syntax to denote where you would like a note to be inserted. Write your note somewhere below following the <code>[^#]: your note here</code> syntax. For example:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1">I am going to insert a footnote here<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[^1]</span>.</span>
+<span id="cb5-2"></span>
+<span id="cb5-3"><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[^1]: </span>Here is the associated footnote, which will appear at the bottom of my document in a "Footnotes" section.</span></code></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Alternatively, you can write your notes inline to avoid having to use identifiers (e.g.&nbsp;<code>[^#]</code>). For example:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1">I am going to insert an inline footnote here^<span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">Here is my inline footnote</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span>.</span></code></pre></div>
+</div>
+<ol start="3" type="1">
+<li>You can also add footnotes that include multiple paragraphs. See the <a href="https://github.com/samanthacsik/samanthacsik.github.io/blob/main/posts/2022-10-24-quarto-blogs/index.qmd">source code</a> for this blog post and take a peek at footnote #2 for an example on how to do so (or check out the <a href="https://quarto.org/docs/authoring/footnotes-and-citations.html#footnotes">Quarto documentation</a>).</li>
+</ol>
+<p>All footnotes will appear in a “Footnotes” section that is automatically generated for you.</p>
+</section>
+<section id="creating-a-bibliography-and-adding-citations" class="level4">
+<h4 class="anchored" data-anchor-id="creating-a-bibliography-and-adding-citations">Creating a bibliography and adding citations</h4>
+<p>Quarto supports the use of bibliography files for citing works throughout your blog post. There are a number of ways to do this, but so far, I’ve found creating a BibLaTex database to be relatively straightforward. This database takes the form of a plain-text <code>.bib</code> file where we can store all of our bibliographic information. That information needs to be encoded in a particular way (more on that below). Follow these steps to cite works in your blog posts:</p>
+<ol type="1">
+<li><p>First, create a <code>.bib</code> file in the folder containing your blog post (e.g.&nbsp;<code>mywebsite/posts/2022-10-24-my-blog-post/references.bib</code>) using the <code>touch</code> command in your RStudio Terminal. I called mine <code>references.bib</code>, but the name is up to you.</p></li>
+<li><p>To use your <code>references.bib</code> file, you’ll need to add the <code>bibliography</code> option to your blog post’s YAML:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb7-2">title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blog post title"</span></span>
+<span id="cb7-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ~ additional YAML options omitted for brevity ~</span></span>
+<span id="cb7-4">bibliography<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> references.bib</span>
+<span id="cb7-5"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Next, we’ll want to add some references. These take a particular format that generally looks like this (the number/types of fields included may vary):</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>type{key,</span>
+<span id="cb8-2">  author <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {LastName, FirstName},</span>
+<span id="cb8-3">  title <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {Title of work},</span>
+<span id="cb8-4">  date <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {YYYY}</span>
+<span id="cb8-5">  url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>url.com},</span>
+<span id="cb8-6">  langid <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {en}</span>
+<span id="cb8-7">}</span></code></pre></div>
+</div>
+<p>where <code>type</code> can be <code>manual</code>, <code>book</code>, <code>article</code>, <code>misc</code>, etc. (all case-insensitive) and <code>key</code> is the citation identifier used for inserting in-text citations (we’ll get there soon).</p>
+<ul>
+<li>There may be instances where you want to cite a resource that already has a BibTex citation available for you to copy over to your <code>references.bib</code> file (e.g.&nbsp;this blog post). For most resources, however, you’ll need to construct your own. You can do this manually, or with the help of a BibTeX reference generator (Googling will yield plenty of options, but <a href="https://zbib.org/">zoterobib</a> is a great place to start. Note that you may have to make some manual adjustments). Check out my <a href="https://github.com/samanthacsik/samanthacsik.github.io/blob/main/posts/2022-10-24-quarto-blogs/references.bib"><code>references.bib</code> file</a> for this post as an example.</li>
+</ul>
+<ol start="4" type="1">
+<li>Now that you have BibTex references in your <code>.bib</code> file, you can start adding in-text citations. These generally take the form <code>[@key]</code> (but read more about Quarto citation syntax <a href="https://quarto.org/docs/authoring/footnotes-and-citations.html#sec-citations">here</a>). When you add an in-text citation, Quarto will automatically add the reference to the bottom of your blog post under the “References” section.</li>
+</ol>
+<ul>
+<li>To give one final concrete example, let’s say I want to cite my first (ever) blog post from last year. I can copy the BibTeX citation from the bottom of the post and paste it into my <code>references.bib</code> file:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>online{csik2021,</span>
+<span id="cb9-2">  author <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {Samantha Csik},</span>
+<span id="cb9-3">  title <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {Why Create Presentation Slides about Blogging When You Can</span>
+<span id="cb9-4">    Just Blog about It Instead?},</span>
+<span id="cb9-5">  date <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2021-09-24</span>},</span>
+<span id="cb9-6">  url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>samanthacsik.github.io<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>posts<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2021-09-21</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>distill<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>blogs<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>},</span>
+<span id="cb9-7">  langid <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {en}</span>
+<span id="cb9-8">}</span></code></pre></div>
+</div>
+<ul>
+<li>I can now add an in-text citation using the <code>[@csik2021]</code> syntax here <svg aria-label="Arrow Right" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Arrow Right</title><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg> <span class="citation" data-cites="csik2021">(Csik 2021)</span>. Once cited, it will appear in my References section at the bottom of this post.</li>
+</ul>
+<p>That wasn’t so bad, right?? What if I told you there was an even <em>easier</em> way to add citations….Start by popping over to RStudio’s Visual editor, if you’re not already there (you should see buttons for working in either the <strong>Source</strong> or <strong>Visual</strong> editor in the top left corner of your source pane), and follow the steps below:</p>
+<ol type="1">
+<li><p>Place your cursor where you’d like to insert a citation, then from the <strong>Insert</strong> drop down menu, select <strong>Citation</strong>.</p></li>
+<li><p>A new window will pop open with a number of different options for inserting citations. If you’ve already created a <code>references.bib</code> file, it will appear under the <strong>My Sources</strong> and <strong>Bibliography</strong> sections. You can choose any of your existing references to insert an in-text citation from <em>or</em> choose another option, like inserting a citation based on a DOI (!!! I can’t tell you how awesome I think this is !!!). Once you add an in-text citation based on a DOI, the BibTeX reference will automatically be added to your <code>references.bib</code> file, as well as to your references list at the bottom of your post. If you don’t yet have a <code>references.bib</code> file, one will automatically be generated for you. LIKE SERIOUSLY?? SO FREAKIN COOL.</p></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/media/citations.png" class="img-fluid figure-img" width="574"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Okay, back to being chill…</p>
+</section>
+<section id="article-layout" class="level4">
+<h4 class="anchored" data-anchor-id="article-layout">Article layout</h4>
+<p>Quarto also supports a number of different <a href="https://quarto.org/docs/authoring/article-layout.html">page layout options</a> to further customize the appearance of your posts. Explore different ways to position elements on your page, including embedding outputs, captions, references in your <a href="https://quarto.org/docs/authoring/article-layout.html#margin-content">page margin</a> (one of my personal faves…despite the fact that I don’t have any here in this post).</p>
+</section>
+</section>
+<section id="vi.-a-note-on-adding-an-additional-blog-or-more-to-your-site" class="level2">
+<h2 class="anchored" data-anchor-id="vi.-a-note-on-adding-an-additional-blog-or-more-to-your-site">VI. A note on adding an additional blog (or more) to your site</h2>
+<p>You aren’t limited to just one blog/listing page! Repeat <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/#iii.-adding-a-blog-to-your-personal-quarto-website">Part III</a> to add a second listing page + content to your website. My personal website contains two blogs – one called <a href="https://samanthacsik.github.io/posts.html">posts</a> and another called <a href="https://samanthacsik.github.io/talks_workshops.html">talks &amp; workshops</a>. Explore the <a href="https://github.com/samanthacsik/samanthacsik.github.io">GitHub repo</a> to take a peek at the file structure and source code.</p>
+</section>
+<section id="vii.-blogs-to-follow-one-post-from-each-that-ive-particularly-enjoyed" class="level2">
+<h2 class="anchored" data-anchor-id="vii.-blogs-to-follow-one-post-from-each-that-ive-particularly-enjoyed">VII. Blogs to follow (+ one post from each that I’ve particularly enjoyed)</h2>
+<p>There are <em>tons</em> of awesome data science bloggers out there, and (at the cost of sounding like a broken record) Twitter is a great place to find them. Here are just a few I’ve been reading and enjoying as of late, but get out there and start exploring others for yourself!</p>
+<p><em>Also note: I’ve added citations for each of these blog posts. Check out the <a href="https://github.com/samanthacsik/samanthacsik.github.io/blob/main/posts/2022-10-24-quarto-blogs/index.qmd">source code</a> if you’re looking for additional examples on how to do it.</em></p>
+<ul>
+<li><p><a href="https://www.pipinghotdata.com/blog.html">Piping Hot Data</a>, by Shannon Pileggi – find her on <svg aria-label="Twitter" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Twitter</title><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> <a href="https://twitter.com/PipingHotData"><code>@PipingHotData</code></a> and check out her post, <a href="https://www.pipinghotdata.com/posts/2021-09-23-curating-for-wearerladies-on-twitter/">Curating for <code>@WeAreRLadies</code> on Twitter</a> <span class="citation" data-cites="pileggi2021curating">(2021)</span></p></li>
+<li><p><a href="https://meghan.rbind.io/blog/">Meghan Hall’s Blog</a> – find her on <svg aria-label="Twitter" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Twitter</title><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> <a href="https://twitter.com/MeghanMHall"><code>@MeghanMHall</code></a> and check out her post, <a href="https://meghan.rbind.io/blog/plot-robustness/">Increasing the Flexibility and Robustness of Plots in ggplot2</a> <span class="citation" data-cites="hall2022">(2022)</span></p></li>
+<li><p><a href="https://cosimameyer.com/#post">Cosima Meyer’s Blog</a> – find her on <svg aria-label="Twitter" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Twitter</title><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> <a href="https://twitter.com/cosima_meyer"><code>@cosima_meyer</code></a> and check out her post, <a href="https://cosimameyer.com/post/understanding-the-basics-of-package-writing-in-r/">Understanding the Basics of Package Writing in R</a> <span class="citation" data-cites="meyer2022">(2022)</span></p></li>
+<li><p><a href="https://blog.djnavarro.net/">Notes from a Data Witch</a> by Danielle Navarro – find her on <svg aria-label="Twitter" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Twitter</title><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> <a href="https://twitter.com/djnavarro"><code>@djnavarro</code></a> and check out her post, <a href="https://blog.djnavarro.net/posts/2021-11-19_starting-apache-arrow-in-r/">Getting started with Apache Arrow</a> <span class="citation" data-cites="navarro2021">(2021)</span></p></li>
+<li><p><a href="https://beamilz.com/posts/">Beatriz Milz’s Blog</a> – find her on <svg aria-label="Twitter" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605f;overflow:visible;position:relative;"><title>Twitter</title><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> <a href="https://twitter.com/BeaMilz"><code>@BeaMilz</code></a> and check out her post, <a href="https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/">Introduction to GitHub Actions for R users</a> <span class="citation" data-cites="milz2022">(2022)</span></p></li>
+</ul>
+</section>
+<section id="viii.-additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="viii.-additional-resources">VIII. Additional Resources</h2>
+<ul>
+<li><p><a href="https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html">The ultimate guide to starting a Quarto blog</a>, by <a href="https://albert-rapp.de/">Albert Rapp</a> is incredibly thorough and explores even more ways to customize your blog. Check it out!</p></li>
+<li><p><a href="https://beamilz.com/posts/2022-06-05-creating-a-blog-with-quarto/en/">Creating a blog with Quarto in 10 steps</a>, by <a href="https://beamilz.com/about.html">Beatriz Milz</a> walks through the steps of setting up a new Quarto Blog project. She also details how to set up <a href="https://giscus.app/">giscus</a> to enable comments on your blog posts, which is something I’ve been eager to try myself!</p></li>
+</ul>
+
 
 
 </section>
 
- ]]></description>
-  <category>Features</category>
-  <category>Layout</category>
-  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/index.html</guid>
-  <pubDate>Wed, 16 Feb 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-17-advanced-layout/margin-content.png" medium="image" type="image/png" height="108" width="144"/>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Les références</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-csik2021" class="csl-entry">
+Csik, Samantha. 2021. <span>«&nbsp;Why Create Presentation Slides about Blogging When You Can Just Blog about It Instead?&nbsp;»</span> 24 septembre 2021. <a href="https://samanthacsik.github.io/posts/2021-09-21-distill-blogs/">https://samanthacsik.github.io/posts/2021-09-21-distill-blogs/</a>.
+</div>
+<div id="ref-hall2022" class="csl-entry">
+Hall, Meghan. 2022. <span>«&nbsp;Increasing the Flexibility and Robustness of Plots in Ggplot2&nbsp;»</span>. <a href="https://meghan.rbind.io/blog/plot-robustness/">https://meghan.rbind.io/blog/plot-robustness/</a>.
+</div>
+<div id="ref-meyer2022" class="csl-entry">
+Meyer, Cosima. 2022. <span>«&nbsp;Understanding the Basics of Package Writing in R&nbsp;»</span>. <a href="https://cosimameyer.com/post/understanding-the-basics-of-package-writing-in-r/">https://cosimameyer.com/post/understanding-the-basics-of-package-writing-in-r/</a>.
+</div>
+<div id="ref-milz2022" class="csl-entry">
+Milz, Beatriz. 2022. <span>«&nbsp;Introcution to GitHub Actions to R Users&nbsp;»</span>. 30 juin 2022. <a href="https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/">https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/</a>.
+</div>
+<div id="ref-navarro2021" class="csl-entry">
+Navarro, Danielle. 2021. <span>«&nbsp;Getting Started with <span>Apache</span> <span>Arrow</span>&nbsp;»</span>. 19 novembre 2021. <a href="https://blog.djnavarro.net/starting-apache-arrow-in-r">https://blog.djnavarro.net/starting-apache-arrow-in-r</a>.
+</div>
+<div id="ref-pileggi2021curating" class="csl-entry">
+Pileggi, Shannon. 2021. <span>«&nbsp;PIPING HOT DATA: Curating for @WeAreRLadies on Twitter&nbsp;»</span>. <a href="https://www.pipinghotdata.com/posts/2021-09-23-curating-for-wearerladies-on-twitter/">https://www.pipinghotdata.com/posts/2021-09-23-curating-for-wearerladies-on-twitter/</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Notes de bas de page</h2>
+
+<ol>
+<li id="fn1"><p>Okay, you don’t <em>just</em> have to trust me. Lots of data scientists advocate for blogging as an important skill and communication tool. Check out this <a href="http://varianceexplained.org/r/start-blog/">blog post</a> by <a href="https://twitter.com/drob">David Robinson</a> to start.↩︎</p></li>
+<li id="fn2"><p><strong>The <code>freeze</code> option:</strong> Setting this option to <code>auto</code> will <em>only</em> re-render posts when you make updates to the source files (as opposed to re-rendering them each time you <strong>Render Website</strong> – this can save time, particularly if you have computationally-heavy content in your blog posts). If you set this option to <code>true</code>, posts will <em>never</em> be re-rendered (even if you’ve made changes to the source files). If you use this option, you’ll need to <strong>Render</strong> individual posts whenever you make changes to their source files <em>before</em> you <strong>Render Website</strong>, otherwise your updates will not appear.</p>
+<p>The <code>title-block-banner</code> option: Setting this option to <code>true</code> will enable a <a href="https://quarto.org/docs/authoring/title-blocks.html#title-banners">banner style title block</a> (where the title, subtitle, description, and categories are all positioned inside the banner) for all posts.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{csik2022,
+  author = {Csik, Samantha},
+  title = {Adding a blog to your existing Quarto website},
+  date = {2022-10-24},
+  url = {https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/},
+  langid = {fr}
+}
+</code></pre><div class="quarto-appendix-secondary-label">Veuillez citer ce travail comme suit&nbsp;:</div><div id="ref-csik2022" class="csl-entry quarto-appendix-citeas">
+Csik, Samantha. 2022. <span>“Adding a blog to your existing Quarto
+website.”</span> October 24, 2022. <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/</a>.
+</div></div></section></div> ]]></description>
+  <category>Quarto</category>
+  <category>R</category>
+  <category>MEDS</category>
+  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/index.html</guid>
+  <pubDate>Sun, 23 Oct 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/penguins.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
-  <title>Using Callouts</title>
-  <dc:creator>Charles Teague</dc:creator>
-  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-13-feature-callouts/index.html</link>
+  <title>Hello Quarto!</title>
+  <dc:creator>Samantha Csik</dc:creator>
+  <dc:creator>Julie Lowndes</dc:creator>
+  <dc:creator>Amy Steiker</dc:creator>
+  <dc:creator>Catalina Oaida Taglialatela</dc:creator>
+  <dc:creator>Aaron Friesz</dc:creator>
+  <dc:creator>J.J. Allaire</dc:creator>
+  <dc:creator>Erin Robinson</dc:creator>
+  <dc:creator>Stefanie Butland</dc:creator>
+  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-22-hello_quarto/index.html</link>
   <description><![CDATA[ 
 
 
 
-<p>Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some scenarios.</p>
+
+<div class="cell">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-13-feature-callouts/callouts.png" class="preview-image img-fluid figure-img" alt="Three calout boxes: A note (has a blue banner with info icon preceding the header), a tip (has a green banner with lightbulb icon preceding the header), and an important (has a red banner with info exclamation-point icon preceding the header)."></p>
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-22-hello_quarto/media/cookbook.png" class="img-fluid figure-img" width="1350"></p>
+<figcaption class="figure-caption">Catalina Oaida Taglialatela screenshares the NASA Earthdata Cloud Cookbook, a website built using Quarto and accessible at https://nasa-openscapes.github.io/earthdata-cloud-cookbook/</figcaption>
 </figure>
 </div>
-<section id="callout-basics" class="level2">
-<h2 class="anchored" data-anchor-id="callout-basics">Callout Basics</h2>
-<p>There are five different types of callouts available.</p>
-<ul>
-<li>note</li>
-<li>tip</li>
-<li>important</li>
-<li>caution</li>
-<li>warning</li>
-</ul>
-<p>The color and icon will be different depending upon the type that you select.</p>
+</div>
+</div>
+<p><a href="https://quarto.org/">Quarto</a>, the new cool kid on the open data science block, extends the best features of RMarkdown (plus more!) to Python, Julia, and ObservableJS users. I got the chance to chat with folks at the forefront of exploring all that Quarto is capable of during the 6th Openscapes Community Call. Check out our post on the <a href="https://www.openscapes.org/blog/2022/06/22/hello-quarto/"><svg aria-label="Blog" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605F;overflow:visible;position:relative;"><title>Blog</title><path d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"></path></svg> Openscapes Blog</a>, where we summarize some of what we discussed, from publishing Quarto websites and slide decks, to how Quarto enables seamless integration between different language users, to how <em>amazingly easy</em> it is to insert automatically-generated citations into your Quarto documents.</p>
+<p>Find the full event recording <a href="https://www.youtube.com/watch?v=azVAl343CIU"><svg aria-label="Video" viewbox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605F;overflow:visible;position:relative;"><title>Video</title><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"></path></svg> here</a>!</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{csik2022,
+  author = {Csik, Samantha and Lowndes, Julie and Steiker, Amy and Oaida
+    Taglialatela, Catalina and Friesz, Aaron and Allaire, J.J. and
+    Robinson, Erin and Butland, Stefanie},
+  title = {Hello Quarto!},
+  date = {2022-06-22},
+  url = {https://www.openscapes.org/blog/2022/06/22/hello-quarto/},
+  langid = {fr}
+}
+</code></pre><div class="quarto-appendix-secondary-label">Veuillez citer ce travail comme suit&nbsp;:</div><div id="ref-csik2022" class="csl-entry quarto-appendix-citeas">
+Csik, Samantha, Julie Lowndes, Amy Steiker, Catalina Oaida Taglialatela,
+Aaron Friesz, J.J. Allaire, Erin Robinson, and Stefanie Butland. 2022.
+<span>“Hello Quarto!”</span> June 22, 2022. <a href="https://www.openscapes.org/blog/2022/06/22/hello-quarto/">https://www.openscapes.org/blog/2022/06/22/hello-quarto/</a>.
+</div></div></section></div> ]]></description>
+  <category>R-Ladies</category>
+  <category>Openscapes</category>
+  <category>R</category>
+  <category>Python</category>
+  <category>Quarto</category>
+  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-22-hello_quarto/index.html</guid>
+  <pubDate>Tue, 21 Jun 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-22-hello_quarto/quarto.png" medium="image" type="image/png" height="86" width="144"/>
+</item>
+<item>
+  <title>Why create presentation slides about blogging when you can just blog about it instead?</title>
+  <dc:creator>Samantha Csik</dc:creator>
+  <link>https://romuanalyst.github.io/RomuAnalyst_website/posts/2021-09-21-distill-blogs/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am a total blog newb.</p>
+<p><em>BUT</em> we all have to start somewhere. And my somewhere is leading a mini-workshop in T-6 days for our first Master of Environmental Data Science (MEDS) cohort (read more about this <em>awesome</em> new program <a href="https://bren.ucsb.edu/masters-programs/master-environmental-data-science">here</a>) on why blogging as data scientists is an important and valuable skill to practice, what a good blog post might look like, and some of the technical aspects of creating blog posts using the <code>{distill}</code> package.</p>
+<p>I originally set off on my self-education journey by digging into other data science-related blogs and throwing together some slides about what I found. I even practiced creating a fake blog post on my own (and very much still under development) <a href="samanthacsik.github.io">personal website</a> in case anyone asked me to walk them through the steps (I can’t look like I don’t know what I’m doing now, right??).</p>
+<p>Ten slides deep and then it struck me – I was creating a presentation on how to blog without ever <em>actually</em> creating my own blog post?? Dammit. Doesn’t quite feel right. So here we are. Baby’s first blog post <em>~about blog posts~</em>. I’d say this first post is half meant to serve our MEDS students as they embark on their fall quarter (and will surely be asked to blog every now and again) and half meant to be the catalyst I so desperately needed to finally put a little bit of writing out there in the data science world.</p>
+<p>So here we go! I’ll start by sharing examples of different blogs that I think demonstrate a few creative ways to format and publish data science content. Then I’ll review some of the cool things you can do with <code>{distill}</code> to customize your own beautiful posts.</p>
+<section id="i.-why-blog" class="level2">
+<h2 class="anchored" data-anchor-id="i.-why-blog">I. Why blog?</h2>
+<p>Data science blogging has become pretty darn popular in recent years, and for good reason. It can help you to build your online professional profile, enhance your communication skills, stay atop the latest and greatest trends and tools, connect with other data scientists, and even solicit feedback from those in the community.</p>
+<p>But arguably one of the most valuable reasons to blog is to get a whole lot better at doing whatever it is you want to write about. You’ve probably heard some version of the saying, <em>“The best way to learn something is to teach it to others”</em> – not only do I find this to be true of myself, but there’s also science<sup>1</sup> to back this up!</p>
+<p>Still, getting started can be a bit intimidating (I’m only doing this for the first time now myself). It an attempt to make it a little less so for the next blogger-to-be, I have tried to gather some ideas, instructions, and inspiration to get things going. If nothing else, I think heeding the advice of this tweet<sup>2</sup> is a pretty good place to start:</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post
+</p>
+— David Robinson (<span class="citation" data-cites="drob">(<strong>drob?</strong>)</span>) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </section>
-<section id="syntax" class="level2">
-<h2 class="anchored" data-anchor-id="syntax">Syntax</h2>
-<p>Create callouts in markdown using the following syntax (note that the first markdown heading used within the callout is used as the callout heading):</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1">:::{.callout-note}</span>
-<span id="cb1-2">Note that there are five types of callouts, including:</span>
-<span id="cb1-3"><span class="in" style="color: #5E5E5E;
+<section id="ii.-structuring-data-science-blog-posts" class="level2">
+<h2 class="anchored" data-anchor-id="ii.-structuring-data-science-blog-posts">II. Structuring data science blog posts</h2>
+<p>There are <em>lots</em> of creative ways to blog (both for yourself and your target audience) about your data science journey. Here are just a few examples<sup>3</sup> that caught my eye.</p>
+<section id="i.-make-a-tutorial-for-yourself-and-others" class="level3">
+<h3 class="anchored" data-anchor-id="i.-make-a-tutorial-for-yourself-and-others">i. Make a tutorial for yourself (and others)</h3>
+<p><a href="https://www.allisonhorst.com/">Allison Horst</a> shares all the exciting ways you can customize tables using the <code>{gt}</code> package, including code snippets and resulting outputs in her post, <strong>Customizing tables is fun (seriously) with gt</strong> <span class="citation" data-cites="horst2021gt">(Horst 2021)</span>.</p>
+<div class="cell">
+
+<iframe src="https://www.allisonhorst.com/post/2020-03-02-gt-tables-examples/" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="ii.-compare-popular-tools-to-new-alternatives" class="level3">
+<h3 class="anchored" data-anchor-id="ii.-compare-popular-tools-to-new-alternatives">ii. Compare popular tools to new alternatives</h3>
+<p>Harry Fisher (<a href="https://www.hfshr.xyz/">Data, Code &amp; Coffee</a>) explores <code>{nakedpipe}</code> a new(er) alternative to <code>{magrittr}</code>’s <code>%&gt;%</code> in his blog post, <strong>Penguins and nakedpipes</strong> <span class="citation" data-cites="fisher2020penguins">(Fisher 2020)</span>.</p>
+<div class="cell">
+<iframe src="https://www.hfshr.xyz/posts/2020-06-21-penguins-and-nakedpipes/" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="iii.-describe-how-to-use-a-tool-and-when-its-appropriate-to-do-so" class="level3">
+<h3 class="anchored" data-anchor-id="iii.-describe-how-to-use-a-tool-and-when-its-appropriate-to-do-so">iii. Describe <em>how</em> to use a tool and <em>when</em> it’s appropriate to do so</h3>
+<p><a href="https://www.ericekholm.com/">Eric Ekholm</a> covers how to use the <code>{ggtext}</code> package to replace your use of ggplot legends with colored title text in his post, <strong>Improving ggplots with Text Color</strong> (<span class="citation" data-cites="ee2021improving">EE (2021)</span>). Importantly, he discusses when it might be most appropriate to do so and when you might opt for an alternative method.</p>
+<div class="cell">
+<iframe src="https://www.ericekholm.com/posts/improving-ggplots-with-text-color/" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="iv.-hold-yourself-accountable-to-a-coding-challenge-and-teach-others-along-the-way" class="level3">
+<h3 class="anchored" data-anchor-id="iv.-hold-yourself-accountable-to-a-coding-challenge-and-teach-others-along-the-way">iv. Hold yourself accountable to a coding challenge (and teach others along the way!)</h3>
+<p><a href="https://ellakaye.rbind.io/">Ella Kaye</a> documents her progress through the 2020 <a href="https://adventofcode.com/">Advent of Code</a>, a series of small coding challenges, released daily through December in her post <strong>Advent of Code, 2020</strong> <span class="citation" data-cites="kaye2020advent">(Kaye 2020)</span>.</p>
+<div class="cell">
+<iframe src="https://ellakaye.rbind.io/posts/2020-12-09-advent-of-code-2020/" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="v.-share-what-you-learned-at-a-conference" class="level3">
+<h3 class="anchored" data-anchor-id="v.-share-what-you-learned-at-a-conference">v. Share what you learned at a conference</h3>
+<p>Danielle Brantley (<a href="https://datascidani.com/">Data Sci Dani</a>) recaps her experiences at R Conference 2020 and provides brief overviews of the R packages she learned about along the way in her post, <strong>Packages I Learned about at R Conference NYC</strong> <span class="citation" data-cites="brantley2020packages">(Brantley 2020)</span>.</p>
+<div class="cell">
+<iframe src="https://datascidani.com/posts/2020-08-20-packages-r-conference-nyc/" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="vi.-present-a-coding-problem-and-solution" class="level3">
+<h3 class="anchored" data-anchor-id="vi.-present-a-coding-problem-and-solution">vi. Present a coding problem and solution</h3>
+<p>Kaija Gahm (<a href="https://kaijagahm.netlify.app/blog.html">woodpeckeR</a>) defines a coding problem, provides some context, and describes her solution along with why it works in her post, <strong>%$%: upping your pipe game</strong> <span class="citation" data-cites="gahm2021">(Gahm 2021)</span>.</p>
+<div class="cell">
+<iframe src="https://kaijagahm.netlify.app/posts/2020-02-10-upping-your-pipe-game/" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="vii.-share-how-you-use-code-as-a-creative-medium" class="level3">
+<h3 class="anchored" data-anchor-id="vii.-share-how-you-use-code-as-a-creative-medium">vii. Share how you use code as a creative medium</h3>
+<p><a href="https://ijeamaka-anyene.netlify.app/">Ijeamaka Anyene</a> is a computational aRtist who shares her process of creating abstract geometrical rectangular designs (check out her ‘Subdivisions Series’ on her <a href="https://www.etsy.com/shop/ArtSnacksPrints?ref=simple-shop-header-name&amp;listing_id=1088780421">Etsy shop</a>) in her post, <strong>So, you want to subdivide a rectangle</strong> <span class="citation" data-cites="anyene2021so">(Anyene 2021)</span>.</p>
+<div class="cell">
+<iframe src="https://ijeamaka-anyene.netlify.app/posts/2021-09-07-so-you-want-to-subdivide-a-rectangle" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="viii.-document-the-evolution-of-your-code-in-multiple-posts" class="level3">
+<h3 class="anchored" data-anchor-id="viii.-document-the-evolution-of-your-code-in-multiple-posts">viii. Document the evolution of your code in multiple posts</h3>
+<p>Matt Kerlogue <a href="https://lapsedgeographer.london/">(The Lapsed Geographer)</a> details his use of the <code>{pdftools}</code> and <code>tidyverse</code> packages in R to web scrape and wrangle COVID-19 data from UK reports in his post, <strong>Scraping Google’s COVID-19 mobility report PDFs</strong> <span class="citation" data-cites="kerlogue2020scraping">(Kerlogue 2020b)</span>. He later follows up with instructions on how to automate this process for reports from ~130 countries and all 50 US states in his post, <strong>Automating the COVID-19 PDF scraping</strong> <span class="citation" data-cites="kerlogue2020automating">(Kerlogue 2020a)</span>.</p>
+<div class="cell">
+<iframe src="https://lapsedgeographer.london/2020-04/covid19-scraping/" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+<p>Now that we’re all feeling inspired to flex our creative data science muscles, let’s create and customize our own blog posts <svg aria-label="Blog" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#A58893;overflow:visible;position:relative;"><title>Blog</title><path d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"></path></svg></p>
+</section>
+</section>
+<section id="iii.-adding-a-distill-blog-to-your-personal-website" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="iii.-adding-a-distill-blog-to-your-personal-website">III. Adding a distill blog to your personal website</h2>
+<p><em><strong>Disclaimer:</strong> A lot of the following content (sections III &amp; IV) is just a compilation of excellent existing resources. I learn by repeating things (usually many times), so taking the time to type out code/YAML headers has been helpful, albeit not at all novel. See a list of referenced resources at the bottom of this post.</em></p>
+<p>If you have not yet made a distill site, there are <em>many</em> great tutorials out there. For MEDS students, I recommend following along with these <a href="https://docs.google.com/document/d/1c0SZiVvp32UTJ9sK_yVjI8ou6pVdFRXsY2236tiTA1c/edit">step-by-step instructions</a> by <a href="https://www.allisonhorst.com/">Allison Horst</a> before moving forward. For a very brief intro on customizing your distill site using CSS, check out these <a href="https://ucsb-meds.github.io/customizing-websites-css/#1">slides</a>.</p>
+<aside>
+<em>Note: The following section was adapted from <span class="citation" data-cites="apreshill2020postcards">Hill (2020)</span></em>
+</aside>
+<p>Now that you have your distill site up and running, you can create your first blog post by running the <code>distill::create_post()</code> function in your console:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">`note`</span>, <span class="in" style="color: #5E5E5E;
+font-style: inherit;">create_post</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">`tip`</span>, <span class="in" style="color: #5E5E5E;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">`warning`</span>, <span class="in" style="color: #5E5E5E;
+font-style: inherit;">"My blog post"</span>)</span></code></pre></div>
+</div>
+<p>If this is the <strong>first time</strong> you are creating a blog post, <code>{distill}</code> will add a directory called <code>_posts/</code>, which will contain this plus all future blog posts. You will also need to create a <strong>listing page</strong>, which will list all of your posts. Do this by adding a blank <code>.Rmd</code> file to your root directory by running <code>utils::file.edit("blog.Rmd")</code> in your console, then add a YAML header to your new file as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">`caution`</span>, and <span class="in" style="color: #5E5E5E;
+font-style: inherit;">---</span></span>
+<span id="cb2-2">title<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">`important`</span>.</span>
-<span id="cb1-4">:::</span>
-<span id="cb1-5"></span>
-<span id="cb1-6">:::{.callout-tip}</span>
-<span id="cb1-7"><span class="fu" style="color: #4758AB;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">## Tip With Caption</span></span>
-<span id="cb1-8"></span>
-<span id="cb1-9">This is an example of a callout with a caption.</span>
-<span id="cb1-10">:::</span></code></pre></div>
-<p>See our documentation on <a href="../../docs/authoring/callouts.qmd">Callouts</a>, to learn more, including more about how to customize the appearance and behavior of callouts.</p>
+font-style: inherit;">"Blog"</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># any name you want</span></span>
+<span id="cb2-3">listing<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> posts <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># do this exactly</span></span>
+<span id="cb2-4"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div>
+<p>Finally, link your new listing page to your website’s navbar by editing <strong><code>_site.yml</code></strong>. <em>Note: Since I named my listing <code>.Rmd</code> file as <code>blog.Rmd</code>, the href I need to link to is <code>blog.html</code>.</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">navbar<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-2">  right<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-3">    <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> text<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Home"</span></span>
+<span id="cb3-4">      href<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> index.html</span>
+<span id="cb3-5">    <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> text<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Blog"</span>      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add </span></span>
+<span id="cb3-6">      href<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> blog.html   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add</span></span></code></pre></div>
+</div>
+</section>
+<section id="iv.-customizing-your-distill-blog-posts" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="iv.-customizing-your-distill-blog-posts">IV. Customizing your distill blog &amp; posts</h2>
+<p>A couple simple touches can go a long way in improving the look of your distill blog. Here are some of the steps I followed to customize my first blog post.</p>
+<aside>
+<em>Note: This section’s content was largely adapted from <span class="citation" data-cites="allaire2018distill">Allaire et al. (2018)</span></em>
+</aside>
+<section id="i.-preview-images" class="level3">
+<h3 class="anchored" data-anchor-id="i.-preview-images">i. Preview images</h3>
+<p>Preview images are those fun little thumbnails that appear alongside blog posts on your listing page:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://romuanalyst.github.io/RomuAnalyst_website/posts/2021-09-21-distill-blogs/media/preview_img.png" class="img-fluid" width="1163"></p>
+</div>
+</div>
+<p>Add your image to the folder where your blog post <code>.Rmd</code> lives (e.g.&nbsp;<code>_posts</code> -&gt; <code>YYYY-MM-DD-my-blog-post</code> -&gt; <code>my_preview_image.jpeg</code>). Then, add the <code>preview</code> field to the YAML header of your blog post <code>.Rmd</code> file and set the value to the name of your preview image:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb4-2">title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my blog post"</span></span>
+<span id="cb4-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (additional metadata excluded for brevity)</span></span>
+<span id="cb4-4">preview<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> my_preview_image.jpeg  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># your preview image</span></span>
+<span id="cb4-5"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div>
+</section>
+<section id="ii.-categories" class="level3">
+<h3 class="anchored" data-anchor-id="ii.-categories">ii. Categories</h3>
+<p>You can assign each post to one or more “categories,” making it easier for your readers to filter content. Do so by adding the <code>categories</code> field to the YAML header of your blog post <code>.Rmd</code> file, then list whichever self-defined categories you would like your post to be assigned to. For example, I assigned this blog post to two catetories: <code>distill</code> and <code>R</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb5-2">title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Why create slides about blogging when you can just blog about it instead?"</span></span>
+<span id="cb5-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (additional metadata excluded for brevity)</span></span>
+<span id="cb5-4">categories<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-5">  <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> distill <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># list as many categories as you'd like </span></span>
+<span id="cb5-6">  <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> R </span>
+<span id="cb5-7"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div>
+<p>Take a look at your listing page to see all your categories (and how many articles are assigned to each). Assigned categories will also appear as metadata at the top of each post.</p>
+</section>
+<section id="iii.-table-of-contents" class="level3">
+<h3 class="anchored" data-anchor-id="iii.-table-of-contents">iii. Table of contents</h3>
+<p>Table of contents can be helpful for readers to navigate longer posts. Add the <code>toc</code> (and optionally, <code>toc_float</code>) field to your blog’s YAML header as shown below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb6-2">title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my blog post"</span></span>
+<span id="cb6-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (additional metadata excluded for brevity)</span></span>
+<span id="cb6-4">output<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb6-5">  distill<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span>distill_article<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb6-6">    self_contained<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> false</span>
+<span id="cb6-7">    toc<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> true              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add a table of contents</span></span>
+<span id="cb6-8">    toc_float<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> true        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># float it (positioned on the left-hand side, rather at the top)</span></span>
+<span id="cb6-9"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div>
+</section>
+<section id="iv.-citations" class="level3">
+<h3 class="anchored" data-anchor-id="iv.-citations">iv. Citations</h3>
+<p>You can add automatically-generated citations to the bottom of your posts, making it easier for readers to reference your work.</p>
+<p>I did this by first adding the <code>base_url</code> field to my <strong><code>_site.yml</code></strong> and set the value to the landing page URL of my distill site. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb7-2">name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"samanthacsik.github.io"</span></span>
+<span id="cb7-3">title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Samantha Csik"</span></span>
+<span id="cb7-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (additional metadata excluded for brevity)</span></span>
+<span id="cb7-5">base_url<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> samanthacsik.github.io <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add your website's landing page url</span></span>
+<span id="cb7-6"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div>
+<p>I then specified the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Slug">slug</a> (the unique identifying part of a web address) in the YAML header of my blog post <code>.Rmd</code> file (a slug will be automatically generated if not provided):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb8-2">title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Why create slides about blogging when you can just blog about it instead?"</span></span>
+<span id="cb8-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (additional metadata excluded for brevity)</span></span>
+<span id="cb8-4">slug<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> csik2021firstBlog</span>
+<span id="cb8-5"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div>
+<p>Your citations will now appear as metadata at the bottom of your post upon knitting.</p>
+</section>
+<section id="v.-bibliographies" class="level3">
+<h3 class="anchored" data-anchor-id="v.-bibliographies">v. Bibliographies</h3>
+<p>You can use standard <a href="https://pandoc.org/MANUAL.html#citations">R Markdown bibliographies</a> to cite works throughout your post and include a corresponding “References” list. You will first need to create a <code>.bib</code> file in the folder containing your blog post. You can do so by running the <code>file.edit()</code> function in your console. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">file.edit</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"_posts/YYYY-MM-DD-my-blog-post/bibliography.bib"</span>)</span></code></pre></div>
+</div>
+<p>Next, add the <code>bibliograhy</code> field to the YAML header of your blog post <code>.Rmd</code> file and set the value to the name of your new <code>.bib</code> file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb10-2">title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my blog post"</span></span>
+<span id="cb10-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (additional metadata excluded for brevity)</span></span>
+<span id="cb10-4">bibliography<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> bibliography.bib</span>
+<span id="cb10-5"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div>
+<p>Now, add citation information to your <code>.bib</code> file. This is super easy if you are citing a distill article that has citation information already included – just copy and paste! <em>Note: there are different formats (e.g.&nbsp;CSL or BibTeX) for creating bibliography files. I chose to use BibTeX.</em></p>
+<p>For example, <span class="citation" data-cites="allaire2018distill">Allaire et al. (2018)</span> includes the following BibTeX citation at the end of their post, which I have copied into my <code>.bib</code> file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>misc{allaire2018distill,</span>
+<span id="cb11-2">  author <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {Allaire, JJ and Iannone, Rich and Presmanes Hill, Alison and Xie, Yihui},</span>
+<span id="cb11-3">  title <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {Distill <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> R Markdown},</span>
+<span id="cb11-4">  url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>rstudio.github.io<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>distill},</span>
+<span id="cb11-5">  year <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> {<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2018</span>}</span>
+<span id="cb11-6">}</span></code></pre></div>
+</div>
+<p>Note the format of this citation, where <code>type</code> can be <code>manual</code>, <code>book</code>, <code>article</code>, <code>misc</code>, etc. (all case-insensitive) and <code>key</code> is the citation reference used for inserting in-text citations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>type{key,</span>
+<span id="cb12-2">  ...</span>
+<span id="cb12-3">  }</span></code></pre></div>
+</div>
+<p>To include an in-text citation for the above reference, type <code>@allaire2018distill</code> (or if you prefer your citation to be inside parentheses, <code>[@allaire2018distill]</code>). Adding the in-text citation will automatically add the full reference to your “References” list at the bottom of your post. To read more about including bibliographies and citations in your blog posts, see <span class="citation" data-cites="bookdown">Xie (2021)</span> and <span class="citation" data-cites="cookbook">Xie, Dervieux, et Riederer (2021)</span>.</p>
+</section>
+<section id="vi.-appendices" class="level3">
+<h3 class="anchored" data-anchor-id="vi.-appendices">vi. Appendices</h3>
+<p>While citations and references will be automatically added as appendices to your blog post (if you followed along with the steps above), you can add additional content here by adding the <code>.appendix</code> class to any level 1 or level 2 header. For example, I added an additional “Corrections” statement to my appendix below by typing:</p>
+<p><code>## Corrections {.appendix}</code></p>
+<p><code>If you see mistakes or want to suggest changes...</code></p>
+<p><br> <br></p>
+<p>I had a ton of fun playing around with some of these easy-to-implement features that the <code>{distill}</code> package provides for customizing blog posts. And I had even <em>more</em> fun checking out other data science blogs as I looked for inspiration. I hope they inspired you too! Happy blogging <svg aria-label="Face Smile Beam" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#A58893;overflow:visible;position:relative;"><title>Face Smile Beam</title><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm177.6 62.1C192.8 334.5 218.8 352 256 352s63.2-17.5 78.4-33.9c9-9.7 24.2-10.4 33.9-1.4s10.4 24.2 1.4 33.9c-22 23.8-60 49.4-113.6 49.4s-91.7-25.5-113.6-49.4c-9-9.7-8.4-24.9 1.4-33.9s24.9-8.4 33.9 1.4zm40-89.3l0 0 0 0-.2-.2c-.2-.2-.4-.5-.7-.9c-.6-.8-1.6-2-2.8-3.4c-2.5-2.8-6-6.6-10.2-10.3c-8.8-7.8-18.8-14-27.7-14s-18.9 6.2-27.7 14c-4.2 3.7-7.7 7.5-10.2 10.3c-1.2 1.4-2.2 2.6-2.8 3.4c-.3 .4-.6 .7-.7 .9l-.2 .2 0 0 0 0 0 0c-2.1 2.8-5.7 3.9-8.9 2.8s-5.5-4.1-5.5-7.6c0-17.9 6.7-35.6 16.6-48.8c9.8-13 23.9-23.2 39.4-23.2s29.6 10.2 39.4 23.2c9.9 13.2 16.6 30.9 16.6 48.8c0 3.4-2.2 6.5-5.5 7.6s-6.9 0-8.9-2.8l0 0 0 0zm160 0l0 0-.2-.2c-.2-.2-.4-.5-.7-.9c-.6-.8-1.6-2-2.8-3.4c-2.5-2.8-6-6.6-10.2-10.3c-8.8-7.8-18.8-14-27.7-14s-18.9 6.2-27.7 14c-4.2 3.7-7.7 7.5-10.2 10.3c-1.2 1.4-2.2 2.6-2.8 3.4c-.3 .4-.6 .7-.7 .9l-.2 .2 0 0 0 0 0 0c-2.1 2.8-5.7 3.9-8.9 2.8s-5.5-4.1-5.5-7.6c0-17.9 6.7-35.6 16.6-48.8c9.8-13 23.9-23.2 39.4-23.2s29.6 10.2 39.4 23.2c9.9 13.2 16.6 30.9 16.6 48.8c0 3.4-2.2 6.5-5.5 7.6s-6.9 0-8.9-2.8l0 0 0 0 0 0z"></path></svg></p>
+
 
 
 </section>
+</section>
 
- ]]></description>
-  <category>Features</category>
-  <category>Authoring</category>
-  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-13-feature-callouts/index.html</guid>
-  <pubDate>Sat, 12 Feb 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-02-13-feature-callouts/callouts.png" medium="image" type="image/png" height="81" width="144"/>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Les références</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-allaire2018distill" class="csl-entry">
+Allaire, JJ, Rich Iannone, Alison Presmanes Hill, et Yihui Xie. 2018. <span>«&nbsp;Distill for <span>R</span> Markdown&nbsp;»</span>. <a href="https://rstudio.github.io/distill">https://rstudio.github.io/distill</a>.
+</div>
+<div id="ref-Ambio2020Feynman" class="csl-entry">
+Ambion, Ronnel Ian A., Rainier Santi C. De Leon, Alfonso Pio Angelo R. Mendoza, et Reinier M. Navarro. 2020. <span>«&nbsp;The Utilization of the Feynman Technique in Paired Team Teaching Towards Enhancing Grade 10 ANHS Students’ Academic Achievement in Science&nbsp;»</span>. <em>2020 IEEE Integrated STEM Education Conference (ISEC)</em>, 1‑13.
+</div>
+<div id="ref-anyene2021so" class="csl-entry">
+Anyene, Ijeamaka. 2021. <span>«&nbsp;ijeamaka anyene: So, you want to subdivide a rectangle&nbsp;»</span>. <a href="https://ijeamaka-anyene.netlify.app/posts/2021-09-07-so-you-want-to-subdivide-a-rectangle/">https://ijeamaka-anyene.netlify.app/posts/2021-09-07-so-you-want-to-subdivide-a-rectangle/</a>.
+</div>
+<div id="ref-brantley2020packages" class="csl-entry">
+Brantley, Danielle. 2020. <span>«&nbsp;Data Sci Dani: Packages <span>I</span> Learned about at <span>R</span> Conference NYC&nbsp;»</span>. <a href="https://datascidani.com/posts/2020-08-20-packages-r-conference-nyc/">https://datascidani.com/posts/2020-08-20-packages-r-conference-nyc/</a>.
+</div>
+<div id="ref-ee2021improving" class="csl-entry">
+EE. 2021. <span>«&nbsp;Eric Ekholm: Improving <span>ggplots</span> with Text Color&nbsp;»</span>. <a href="https://www.ericekholm.com/posts/2021-03-24-improving-ggplots-with-text-color/">https://www.ericekholm.com/posts/2021-03-24-improving-ggplots-with-text-color/</a>.
+</div>
+<div id="ref-fisher2020penguins" class="csl-entry">
+Fisher, Harry. 2020. <span>«&nbsp;Data, Code &amp; Coffee: Penguins and <span>nakedpipes</span>&nbsp;»</span>. <a href="https://hfshr.xyz/posts/2020-06-21-penguins-and-nakedpipes/">https://hfshr.xyz/posts/2020-06-21-penguins-and-nakedpipes/</a>.
+</div>
+<div id="ref-gahm2021" class="csl-entry">
+Gahm, Kaija. 2021. <span>«&nbsp;Kaija Gahm:&nbsp;»</span> <a href="https://kaijagahm.netlify.app/posts/2020-02-10-upping-your-pipe-game/">https://kaijagahm.netlify.app/posts/2020-02-10-upping-your-pipe-game/</a>.
+</div>
+<div id="ref-apreshill2020postcards" class="csl-entry">
+Hill, Alison. 2020. <span>«&nbsp;<span>M-F-E-O</span>: <span>postcards</span> + <span>distill</span>&nbsp;»</span>. <a href="https://www.apreshill.com/blog/2020-12-postcards-distill/">https://www.apreshill.com/blog/2020-12-postcards-distill/</a>.
+</div>
+<div id="ref-horst2021gt" class="csl-entry">
+Horst, Allison. 2021. <span>«&nbsp;Customizing <span>tables</span> <span>is</span> <span>fun</span> (<span>seriously</span>) with <span>gt</span>&nbsp;»</span>. <a href="https://www.allisonhorst.com/post/2020-03-02-gt-tables-examples/">https://www.allisonhorst.com/post/2020-03-02-gt-tables-examples/</a>.
+</div>
+<div id="ref-kaye2020advent" class="csl-entry">
+Kaye, Ella. 2020. <span>«&nbsp;ELLA KAYE: Advent of Code 2020&nbsp;»</span>. <a href="https://ellakaye.rbind.io/posts/2020-12-09-advent-of-code-2020/">https://ellakaye.rbind.io/posts/2020-12-09-advent-of-code-2020/</a>.
+</div>
+<div id="ref-kerlogue2020automating" class="csl-entry">
+Kerlogue, Matt. 2020a. <span>«&nbsp;The Lapsed Geographer: Automating the COVID19 PDF scraping&nbsp;»</span>. <a href="https://lapsedgeographer.london/2020-04/automating-pdf-scraping/">https://lapsedgeographer.london/2020-04/automating-pdf-scraping/</a>.
+</div>
+<div id="ref-kerlogue2020scraping" class="csl-entry">
+———. 2020b. <span>«&nbsp;The Lapsed Geographer: Scraping Google’s COVID-19 mobility report PDFs&nbsp;»</span>. <a href="https://lapsedgeographer.london/2020-04/covid19-scraping/">https://lapsedgeographer.london/2020-04/covid19-scraping/</a>.
+</div>
+<div id="ref-Nestojko2014protege" class="csl-entry">
+Nestojko, John F., Dung C. Bui, Kornell Nate, et Elizabeth Ligon Bjork. 2014. <span>«&nbsp;Expecting to teach enhances learning and organization of knowledge in free recall of text passages&nbsp;»</span>. <em>Memory &amp; Cognition</em>, 1038‑48.
+</div>
+<div id="ref-bookdown" class="csl-entry">
+Xie, Yihui. 2021. <span>«&nbsp;bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown, Section 2.8 Citations&nbsp;»</span>. <a href="https://bookdown.org/yihui/bookdown/citations.html">https://bookdown.org/yihui/bookdown/citations.html</a>.
+</div>
+<div id="ref-cookbook" class="csl-entry">
+Xie, Yihui, Christophe Dervieux, et Emily Riederer. 2021. <span>«&nbsp;<span>R</span> Markdown Cookbook, Section 4.5 Bibliographies and citations&nbsp;»</span>. <a href="https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html">https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Notes de bas de page</h2>
+
+<ol>
+<li id="fn1"><p>This is sometimes referred to as the Protégé Effect or the Feynman Learning Technique. You can learn a bit more from <span class="citation" data-cites="Nestojko2014protege">(Nestojko et al. 2014)</span> and <span class="citation" data-cites="Ambio2020Feynman">(Ambion et al. 2020)</span>↩︎</p></li>
+<li id="fn2"><p>I might also add that having to look up something 3x <em>for yourself</em> might be a good reason to blog about it. Read David Robinson’s full post about starting a data science blog <a href="http://varianceexplained.org/r/start-blog/">here</a>.↩︎</p></li>
+<li id="fn3"><p>Many of the following blogs can be found on the <a href="https://distillery.rbind.io/">distillery</a>, a blog about building distill websites and blogs. Check it out!↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{csik2021,
+  author = {Csik, Samantha},
+  title = {Why create presentation slides about blogging when you can
+    just blog about it instead?},
+  date = {2021-09-24},
+  url = {https://samanthacsik.github.io/posts/2021-09-21-distill-blogs/},
+  langid = {fr}
+}
+</code></pre><div class="quarto-appendix-secondary-label">Veuillez citer ce travail comme suit&nbsp;:</div><div id="ref-csik2021" class="csl-entry quarto-appendix-citeas">
+Csik, Samantha. 2021. <span>“Why create presentation slides about
+blogging when you can just blog about it instead?”</span> September 24,
+2021. <a href="https://samanthacsik.github.io/posts/2021-09-21-distill-blogs/">https://samanthacsik.github.io/posts/2021-09-21-distill-blogs/</a>.
+</div></div></section></div> ]]></description>
+  <category>distill</category>
+  <category>R</category>
+  <category>MEDS</category>
+  <guid>https://romuanalyst.github.io/RomuAnalyst_website/posts/2021-09-21-distill-blogs/index.html</guid>
+  <pubDate>Thu, 23 Sep 2021 22:00:00 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/RomuAnalyst_website/posts/2021-09-21-distill-blogs/barney_blog.gif" medium="image" type="image/gif"/>
 </item>
 </channel>
 </rss>

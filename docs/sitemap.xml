@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/index.html</loc>
-    <lastmod>2023-07-13T20:41:25.450Z</lastmod>
+    <lastmod>2023-07-13T22:07:45.156Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/R et Posit.html</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/test2.html</loc>
-    <lastmod>2023-07-12T23:48:30.200Z</lastmod>
+    <lastmod>2023-07-13T22:07:29.901Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/About.html</loc>
@@ -22,11 +22,11 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/ia.html</loc>
-    <lastmod>2023-07-11T20:58:33.303Z</lastmod>
+    <lastmod>2023-07-13T22:07:46.766Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/ia2.html</loc>
-    <lastmod>2023-07-12T14:24:54.761Z</lastmod>
+    <lastmod>2023-07-13T22:07:43.583Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/Shiny.html</loc>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/projects/index.html</loc>
-    <lastmod>2023-07-12T12:52:30.117Z</lastmod>
+    <lastmod>2023-07-13T22:07:44.317Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/cv/index.html</loc>
@@ -74,6 +74,18 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts.html</loc>
-    <lastmod>2023-07-13T20:48:22.340Z</lastmod>
+    <lastmod>2023-07-13T22:07:48.150Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-10-24-quarto-blogs/index.html</loc>
+    <lastmod>2023-07-13T22:07:35.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2022-06-22-hello_quarto/index.html</loc>
+    <lastmod>2023-07-13T22:07:38.262Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/RomuAnalyst_website/posts/2021-09-21-distill-blogs/index.html</loc>
+    <lastmod>2023-07-13T22:07:42.197Z</lastmod>
   </url>
 </urlset>
