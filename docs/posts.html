@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RomuAnalyst – posts</title>
+<title>RomuAnalyst - posts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -45,6 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,9 +75,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-image','listing-subtitle','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -99,7 +100,11 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="assets/ek-styles.css">
-<link rel="alternate" type="application/rss+xml" title="RomuAnalyst" href="posts.xml"><meta name="twitter:title" content="RomuAnalyst">
+<meta property="og:title" content="RomuAnalyst - posts">
+<meta property="og:image" content="https://romuanalyst.github.io/RomuAnalyst_website/images/logo.png">
+<meta property="og:site-name" content="RomuAnalyst">
+<meta property="og:locale" content="fr-FR">
+<meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
 <meta name="twitter:image" content="https://romuanalyst.github.io/RomuAnalyst_website/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
@@ -136,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-r">    
         <li>
     <a class="dropdown-item" href="./R et Posit.html" rel="" target="">
- <span class="dropdown-text"><i class="fa-brands fa-r-project"></i> et Posit</span></a>
+ <span class="dropdown-text"><i class="fa-brands fa-r-project" aria-hidden="true"></i> et Posit</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./test2.html" rel="" target="">
@@ -173,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">community</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./About.html" rel="" target="">
+    <a class="nav-link" href="./About.qmd" rel="" target="">
  <span class="menu-text">Bio</span></a>
   </li>  
 </ul>
@@ -199,58 +204,42 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
-
-
-<div class="grid">
-<section id="fa-brands-r-project-et-posit" class="level1 g-col-12 g-col-md-6">
-<h1><i class="fa-brands fa-r-project"></i> et Posit</h1>
-<section id="introduction-et-installation" class="level5">
-<h5 class="anchored" data-anchor-id="introduction-et-installation"><a href="test2.html">Introduction et installation</a></h5>
-<p>Présentation, prise en main, en passant par le processus d’installation.</p>
-</section>
-</section>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">posts</h1>
 </div>
-<section id="tous-les-documents" class="level2">
-<h2 class="anchored" data-anchor-id="tous-les-documents">Tous les documents :</h2>
 
 
 
-</section>
+<div class="quarto-title-meta">
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Trier par" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Trier par</option>
-       <option value="index" data-direction="asc">Ordre par défaut</option>
-         <option value="listing-title" data-direction="asc">
-          Titre
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Le plus ancien
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Le plus récent
-        </option>
-     </select>
+    
+  
+    
   </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+  
+
+</header>
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Quarto,R,MEDS" data-listing-date-sort="1666562400000" data-listing-file-modified-sort="1687238918000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17">
+<div class="thumbnail">
+<p><a href="./posts/2022-10-24-quarto-blogs/index.html"> <img src="./posts/2022-10-24-quarto-blogs/penguins.png" class="thumbnail-image"> </a></p>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Quarto,R,MEDS" data-listing-date-sort="1666562400000" data-listing-file-modified-sort="1687238918000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17">
-<a href="./posts/2022-10-24-quarto-blogs/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/2022-10-24-quarto-blogs/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="body">
+<a href="./posts/2022-10-24-quarto-blogs/index.html">
+<h3 class="no-anchor listing-title">
 Adding a blog to your existing Quarto website
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
 Quarto
@@ -262,25 +251,36 @@ R
 MEDS
 </div>
 </div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-24 oct. 2022
-</div>
-</div>
-</div>
+<a href="./posts/2022-10-24-quarto-blogs/index.html">
+<div class="listing-description">
+<p>Got a Quarto website, but no blog? We can fix that!</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="R-Ladies,Openscapes,R,Python,Quarto" data-listing-date-sort="1655848800000" data-listing-file-modified-sort="1687238918000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="./posts/2022-06-22-hello_quarto/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/2022-06-22-hello_quarto/quarto.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts/2022-10-24-quarto-blogs/index.html">
+<div class="listing-date">
+24 oct. 2022
+</div>
+<div class="listing-author">
+Samantha Csik
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="R-Ladies,Openscapes,R,Python,Quarto" data-listing-date-sort="1655848800000" data-listing-file-modified-sort="1687238918000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/2022-06-22-hello_quarto/index.html"> <img src="./posts/2022-06-22-hello_quarto/quarto.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2022-06-22-hello_quarto/index.html">
+<h3 class="no-anchor listing-title">
 Hello Quarto!
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R-Ladies'); return false;">
 R-Ladies
@@ -298,25 +298,36 @@ Python
 Quarto
 </div>
 </div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-22 juin 2022
-</div>
-</div>
-</div>
+<a href="./posts/2022-06-22-hello_quarto/index.html">
+<div class="listing-description">
+<p>a Quarto Chat with NASA Openscapes, co-hosted with R-Ladies Santa Barbara [orginally published on the Openscapes blog]</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="distill,R,MEDS" data-listing-date-sort="1632434400000" data-listing-file-modified-sort="1689287175116" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
-<a href="./posts/2021-09-21-distill-blogs/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/2021-09-21-distill-blogs/barney_blog.gif" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts/2022-06-22-hello_quarto/index.html">
+<div class="listing-date">
+22 juin 2022
+</div>
+<div class="listing-author">
+Samantha Csik, Julie Lowndes, Amy Steiker, Catalina Oaida Taglialatela, Aaron Friesz, J.J. Allaire, Erin Robinson, Stefanie Butland
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="distill,R,MEDS" data-listing-date-sort="1632434400000" data-listing-file-modified-sort="1687238918000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="thumbnail">
+<p><a href="./posts/2021-09-21-distill-blogs/index.html"> <img src="./posts/2021-09-21-distill-blogs/barney_blog.gif" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2021-09-21-distill-blogs/index.html">
+<h3 class="no-anchor listing-title">
 Why create presentation slides about blogging when you can just blog about it instead?
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('distill'); return false;">
 distill
@@ -328,14 +339,22 @@ R
 MEDS
 </div>
 </div>
-<div class="card-attribution card-text-small end">
+<a href="./posts/2021-09-21-distill-blogs/index.html">
+<div class="listing-description">
+<p>I started putting together some slides on the whys and hows of blogging using {distill} when I realized…maybe I’ve just found the content for my first blog post??</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2021-09-21-distill-blogs/index.html">
 <div class="listing-date">
 24 sept. 2021
 </div>
-</div>
-</div>
+<div class="listing-author">
+Samantha Csik
 </div>
 </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
