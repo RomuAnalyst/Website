@@ -41,7 +41,7 @@ website:
       - text: community
         href: community.qmd
       - text: Bio
-        href: about.qmd
+        href: About.qmd
       #- icon: github
       #  href: https://github.com/EllaKaye
       #- icon: twitter
