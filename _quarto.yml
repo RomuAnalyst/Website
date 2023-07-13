@@ -33,7 +33,7 @@ website:
           - text: "Shiny"
             href: Shiny.qmd 
       - text: Articles
-        href: blog.qmd
+        href: posts.qmd
       - text: Rendu élèves
         href: blog.qmd
       - text: packages
