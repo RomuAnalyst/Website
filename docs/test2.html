@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>RomuAnalyst – test2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="assets/ek-styles.css">
+<meta name="twitter:title" content="RomuAnalyst">
+<meta name="twitter:description" content="Mon site sur mes projets">
+<meta name="twitter:image" content="https://romuanalyst.github.io/RomuAnalyst_website/img/favicon.png">
+<meta name="twitter:creator" content="@Romu">
+<meta name="twitter:site" content="@Romu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="18">
+<meta name="twitter:image-width" content="18">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/tree.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst👨🏾‍💻<span class="icon-line"></span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-r">    
+        <li>
+    <a class="dropdown-item" href="./R et Posit.html" rel="" target="">
+ <span class="dropdown-text"><i class="fa-brands fa-r-project"></i> et Posit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./test2.html" rel="" target="">
+ <span class="dropdown-text">ggplot2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ia.html" rel="" target="">
+ <span class="dropdown-text">les fonctions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ia2.html" rel="" target="">
+ <span class="dropdown-text">les boucles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Shiny.html" rel="" target="">
+ <span class="dropdown-text">Shiny</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html" rel="" target="">
+ <span class="menu-text">Rendu élèves</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./packages.qmd" rel="" target="">
+ <span class="menu-text">packages</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./community.qmd" rel="" target="">
+ <span class="menu-text">community</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./About.html" rel="" target="">
+ <span class="menu-text">Bio</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Basculer en mode lecteur">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#ggplo2" id="toc-ggplo2" class="nav-link active" data-scroll-target="#ggplo2"><code>ggplot2</code>, créer et superposer des graphiques</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#mapping" id="toc-mapping" class="nav-link" data-scroll-target="#mapping">Le <em>mapping</em> et l’utilisation d’<code>aes()</code></a></li>
+  <li><a href="#les-formes-géométriques" id="toc-les-formes-géométriques" class="nav-link" data-scroll-target="#les-formes-géométriques">Les formes géométriques</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+
+
+<section id="ggplo2" class="level1">
+<h1><code>ggplot2</code>, créer et superposer des graphiques</h1>
+<style type="text/css">
+.red {
+  color: red;
+}
+</style>
+<table class="table">
+<colgroup>
+<col style="width: 54%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Shortcode</th>
+<th>Icon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>{{&lt; fa thumbs-up &gt;}}</code></td>
+<td><p><i class="fa-solid fa-thumbs-up"></i></p></td>
+</tr>
+<tr class="even">
+<td><code>{{&lt; fa folder &gt;}}</code></td>
+<td><p><i class="fa-solid fa-folder"></i></p></td>
+</tr>
+<tr class="odd">
+<td><code>{{&lt; fa chess-pawn &gt;}}</code></td>
+<td><p><i class="fa-solid fa-chess-pawn"></i></p></td>
+</tr>
+<tr class="even">
+<td><code>{{&lt; fa brands bluetooth &gt;}}</code></td>
+<td><p><i class="fa-brands fa-bluetooth"></i></p></td>
+</tr>
+<tr class="odd">
+<td><code>{{&lt; fa brands twitter size=2xl &gt;}}</code> (HTML only)</td>
+<td><p><i class="fa-brands fa-twitter"></i></p></td>
+</tr>
+<tr class="even">
+<td><code>{{&lt; fa brands github size=5x &gt;}}</code> (HTML only)</td>
+<td><p><i class="fa-brands fa-github"></i></p></td>
+</tr>
+<tr class="odd">
+<td><code>{{&lt; fa battery-half size=Huge &gt;}}</code></td>
+<td><p><i class="fa-solid fa-battery-half"></i></p></td>
+</tr>
+<tr class="even">
+<td><code>{{&lt; fa envelope title="An envelope" &gt;}}</code></td>
+<td><p><i class="fa-solid fa-envelope"></i></p></td>
+</tr>
+</tbody>
+</table>
+<p>Le but de la visualisation de données étant de représenter graphiquement des données brutes (ou quasi-brutes), il est souvent nécessaire de prendre en compte plusieurs variables. Nous devons donc aller plus loin que les graphiques de base (nuage de points, droite de regression, boite à moustache, diagramme en barres ou circulaires, …), pour les combiner par exemple.</p>
+<p>Avec le langage de base (package <code>graphics</code> notamment), il est possible de faire des graphiques évolués, mais avec beaucoup de paramétrages <em>à la main</em>. Pour cela on va commencer par s’intéresser au jeu de données <code>mtcars</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ?mtcars ou help(mtcars)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mtcars)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+</div>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>hp,mtcars<span class="sc">$</span>mpg)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<center>
+<img src="img/mtcars_plot.png" class="img-fluid">
+</center>
+<p><br></p>
+<p>Essayons d’améliorer ce graphique… Ci dessous, un exemple de graphique avancé, représentant 4 variables (trois quantitatives et une qualitative), ainsi qu’une explication succincte des différentes fonctions utilisées, et quelques paramètres de celles-ci.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"serif"</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>)<span class="sc">+</span>.<span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>couleurs_am <span class="ot">=</span> <span class="fu">brewer.pal</span>(<span class="dv">3</span>, <span class="st">"Dark2"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg <span class="sc">~</span> hp, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">data =</span> mtcars,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex =</span> wt<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> couleurs_am[mtcars<span class="sc">$</span>am<span class="sc">+</span><span class="dv">1</span>],</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Consommation en fonction de la Puissance"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">sub =</span> <span class="st">"Source : 1974 Motor Trend US magazine"</span>, <span class="at">font.sub =</span> <span class="dv">3</span>, <span class="at">cex.sub =</span> .<span class="dv">8</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Puissance (en ch)"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Consommation en Miles/Galon"</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">0</span>, <span class="at">lwd.ticks =</span> .<span class="dv">5</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>at.y <span class="ot">=</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">0</span>, <span class="at">lwd.ticks =</span> .<span class="dv">5</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">y =</span> at.y, <span class="at">x =</span> <span class="dv">35</span>, <span class="at">labels =</span> at.y, <span class="at">srt =</span> <span class="dv">0</span>, <span class="at">pos =</span> <span class="dv">2</span>, <span class="at">xpd =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>l1 <span class="ot">=</span> <span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Automatique"</span>, <span class="st">"Manuelle"</span>), </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> couleurs_am, <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">text.width =</span> <span class="dv">50</span>, <span class="at">text.col =</span> couleurs_am, </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Boite de vitesse"</span>, <span class="at">title.col =</span> <span class="st">"black"</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(l1<span class="sc">$</span>rect<span class="sc">$</span>left, l1<span class="sc">$</span>rect<span class="sc">$</span>top<span class="sc">-</span>l1<span class="sc">$</span>rect<span class="sc">$</span>h<span class="dv">-1</span>, </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">range</span>(mtcars<span class="sc">$</span>wt), <span class="at">title =</span> <span class="st">"Poids  (1000 lbs)"</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">pt.cex =</span> <span class="fu">range</span>(mtcars<span class="sc">$</span>wt)<span class="sc">/</span><span class="dv">3</span>, <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">col =</span> <span class="fu">gray</span>(.<span class="dv">5</span>),</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">text.width =</span> <span class="dv">50</span>, <span class="at">adj =</span> <span class="sc">-</span>.<span class="dv">25</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>outliers_hp <span class="ot">=</span> <span class="fu">subset</span>(mtcars, <span class="at">subset =</span> hp <span class="sc">&gt;</span> <span class="dv">250</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(outliers_hp<span class="sc">$</span>hp, outliers_hp<span class="sc">$</span>mpg, <span class="fu">row.names</span>(outliers_hp), <span class="at">pos =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>), <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">font =</span> <span class="dv">4</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>outliers_mpg <span class="ot">=</span> <span class="fu">subset</span>(mtcars, <span class="at">subset =</span> mpg <span class="sc">&gt;</span> <span class="dv">30</span>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(outliers_mpg<span class="sc">$</span>hp, outliers_mpg<span class="sc">$</span>mpg, <span class="fu">row.names</span>(outliers_mpg), <span class="at">pos =</span> <span class="dv">4</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">font =</span> <span class="dv">4</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<center>
+<img src="pics/images/Consommation en fonction de la puissance.png" class="img-fluid">
+</center>
+<p><br></p>
+<ul>
+<li>La fonction <code>par()</code> permet de modifier les paramètres graphiques, tel que :
+<ul>
+<li><code>mar</code> pour les marges (un vecteur numérique de taille 4 qui permet de définir les tailles des marges dans l’ordre suivant : bas, gauche, haut, droite. Par défaut il vaut c(5.1, 4.1, 4.1, 2.1) )</li>
+<li><code>family</code> pour la famille de police d’écriture</li>
+<li>certains paramètres ci-après sont définissables globalement dans la fonction <code>par()</code>, ou localement dans les fonctions suivantes</li>
+</ul></li>
+<li>Les paramètres de la fonction <code>plot()</code>
+<ul>
+<li><code>pch</code> : symbole utilisé pour chaque point (ici <code>19</code> indique un rond plein)</li>
+<li><code>cex</code> : taille du point (ici en fonction de la variable <code>wt</code>)</li>
+<li><code>col</code> : couleur des points (ici en fonction de la variable <code>am</code>)</li>
+<li><code>main</code>, <code>sub</code>, <code>xlab</code>, <code>ylab</code> : resp. titre, sous-titre, intitulé en abscisse et intitulé en ordonnée</li>
+<li><code>*.sub</code> : indication spécifique pour le sous-titre</li>
+<li><code>bty</code> : type de la boite (ici <code>n</code> veut dire rien autour du graphique)</li>
+<li><code>axes</code> : présence ou non des axes (non ici)</li>
+</ul></li>
+<li>La fonction <code>axis()</code> qui permet d’ajouter un axe (<code>1</code> : en abscisse, et <code>2</code> : en ordonnée)
+<ul>
+<li>si rien d’indiqué pour <code>at</code>, utilisation des <code>ticks</code> par défaut</li>
+<li><code>lwd</code> : largeur de la ligne (ici non-présente)</li>
+<li><code>lwd.ticks</code> : largeur des ticks (assez fine ici)</li>
+<li>renvoie les valeurs des ticks</li>
+</ul></li>
+<li>La fonction <code>text()</code> permet d’écrire du texte sur le graphique
+<ul>
+<li>le <code>x = 35</code> est choisi par expérience</li>
+<li><code>srt</code> : angle du texte</li>
+<li><code>pos</code> : ajustement du texte par rapport aux coordonnées indiquées</li>
+<li><code>xpd</code> : permet d’écrire en dehors du graphique (dans les marges donc)</li>
+</ul></li>
+<li>La fonction <code>legend()</code> permet d’ajouter une légende
+<ul>
+<li>position : soit <span class="math inline">\((x,y)\)</span>, soit chaine spécifique</li>
+<li><code>legend</code> : texte des items</li>
+<li><code>col</code>, <code>bty</code>, <code>cex</code>, <code>pch</code> : identique à précédemment</li>
+<li><code>text.width</code> et <code>text.col</code> : largeur du texte des items et couleur(s)</li>
+<li><code>title</code> et <code>title.col</code> : titre de la légende (et couleur du titre)</li>
+<li>renvoie une liste avec deux objets (<code>rect</code> qui contient des infos sur le rectangle occupé par la légende dans le graphique et <code>text</code> qui contient les coordonnées du texte des items)</li>
+<li><code>pt.cex</code> : taille des symboles</li>
+<li><code>adj</code>: ajustement du texte</li>
+</ul></li>
+</ul>
+<p>L’utilisateur souhaite réaliser des graphiques (nuages de points, histogrammes, densité…) et les personnaliser (légendes, titres, échelles…).</p>
+<p>Il est recommandé d’utiliser le package ggplot2 qui permet de réaliser et de personnaliser un grand nombre de représentations graphiques; Il est conseillé aux utilisateurs débutants d’utiliser l’add-in esquisse pour se familiariser avec ggplot2.</p>
+<p>Vous pouvez également accéder à <code>esquisse</code> en exécutant le code suivant:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(esquisse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">esquisser</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>L’objectif du <em>package</em> <code>ggplot2</code> est de fournir une approche unique pour produire quasiment toute représentation graphique de données. Ce <em>package</em> propose un grand nombre de fonctions permettant de personnaliser finement les représentations graphiques. Cette fiche n’est donc qu’une introduction succincte à <code>ggplot2</code>. Pour des formations plus détaillées, se référer à {#ggplot2Ressources}.</p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p><strong>La fonction essentielle de <code>ggplot2</code> est <code>ggplot()</code>.</strong> Il faut définir quatre éléments pour construire un graphique avec <code>ggplot()</code>:</p>
+<ul>
+<li>la <strong>table de données</strong> ;</li>
+<li>le <strong><em>mapping</em></strong> : on définit dans l’<em>aesthetic</em> (ou <code>aes</code>) le lien entre les variables des données et ce que l’on veut représenter sur le graphique (quelle variable sur l’axe <code>x</code>, sur l’axe <code>y</code>, quelle variable pour définir une graduation de couleurs…) ;</li>
+<li>la <strong>forme géométrique ou <em>geometry</em> </strong> : on définit la représentation graphique qu’on souhaite utiliser. Les géométries ont toutes un nom qui commence par <code>geom_</code>; par exemple, il faut utiliser la géométrie <code>geom_point()</code> pour réaliser un nuage de points;</li>
+<li>les <strong>paramètres</strong> : on définit les autres paramètres qui dépendent de constantes (par exemple : je veux que toutes mes lignes soient rouges ou de taille 2 pixels).</li>
+</ul>
+<p><strong>La construction d’un graphique repose sur le principe de couches successives.</strong> Les différentes couches graphiques se superposent et s’enchaînent grâce à l’<strong>opérateur <code>+</code></strong>, comme un pipe. Il est possible d’aller à la ligne dans une instruction <code>ggplot()</code>, il suffit que l’opérateur <code>+</code> figure à la fin de la ligne.</p>
+<p>Voici un exemple de code qui crée un nuage de points (géométrie <code>geom_point()</code>) à partir des données <code>mes_donnees</code>, avec les variables <code>variable1</code> en abscisse et <code>variable2</code> en ordonnée:</p>
+<details>
+<summary>
+<strong>Se mettre d’accord sur la trame qui sera le squelette du rapport</strong>
+</summary>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>## Warning: Use of `iris$Sepal.Length` is discouraged. Use `Sepal.Length` instead.</code></pre>
+<pre><code>## Warning: Use of `iris$Sepal.Width` is discouraged. Use `Sepal.Width` instead.</code></pre>
+<img src="02-ggplo2Rmd_files/figure-html/unnamed-chunk-3-1.png" width="672">
+</details>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mapping" class="level3">
+<h3 class="anchored" data-anchor-id="mapping">Le <em>mapping</em> et l’utilisation d’<code>aes()</code></h3>
+<p>Le <em>mapping</em> désigne dans <code>ggplot2</code> la relation entre un <strong>attribut graphique</strong> de la <code>geometry</code> (abscisse, ordonnée, couleur…) et <strong>une variable</strong> présente dans la table de données. On déclare le <em>mapping</em> grâce à la fonction <code>aes()</code> (pour <em>aesthetic</em>), qui sert donc à identifier les variables que l’on souhaite représenter sur le graphique.</p>
+<p><strong>Les arguments fondamentaux de <code>aes()</code> sont les variables représentées sur l’axe des abscisses et l’axe des ordonnées (<code>x</code> et <code>y</code>).</strong> Par exemple, on écrit <code>aes(x = niveau_vie_median, y = taux_chomage)</code> si l’on souhaite représenter pour chaque iris le taux de chômage (sur l’axe <code>y</code>) en fonction du niveau de vie médian (sur l’axe <code>x</code>).</p>
+<p>Par ailleurs, la fonction <code>aes()</code> admet d’autres arguments qui permettent de modifier l’apparence des attributs graphiques selon une troisième variable du jeu de données. Voici les arguments supplémentaires les plus courants:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Attribut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em><code>color</code></em></td>
+<td><em>Couleur des lignes ou des points</em></td>
+</tr>
+<tr class="even">
+<td><em><code>shape</code></em></td>
+<td><em>Forme des points</em></td>
+</tr>
+<tr class="odd">
+<td><em><code>size</code></em></td>
+<td><em>Taille des points</em></td>
+</tr>
+<tr class="even">
+<td><em><code>alpha</code></em></td>
+<td><em>Transparence des points</em></td>
+</tr>
+<tr class="odd">
+<td><em><code>fill</code></em></td>
+<td><em>Couleur des surfaces</em></td>
+</tr>
+<tr class="even">
+<td><em><code>linetype</code></em></td>
+<td><em>Type de ligne (continue, pointillée, …)</em></td>
+</tr>
+</tbody>
+</table>
+<p>Dans l’exemple qui suit, on représente pour chaque iris le taux de chômage (sur l’axe <code>y</code>) en fonction du niveau de vie médian (sur l’axe <code>x</code>), en colorant les points en fonction de la part des cadres et professions intellectuelles supérieures parmi les actifs de l’iris (<code>color = part_cadres</code>).</p>
+<p>Il est également possible d’utiliser ces mêmes arguments pour modifier un attribut graphique sans le lier à une variable. En ce cas, on définit l’attribut <strong>à l’extérieur de l’<em>aesthetic</em></strong> (donc à l’extérieur de <code>aes()</code>). Voici l’exemple précédent, modifié pour que tous les points soient (rouge), et non en fonction d’une variable. L’argument <code>color</code> est donc à l’extérieur de <code>aes()</code>.</p>
+<div class="remarque">
+<p>La notion de <em>mapping</em> et la définition des attributs graphiques à l’intérieur et à l’extérieur d’<code>aes()</code> sont une des principales difficultés de <code>ggplot2</code>. Il est normal de tâtonner lorsqu’on commence à les utiliser. Pour s’y retrouver, il suffit de suivre la règle suivante. <strong>Si on établit un lien entre les valeurs d’une variable et un attribut graphique, il s’agit d’un <em>mapping</em> qui doit être défini à <em>l’intérieur</em> de la fonction <code>aes()</code>. Dans le cas contraire, il s’agit d’un simple paramètre du graphique, qui doit être défini à <em>l’extérieur</em> de la fonction <code>aes()</code>.</strong></p>
+</div>
+</section>
+<section id="les-formes-géométriques" class="level3">
+<h3 class="anchored" data-anchor-id="les-formes-géométriques">Les formes géométriques</h3>
+<p>La forme géométrique ou <em>geometry</em> désigne le type de représentation graphique utilisée (nuage de points, histogrammes…). On spécifie le type de représentation que l’on souhait en utilisant une fonction dont le nom commence par <strong><code>geom_</code></strong>. Le tableau ci-dessous présente quelques représentations graphiques classiques.</p>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 32%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>geometry</em></th>
+<th>Description</th>
+<th>Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>geom_point()</code></td>
+<td>Nuage de points</td>
+<td><code>x</code>, <code>y</code>, <code>shape</code>, <code>fill</code>, <code>size</code></td>
+</tr>
+<tr class="even">
+<td><code>geom_line()</code></td>
+<td>Ligne</td>
+<td><code>x</code>, <code>y</code>, <code>linetype</code></td>
+</tr>
+<tr class="odd">
+<td><code>geom_bar()</code></td>
+<td>Diagramme en barres</td>
+<td><code>x</code>, <code>fill</code>, <code>linetype</code>, <code>weight</code></td>
+</tr>
+<tr class="even">
+<td><code>geom_histogram()</code></td>
+<td>Histogramme</td>
+<td><code>x</code>, <code>fill</code>, <code>linetype</code>, <code>weight</code></td>
+</tr>
+<tr class="odd">
+<td><code>geom_boxplot()</code></td>
+<td>Boîte à moustaches</td>
+<td><code>x</code>, <code>y</code>, <code>fill</code>, <code>weight</code></td>
+</tr>
+<tr class="even">
+<td><code>geom_density()</code></td>
+<td>Courbe de densité</td>
+<td><code>x</code>, <code>y</code>, <code>fill</code>, <code>color</code>, <code>linetype</code></td>
+</tr>
+</tbody>
+</table>
+<p>Voici deux exemples d’utilisation.</p>
+<div class="remarque">
+<p>Il existe un grand nombre de géométries dans <code>ggplot2</code>. Vous pouvez en afficher la liste en exécutant la commande <code>help.search("^geom_", package = "ggplot2")</code>.</p>
+<p>Par ailleurs, de très nombreux <em>packages</em> proposent encore d’autres géométries pour réaliser des représentations graphiques particulières (cartes avec <code>ggmap</code>, arbres généalogiques avec <code>ggtree</code> et <code>ggenealogy</code>, résultats d’élections avec <code>ggparliament</code>…).</p>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/romuanalyst.github.io/Website2/**");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

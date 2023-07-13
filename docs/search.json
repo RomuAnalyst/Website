@@ -1,0 +1,821 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "RomuAnalyst",
+    "section": "",
+    "text": "Cours d’introduction à  et Posit (ex-Rstudio)\n\n\nCours\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBIO\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBio\n\n\n\n\n\n\n\n\n2 derniers articles :\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nSous-titre\n\n\n\n\n\n\n12/07/23\n\n\nScraping et base Excel\n\n\nCollecte de données web et création de fichiers excel\n\n\n\n\n25/10/22\n\n\nShinylive Extension\n\n\nEmbed Shinylive applications in Quarto documents\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "R et Posit.html",
+    "href": "R et Posit.html",
+    "title": "R et son environnement",
+    "section": "",
+    "text": "Le logiciel R est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) R : cran.r-project.org.\nR est un langage interprété (comme Python) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple, on peut à partir d’une ligne de commande écrire :\n\n\nprint('Hello world!')\n\n[1] \"Hello world!\"\n\nPour simplifier son utilisation, il est possible d’écrire des scripts c’est à dire une suite de commandes qui se trouvent dans un fichier dont l’extension est .R mais on pourrait tout aussi bien les écrire dans un .txt.\nPour simplifier l’utilisation de R, il est nécessaire d’avoir une interface graphique (appelée aussi GUI pour Graphic User Interfaces). Celle offerte par R est très simpliste et beaucoup préfèrent utiliser RStudio (www.rstudio.com) à juste titre. Cet outil permet de réellement fluidifier le travail avec ce langage.\n\n\n\nLa fenêtre de RStudio se divise généralement en quatre sous-fenêtres. En partant de haut à gauche et en les parcourant dans le sens horaire on trouve :\n\nun éditeur de texte pour les scripts\nl’espace de travail ou d’historique de commandes\nle navigateur de fichiers, graphiques, packages, documentations\nla console R, c’est à dire la ligne de commande ainsi que les résultats des exécutions du code.\n\n\nTypiquement, on tape le code dans l’éditeur (1) puis on l’exécute. il se retrouve alors dans console. Pour cela on place le curseur dans la ligne qu’on veut exécuter et on envoie la commande à la console à l’aide de la combinaison ⌘ + ⏎ dans IOS et Ctrl + ⏎ sous Windows ou tout simplement à l’aide de la commande Run.\n\n\n\nR dispose d’une documentation très complète et l’aide en ligne peut être très utile pour l’utilisation de fonctions, librairies et jeux de données. On peut accéder directement à l’aide en tapant ? suivi par la fonction (ou autre instruction, jeu de données,…) sur laquelle on souhaite se renseigner :\n?mean\naffichera par exemple la page d’aide pour la fonction mean(). La commande\nhelp(mean)\naura le même effet.\nOn peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche R on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site Cross Validated).\nLe but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de R. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage R (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!\n\n\n\nL’une des premières utilisation est la création d’objets1, qui seront mis en mémoire pour l’utilisation dans de futur fonctions ou codes. Un objet peut être créé en utilisant “l’assignation”. Il s’agit d’assigner à un objet (lettre, mot, …) une valeur à l’aide d’une flèche (&lt;-) ou avec le signe =. Je préconise cependant d’utiliser l’assigantion par la “flèche”, cela permet d’avoir un code plus propre et de pouvoir différencier l’assignation et le code en lui même. Une fois l’objet créé nous pouvons afficher son contenu en tapant le nom de l’objet.1 Les objets sont en général des vecteurs, matrices, listes …, auxquels nous appliqueront des fonctions\nExemple :\n\n\nn &lt;- (20 + 10)/5       # création de n et assignation du résultat de l'opération\n\nn                      # appel de l'objet n pour affichage de sa valeur\n\n[1] 6\n\n\n\n\n\n\n\nAstuce\n\n\n\nLe chiffre 1 entre crochets indique qu’il s’agit du premier élément d’une série de n valeurs. Dans l’exemple précedent, la série comprend 1 valeur.\n\n\nLe nom d’un objet doit obligatoirement commencer par une lettre. Il peut être suivi de chiffres, de points, d’espace soulignés (_). De plus, le langage R fait la distinction entre les majuscules et les minuscules : n et N pourront servir à nommer/créer 2 objets distincts.\n\n\n\n\n\n\nImportant\n\n\n\nSi l’objet existe déja, sa valeur précédente est éffacée. C’est un annule et remplace.\n\n\n\n\n\nLes deux grands avantages de R est d’être gratuit et open source. De ce fait il jouit d’une communauté d’utilisateurs très active dans le monde scientifique (statistiques, science des données, bioinformatique, sciences sociales,…). Il est de plus très utilisé par la communauté scientifique et de plus en plus dans les entreprises.\nToute nouvelle méthode statistique a très rapidement une implémentation dans ce langage, ce qui n’est pas toujours le cas pour d’autres langages. Cela enrichi considérablement le logiciel et se fait à l’aide de ce qu’on appelle des paquets (ou packages ou library) Ces derniers sont développés par les utilisateurs et les développeurs. On peut les installer pour augmenter les capacités et possibilités du logiciel dans des domaines très variés de la statistique mais pas seulement en statistique. Il en existe un très grand nombre sur le site du CRAN : cran.r-project.org.\nPour installer un package:\ninstall.packages(\"dplyr\") # avec guillemets!\nUne fois un package installé, il faudra le charger en mémoire à chaque fois qu’une nouvelle session est ouverte:\nlibrary(dplyr) # sans guillemets!\nrequire(dplyr) # fonction équivalente\n\n\n\n\n\n\nAstuce\n\n\n\nLe # sert à commenter les instructions. Le texte/code situé après # (sur la même ligne) ne sera pas éxécuté, ce sera juste un commentaire.\n\n\nAsides allow you to place content objet from the content it is placed in. Asides look like footnotes, but do not include the footnote mark (the superscript number). This is a span that has the class objet which places it in the margin without a footnote number."
+  },
+  {
+    "objectID": "R et Posit.html#quest-ce-que",
+    "href": "R et Posit.html#quest-ce-que",
+    "title": "R et son environnement",
+    "section": "",
+    "text": "Le logiciel R est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) R : cran.r-project.org.\nR est un langage interprété (comme Python) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple, on peut à partir d’une ligne de commande écrire :\n\n\nprint('Hello world!')\n\n[1] \"Hello world!\"\n\nPour simplifier son utilisation, il est possible d’écrire des scripts c’est à dire une suite de commandes qui se trouvent dans un fichier dont l’extension est .R mais on pourrait tout aussi bien les écrire dans un .txt.\nPour simplifier l’utilisation de R, il est nécessaire d’avoir une interface graphique (appelée aussi GUI pour Graphic User Interfaces). Celle offerte par R est très simpliste et beaucoup préfèrent utiliser RStudio (www.rstudio.com) à juste titre. Cet outil permet de réellement fluidifier le travail avec ce langage."
+  },
+  {
+    "objectID": "R et Posit.html#prise-en-main-de-rstudio",
+    "href": "R et Posit.html#prise-en-main-de-rstudio",
+    "title": "R et son environnement",
+    "section": "",
+    "text": "La fenêtre de RStudio se divise généralement en quatre sous-fenêtres. En partant de haut à gauche et en les parcourant dans le sens horaire on trouve :\n\nun éditeur de texte pour les scripts\nl’espace de travail ou d’historique de commandes\nle navigateur de fichiers, graphiques, packages, documentations\nla console R, c’est à dire la ligne de commande ainsi que les résultats des exécutions du code.\n\n\nTypiquement, on tape le code dans l’éditeur (1) puis on l’exécute. il se retrouve alors dans console. Pour cela on place le curseur dans la ligne qu’on veut exécuter et on envoie la commande à la console à l’aide de la combinaison ⌘ + ⏎ dans IOS et Ctrl + ⏎ sous Windows ou tout simplement à l’aide de la commande Run."
+  },
+  {
+    "objectID": "R et Posit.html#laide-en-ligne",
+    "href": "R et Posit.html#laide-en-ligne",
+    "title": "R et son environnement",
+    "section": "",
+    "text": "R dispose d’une documentation très complète et l’aide en ligne peut être très utile pour l’utilisation de fonctions, librairies et jeux de données. On peut accéder directement à l’aide en tapant ? suivi par la fonction (ou autre instruction, jeu de données,…) sur laquelle on souhaite se renseigner :\n?mean\naffichera par exemple la page d’aide pour la fonction mean(). La commande\nhelp(mean)\naura le même effet.\nOn peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche R on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site Cross Validated).\nLe but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de R. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage R (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!"
+  },
+  {
+    "objectID": "R et Posit.html#utilisation-de-rrstudio",
+    "href": "R et Posit.html#utilisation-de-rrstudio",
+    "title": "R et son environnement",
+    "section": "",
+    "text": "L’une des premières utilisation est la création d’objets1, qui seront mis en mémoire pour l’utilisation dans de futur fonctions ou codes. Un objet peut être créé en utilisant “l’assignation”. Il s’agit d’assigner à un objet (lettre, mot, …) une valeur à l’aide d’une flèche (&lt;-) ou avec le signe =. Je préconise cependant d’utiliser l’assigantion par la “flèche”, cela permet d’avoir un code plus propre et de pouvoir différencier l’assignation et le code en lui même. Une fois l’objet créé nous pouvons afficher son contenu en tapant le nom de l’objet.1 Les objets sont en général des vecteurs, matrices, listes …, auxquels nous appliqueront des fonctions\nExemple :\n\n\nn &lt;- (20 + 10)/5       # création de n et assignation du résultat de l'opération\n\nn                      # appel de l'objet n pour affichage de sa valeur\n\n[1] 6\n\n\n\n\n\n\n\nAstuce\n\n\n\nLe chiffre 1 entre crochets indique qu’il s’agit du premier élément d’une série de n valeurs. Dans l’exemple précedent, la série comprend 1 valeur.\n\n\nLe nom d’un objet doit obligatoirement commencer par une lettre. Il peut être suivi de chiffres, de points, d’espace soulignés (_). De plus, le langage R fait la distinction entre les majuscules et les minuscules : n et N pourront servir à nommer/créer 2 objets distincts.\n\n\n\n\n\n\nImportant\n\n\n\nSi l’objet existe déja, sa valeur précédente est éffacée. C’est un annule et remplace."
+  },
+  {
+    "objectID": "R et Posit.html#les-packages",
+    "href": "R et Posit.html#les-packages",
+    "title": "R et son environnement",
+    "section": "",
+    "text": "Les deux grands avantages de R est d’être gratuit et open source. De ce fait il jouit d’une communauté d’utilisateurs très active dans le monde scientifique (statistiques, science des données, bioinformatique, sciences sociales,…). Il est de plus très utilisé par la communauté scientifique et de plus en plus dans les entreprises.\nToute nouvelle méthode statistique a très rapidement une implémentation dans ce langage, ce qui n’est pas toujours le cas pour d’autres langages. Cela enrichi considérablement le logiciel et se fait à l’aide de ce qu’on appelle des paquets (ou packages ou library) Ces derniers sont développés par les utilisateurs et les développeurs. On peut les installer pour augmenter les capacités et possibilités du logiciel dans des domaines très variés de la statistique mais pas seulement en statistique. Il en existe un très grand nombre sur le site du CRAN : cran.r-project.org.\nPour installer un package:\ninstall.packages(\"dplyr\") # avec guillemets!\nUne fois un package installé, il faudra le charger en mémoire à chaque fois qu’une nouvelle session est ouverte:\nlibrary(dplyr) # sans guillemets!\nrequire(dplyr) # fonction équivalente\n\n\n\n\n\n\nAstuce\n\n\n\nLe # sert à commenter les instructions. Le texte/code situé après # (sur la même ligne) ne sera pas éxécuté, ce sera juste un commentaire.\n\n\nAsides allow you to place content objet from the content it is placed in. Asides look like footnotes, but do not include the footnote mark (the superscript number). This is a span that has the class objet which places it in the margin without a footnote number."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": " et Posit",
+    "section": "",
+    "text": "Présentation, prise en main, en passant par le processus d’installation."
+  },
+  {
+    "objectID": "blog.html#tous-les-documents",
+    "href": "blog.html#tous-les-documents",
+    "title": " et Posit",
+    "section": "Tous les documents :",
+    "text": "Tous les documents :"
+  },
+  {
+    "objectID": "test2.html",
+    "href": "test2.html",
+    "title": "ggplot2, créer et superposer des graphiques",
+    "section": "",
+    "text": "ggplot2, créer et superposer des graphiques\n\n\n\n\n\n\n\n\nShortcode\nIcon\n\n\n\n\n{{&lt; fa thumbs-up &gt;}}\n\n\n\n{{&lt; fa folder &gt;}}\n\n\n\n{{&lt; fa chess-pawn &gt;}}\n\n\n\n{{&lt; fa brands bluetooth &gt;}}\n\n\n\n{{&lt; fa brands twitter size=2xl &gt;}} (HTML only)\n\n\n\n{{&lt; fa brands github size=5x &gt;}} (HTML only)\n\n\n\n{{&lt; fa battery-half size=Huge &gt;}}\n\n\n\n{{&lt; fa envelope title=\"An envelope\" &gt;}}\n\n\n\n\nLe but de la visualisation de données étant de représenter graphiquement des données brutes (ou quasi-brutes), il est souvent nécessaire de prendre en compte plusieurs variables. Nous devons donc aller plus loin que les graphiques de base (nuage de points, droite de regression, boite à moustache, diagramme en barres ou circulaires, …), pour les combiner par exemple.\nAvec le langage de base (package graphics notamment), il est possible de faire des graphiques évolués, mais avec beaucoup de paramétrages à la main. Pour cela on va commencer par s’intéresser au jeu de données mtcars.\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\n# ?mtcars ou help(mtcars)\nstr(mtcars)\n\n'data.frame':   32 obs. of  11 variables:\n $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...\n $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...\n $ disp: num  160 160 108 258 360 ...\n $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...\n $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...\n $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...\n $ qsec: num  16.5 17 18.6 19.4 17 ...\n $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...\n $ am  : num  1 1 1 0 0 0 0 0 0 0 ...\n $ gear: num  4 4 4 3 3 3 3 4 4 4 ...\n $ carb: num  4 4 1 1 2 1 4 2 2 4 ...\n\n\nplot(mtcars$hp,mtcars$mpg)\n\n\n\n\nEssayons d’améliorer ce graphique… Ci dessous, un exemple de graphique avancé, représentant 4 variables (trois quantitatives et une qualitative), ainsi qu’une explication succincte des différentes fonctions utilisées, et quelques paramètres de celles-ci.\npar(family = \"serif\", mar = c(5, 4, 2, 0)+.1)\ncouleurs_am = brewer.pal(3, \"Dark2\")\nplot(mpg ~ hp, \n     data = mtcars,\n     pch = 19,\n     cex = wt/3,\n     col = couleurs_am[mtcars$am+1],\n     main = \"Consommation en fonction de la Puissance\",\n     sub = \"Source : 1974 Motor Trend US magazine\", font.sub = 3, cex.sub = .8,\n     xlab = \"Puissance (en ch)\",\n     ylab = \"Consommation en Miles/Galon\",\n     bty = \"n\", axes = FALSE)\naxis(1, lwd = 0, lwd.ticks = .5)\nat.y = axis(2, lwd = 0, lwd.ticks = .5, labels = FALSE)\ntext(y = at.y, x = 35, labels = at.y, srt = 0, pos = 2, xpd = TRUE)\nl1 = legend(\"topright\", legend = c(\"Automatique\", \"Manuelle\"), \n       col = couleurs_am, bty = \"n\", cex = .8, pch = 19,\n       text.width = 50, text.col = couleurs_am, \n       title = \"Boite de vitesse\", title.col = \"black\")\nlegend(l1$rect$left, l1$rect$top-l1$rect$h-1, \n       legend = range(mtcars$wt), title = \"Poids  (1000 lbs)\",\n       pch = 19, pt.cex = range(mtcars$wt)/3, bty = \"n\", cex = .8, col = gray(.5),\n       text.width = 50, adj = -.25)\noutliers_hp = subset(mtcars, subset = hp &gt; 250)\ntext(outliers_hp$hp, outliers_hp$mpg, row.names(outliers_hp), pos = c(3, 2), cex = .8, font = 4)\noutliers_mpg = subset(mtcars, subset = mpg &gt; 30)\ntext(outliers_mpg$hp, outliers_mpg$mpg, row.names(outliers_mpg), pos = 4, cex = .8, font = 4)\n\n\n\n\n\nLa fonction par() permet de modifier les paramètres graphiques, tel que :\n\nmar pour les marges (un vecteur numérique de taille 4 qui permet de définir les tailles des marges dans l’ordre suivant : bas, gauche, haut, droite. Par défaut il vaut c(5.1, 4.1, 4.1, 2.1) )\nfamily pour la famille de police d’écriture\ncertains paramètres ci-après sont définissables globalement dans la fonction par(), ou localement dans les fonctions suivantes\n\nLes paramètres de la fonction plot()\n\npch : symbole utilisé pour chaque point (ici 19 indique un rond plein)\ncex : taille du point (ici en fonction de la variable wt)\ncol : couleur des points (ici en fonction de la variable am)\nmain, sub, xlab, ylab : resp. titre, sous-titre, intitulé en abscisse et intitulé en ordonnée\n*.sub : indication spécifique pour le sous-titre\nbty : type de la boite (ici n veut dire rien autour du graphique)\naxes : présence ou non des axes (non ici)\n\nLa fonction axis() qui permet d’ajouter un axe (1 : en abscisse, et 2 : en ordonnée)\n\nsi rien d’indiqué pour at, utilisation des ticks par défaut\nlwd : largeur de la ligne (ici non-présente)\nlwd.ticks : largeur des ticks (assez fine ici)\nrenvoie les valeurs des ticks\n\nLa fonction text() permet d’écrire du texte sur le graphique\n\nle x = 35 est choisi par expérience\nsrt : angle du texte\npos : ajustement du texte par rapport aux coordonnées indiquées\nxpd : permet d’écrire en dehors du graphique (dans les marges donc)\n\nLa fonction legend() permet d’ajouter une légende\n\nposition : soit \\((x,y)\\), soit chaine spécifique\nlegend : texte des items\ncol, bty, cex, pch : identique à précédemment\ntext.width et text.col : largeur du texte des items et couleur(s)\ntitle et title.col : titre de la légende (et couleur du titre)\nrenvoie une liste avec deux objets (rect qui contient des infos sur le rectangle occupé par la légende dans le graphique et text qui contient les coordonnées du texte des items)\npt.cex : taille des symboles\nadj: ajustement du texte\n\n\nL’utilisateur souhaite réaliser des graphiques (nuages de points, histogrammes, densité…) et les personnaliser (légendes, titres, échelles…).\nIl est recommandé d’utiliser le package ggplot2 qui permet de réaliser et de personnaliser un grand nombre de représentations graphiques; Il est conseillé aux utilisateurs débutants d’utiliser l’add-in esquisse pour se familiariser avec ggplot2.\nVous pouvez également accéder à esquisse en exécutant le code suivant:\nlibrary(esquisse)\nesquisser()\nL’objectif du package ggplot2 est de fournir une approche unique pour produire quasiment toute représentation graphique de données. Ce package propose un grand nombre de fonctions permettant de personnaliser finement les représentations graphiques. Cette fiche n’est donc qu’une introduction succincte à ggplot2. Pour des formations plus détaillées, se référer à {#ggplot2Ressources}.\n\nIntroduction\nLa fonction essentielle de ggplot2 est ggplot(). Il faut définir quatre éléments pour construire un graphique avec ggplot():\n\nla table de données ;\nle mapping : on définit dans l’aesthetic (ou aes) le lien entre les variables des données et ce que l’on veut représenter sur le graphique (quelle variable sur l’axe x, sur l’axe y, quelle variable pour définir une graduation de couleurs…) ;\nla forme géométrique ou geometry  : on définit la représentation graphique qu’on souhaite utiliser. Les géométries ont toutes un nom qui commence par geom_; par exemple, il faut utiliser la géométrie geom_point() pour réaliser un nuage de points;\nles paramètres : on définit les autres paramètres qui dépendent de constantes (par exemple : je veux que toutes mes lignes soient rouges ou de taille 2 pixels).\n\nLa construction d’un graphique repose sur le principe de couches successives. Les différentes couches graphiques se superposent et s’enchaînent grâce à l’opérateur +, comme un pipe. Il est possible d’aller à la ligne dans une instruction ggplot(), il suffit que l’opérateur + figure à la fin de la ligne.\nVoici un exemple de code qui crée un nuage de points (géométrie geom_point()) à partir des données mes_donnees, avec les variables variable1 en abscisse et variable2 en ordonnée:\n\n\nSe mettre d’accord sur la trame qui sera le squelette du rapport\n\nlibrary(ggplot2)\nggplot(data = iris) + \n  geom_point(mapping = aes(x = iris$Sepal.Length, y = iris$Sepal.Width))\n## Warning: Use of `iris$Sepal.Length` is discouraged. Use `Sepal.Length` instead.\n## Warning: Use of `iris$Sepal.Width` is discouraged. Use `Sepal.Width` instead.\n\n\nlibrary(ggplot2)\nggplot(data = iris) + \n  geom_point(mapping = aes(x = iris$Sepal.Length, y = iris$Sepal.Width))\n\n\nLe mapping et l’utilisation d’aes()\nLe mapping désigne dans ggplot2 la relation entre un attribut graphique de la geometry (abscisse, ordonnée, couleur…) et une variable présente dans la table de données. On déclare le mapping grâce à la fonction aes() (pour aesthetic), qui sert donc à identifier les variables que l’on souhaite représenter sur le graphique.\nLes arguments fondamentaux de aes() sont les variables représentées sur l’axe des abscisses et l’axe des ordonnées (x et y). Par exemple, on écrit aes(x = niveau_vie_median, y = taux_chomage) si l’on souhaite représenter pour chaque iris le taux de chômage (sur l’axe y) en fonction du niveau de vie médian (sur l’axe x).\nPar ailleurs, la fonction aes() admet d’autres arguments qui permettent de modifier l’apparence des attributs graphiques selon une troisième variable du jeu de données. Voici les arguments supplémentaires les plus courants:\n\n\n\nAttribut\nDescription\n\n\n\n\ncolor\nCouleur des lignes ou des points\n\n\nshape\nForme des points\n\n\nsize\nTaille des points\n\n\nalpha\nTransparence des points\n\n\nfill\nCouleur des surfaces\n\n\nlinetype\nType de ligne (continue, pointillée, …)\n\n\n\nDans l’exemple qui suit, on représente pour chaque iris le taux de chômage (sur l’axe y) en fonction du niveau de vie médian (sur l’axe x), en colorant les points en fonction de la part des cadres et professions intellectuelles supérieures parmi les actifs de l’iris (color = part_cadres).\nIl est également possible d’utiliser ces mêmes arguments pour modifier un attribut graphique sans le lier à une variable. En ce cas, on définit l’attribut à l’extérieur de l’aesthetic (donc à l’extérieur de aes()). Voici l’exemple précédent, modifié pour que tous les points soient (rouge), et non en fonction d’une variable. L’argument color est donc à l’extérieur de aes().\n\nLa notion de mapping et la définition des attributs graphiques à l’intérieur et à l’extérieur d’aes() sont une des principales difficultés de ggplot2. Il est normal de tâtonner lorsqu’on commence à les utiliser. Pour s’y retrouver, il suffit de suivre la règle suivante. Si on établit un lien entre les valeurs d’une variable et un attribut graphique, il s’agit d’un mapping qui doit être défini à l’intérieur de la fonction aes(). Dans le cas contraire, il s’agit d’un simple paramètre du graphique, qui doit être défini à l’extérieur de la fonction aes().\n\n\n\nLes formes géométriques\nLa forme géométrique ou geometry désigne le type de représentation graphique utilisée (nuage de points, histogrammes…). On spécifie le type de représentation que l’on souhait en utilisant une fonction dont le nom commence par geom_. Le tableau ci-dessous présente quelques représentations graphiques classiques.\n\n\n\n\n\n\n\n\ngeometry\nDescription\nArguments\n\n\n\n\ngeom_point()\nNuage de points\nx, y, shape, fill, size\n\n\ngeom_line()\nLigne\nx, y, linetype\n\n\ngeom_bar()\nDiagramme en barres\nx, fill, linetype, weight\n\n\ngeom_histogram()\nHistogramme\nx, fill, linetype, weight\n\n\ngeom_boxplot()\nBoîte à moustaches\nx, y, fill, weight\n\n\ngeom_density()\nCourbe de densité\nx, y, fill, color, linetype\n\n\n\nVoici deux exemples d’utilisation.\n\nIl existe un grand nombre de géométries dans ggplot2. Vous pouvez en afficher la liste en exécutant la commande help.search(\"^geom_\", package = \"ggplot2\").\nPar ailleurs, de très nombreux packages proposent encore d’autres géométries pour réaliser des représentations graphiques particulières (cartes avec ggmap, arbres généalogiques avec ggtree et ggenealogy, résultats d’élections avec ggparliament…)."
+  },
+  {
+    "objectID": "test2.html#quest-ce-que",
+    "href": "test2.html#quest-ce-que",
+    "title": "Présentation de R et de son environnement",
+    "section": "",
+    "text": "Le logiciel R est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) R : cran.r-project.org.\nR est un langage interprété (comme Python) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans qu’il soit besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple on peut à partir d’une ligne de commande écrire :\nprint('Hello world!')\n## [1] \"Hello world!\"\nPour simplifier son utilisation, il est possible d’écrire des scripts c’est à dire une suite de commandes qui se trouvent dans un fichier dont l’extension est .R mais on pourrait tout aussi bien les écrire dans un .txt.\nPour simplifier l’utilisation de R, il est nécessaire d’avoir une interface graphique (appelée aussi GUI pour Graphic User Interfaces). Celle offerte par R est très simpliste et beaucoup préfèrent utiliser RStudio (www.rstudio.com) à juste titre. Cet outil permet de réellement fluidifier le travail avec ce langage."
+  },
+  {
+    "objectID": "test2.html#prise-en-main-de-r-studio",
+    "href": "test2.html#prise-en-main-de-r-studio",
+    "title": "Présentation de R et de son environnement",
+    "section": "",
+    "text": "La fenêtre de RStudio se divise généralement en quatre sous-fenêtres: en partant de haut à gauche et en les parcourant dans le sens horaire on trouve :\n\nun éditeur de texte pour les scripts\nl’espace de travail ou d’historique de commandes\nle navigateur de fichiers, graphiques, packages, documentations\nla console R, c’est à dire la ligne de commande ainsi que les résultats des exécutions du code.\n\nTypiquement on tape le code dans l’éditeur et on l’exécute ensuite dans la console. Pour cela on place le curseur dans la ligne qu’on veut exécuter et on envoie la commande à la console à l’aide de la combinaison cmd Retour dans IOS et ctrl Retour sous Windows ou tout simplement à l’aide de la commande Run."
+  },
+  {
+    "objectID": "test2.html#laide-en-ligne",
+    "href": "test2.html#laide-en-ligne",
+    "title": "Présentation de R et de son environnement",
+    "section": "",
+    "text": "R dispose d’une documentation très complète et l’aide en ligne peut être très utile pour l’utilisation de fonctions, librairies et jeux de données. On peut accéder directement à l’aide en tapant ? suivi par la fonction (ou autre instruction, jeu de données,…) sur laquelle on souhaite se renseigner :\n?mean\naffichera par exemple la page d’aide pour la fonction mean(). La commande\nhelp(mean)\naura le même effet.\nOn peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche R on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site Cross Validated).\nLe but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de R. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage R (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!"
+  },
+  {
+    "objectID": "test2.html#packages",
+    "href": "test2.html#packages",
+    "title": "Présentation de R et de son environnement",
+    "section": "",
+    "text": "Les deux grands avantages de R est d’être gratuit et open source. De ce fait il jouit d’une communauté d’utilisateurs très active dans le monde scientifique (statistiques, science des données, bioinformatique, sciences sociales,…). Il est de plus très utilisé par la communauté scientifique et de plus en plus dans les entreprises.\nToute nouvelle méthode statistique a très rapidement une implémentation dans ce langage, ce qui n’est pas toujours le cas pour d’autres langages. Cela enrichi considérablement le logiciel et se fait à l’aide de ce qu’on appelle des paquets (ou packages ou library) Ces derniers sont développés par les utilisateurs et les développeurs. On peut les installer pour augmenter les capacités et possibilités du logiciel dans des domaines très variés de la statistique mais pas seulement en statistique. Il en existe un très grand nombre sur le site du CRAN : cran.r-project.org.\nPour installer un package:\ninstall.packages(\"dplyr\") \n# On telecharge et installe le package dplyr utilisé dans la manipulation de données\nUne fois un package installé, il faudra le charger en mémoire à chaque fois qu’une nouvelle session est ouverte:\nlibrary(dplyr) # sans guillemets!\nrequire(dplyr) # fonction équivalente\nImportant : il est à noter que # sert à commenter les instructions."
+  },
+  {
+    "objectID": "R et Posit.html#quest-ce-que-fa-brands-r-project",
+    "href": "R et Posit.html#quest-ce-que-fa-brands-r-project",
+    "title": "R et son environnement",
+    "section": "",
+    "text": "Le logiciel R est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) R : cran.r-project.org.\nR est un langage interprété (comme Python) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple, on peut à partir d’une ligne de commande écrire :\n\n\nprint('Hello world!')\n\n[1] \"Hello world!\"\n\nPour simplifier son utilisation, il est possible d’écrire des scripts c’est à dire une suite de commandes qui se trouvent dans un fichier dont l’extension est .R mais on pourrait tout aussi bien les écrire dans un .txt.\nPour simplifier l’utilisation de R, il est nécessaire d’avoir une interface graphique (appelée aussi GUI pour Graphic User Interfaces). Celle offerte par R est très simpliste et beaucoup préfèrent utiliser RStudio (www.rstudio.com) à juste titre. Cet outil permet de réellement fluidifier le travail avec ce langage."
+  },
+  {
+    "objectID": "About.html",
+    "href": "About.html",
+    "title": "Romuald ZAMI",
+    "section": "",
+    "text": "Pour obtenir des informations plus détaillées, je vous invite à me contacter en utilisant les liens fournis ci-dessus."
+  },
+  {
+    "objectID": "About.html#derniers-diplômes",
+    "href": "About.html#derniers-diplômes",
+    "title": "Romuald ZAMI",
+    "section": "Derniers diplômes :",
+    "text": "Derniers diplômes :\nDU1 Dataviz | IUT2 Paris Rives-de-Seine | 2022\nLicence Data Mining | IUT Paris Rives-de-Seine | 2022\nDUT3 STID4 | IUT Paris Rives-de-Seine | 2022"
+  },
+  {
+    "objectID": "About.html#experiences-actuelles",
+    "href": "About.html#experiences-actuelles",
+    "title": "Romuald ZAMI",
+    "section": "Experiences actuelles :",
+    "text": "Experiences actuelles :\nChargé d’analyse de données de pilotage  Direction générale de Pôle emploi | depuis janvier 2019\nIntervenant sur les cours de programmation R  IUT Paris Rives-de-Seine | depuis septembre 2022"
+  },
+  {
+    "objectID": "About.html#footnotes",
+    "href": "About.html#footnotes",
+    "title": "Romuald ZAMI",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nDiplôme Universitaire↩︎\nInstitut Universitaire et Technologique↩︎\nDiplôme Universitaire et Technologique↩︎\nStatistique et Traitement Informatique des Données↩︎"
+  },
+  {
+    "objectID": "About.html#fa-regular-diploma-derniers-diplômes",
+    "href": "About.html#fa-regular-diploma-derniers-diplômes",
+    "title": "Romuald ZAMI",
+    "section": "",
+    "text": "DU1 Dataviz | IUT2 Paris Rives-de-Seine | 2022\nLicence Data Mining | IUT Paris Rives-de-Seine | 2022\nDUT3 STID4 | IUT Paris Rives-de-Seine | 2022"
+  },
+  {
+    "objectID": "ia.html#syntaxe-des-fonctions",
+    "href": "ia.html#syntaxe-des-fonctions",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Syntaxe des fonctions",
+    "text": "Syntaxe des fonctions\nLa syntaxe générale d’une fonction en R est la suivante :\n\nnom_de_la_fonction &lt;- function(paramètres) {\n  # Corps de la fonction\n  # Instructions à exécuter\n  # ...\n  # Retourner une valeur si nécessaire\n  return(valeur)\n}\n\nUne fonction commence par le mot-clé function suivi du nom de la fonction, puis des paramètres entre parenthèses. Le corps de la fonction est entouré par des accolades {} et contient les instructions à exécuter. Une fonction peut également retourner une valeur à l’aide du mot-clé return."
+  },
+  {
+    "objectID": "ia.html#utilisation-des-fonctions",
+    "href": "ia.html#utilisation-des-fonctions",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Utilisation des fonctions",
+    "text": "Utilisation des fonctions\nPour utiliser une fonction, vous devez l’appeler en utilisant son nom suivi des arguments entre parenthèses. Les arguments sont les valeurs que vous fournissez à la fonction pour qu’elle effectue ses opérations. Voici un exemple d’utilisation d’une fonction intégrée à R :\n\n# Utilisation de la fonction mean() pour calculer la moyenne\nvaleurs &lt;- c(5, 10, 15, 20)\nmoyenne &lt;- mean(valeurs)\nprint(moyenne)\n\n[1] 12.5\n\n\nDans cet exemple, nous utilisons la fonction mean() pour calculer la moyenne des valeurs stockées dans le vecteur valeurs. Le résultat est stocké dans la variable moyenne et ensuite affiché à l’aide de la fonction print()."
+  },
+  {
+    "objectID": "ia.html#paramètres-des-fonctions",
+    "href": "ia.html#paramètres-des-fonctions",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Paramètres des fonctions",
+    "text": "Paramètres des fonctions\nLes fonctions peuvent accepter des paramètres, également appelés arguments, qui sont des valeurs fournies à la fonction lors de son appel. Les paramètres permettent de personnaliser le comportement d’une fonction en lui fournissant des données spécifiques à traiter. Par exemple, la fonction mean() accepte un paramètre na.rm qui spécifie si les valeurs manquantes doivent être ignorées lors du calcul de la moyenne. Voici un exemple d’utilisation de ce paramètre :\n\nvaleurs &lt;- c(5, 10, NA, 20)\nmoyenne &lt;- mean(valeurs, na.rm = TRUE)\nprint(moyenne)\n\n[1] 11.66667\n\n\nDans cet exemple, la valeur NA représente une valeur manquante. En spécifiant na.rm = TRUE, nous demandons à la fonction mean() d’ignorer les valeurs manquantes lors du calcul de la moyenne."
+  },
+  {
+    "objectID": "ia.html#retour-de-valeurs-des-fonctions",
+    "href": "ia.html#retour-de-valeurs-des-fonctions",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Retour de valeurs des fonctions",
+    "text": "Retour de valeurs des fonctions\nLes fonctions peuvent également retourner des valeurs qui peuvent être utilisées plus tard dans le code. Pour cela, nous utilisons le mot-clé return suivi de la valeur que nous souhaitons renvoyer. Voici un exemple :\n\n# Fonction pour calculer le carré d'un nombre\ncarre &lt;- function(x) {\n  resultat &lt;- x^2\n  return(resultat)\n}\n\n# Utilisation de la fonction carre()\nnombre &lt;- 5\nres &lt;- carre(nombre)\nprint(res)\n\n[1] 25\n\n\nDans cet exemple, nous avons défini une fonction carre() qui prend un argument x et calcule le carré de ce nombre. La valeur carrée est stockée dans la variable resultat, puis renvoyée à l’aide de return(). Lorsque nous appelons la fonction carre() avec le nombre 5, le résultat est stocké dans la variable res et ensuite affiché à l’aide de print()."
+  },
+  {
+    "objectID": "ia.html#exemples-dutilisation-de-fonctions-avec-des-datasets-intégrés-à-r",
+    "href": "ia.html#exemples-dutilisation-de-fonctions-avec-des-datasets-intégrés-à-r",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Exemples d’utilisation de fonctions avec des datasets intégrés à R",
+    "text": "Exemples d’utilisation de fonctions avec des datasets intégrés à R\nMaintenant, explorons des exemples concrets d’utilisation de fonctions avec des datasets intégrés à R pour illustrer leur utilité dans l’analyse de données.\n\nExemple 1 : Analyse du dataset iris\nLe dataset “iris” contient des informations sur les mesures des sépales et des pétales de différentes espèces de fleurs. Supposons que nous voulons calculer la moyenne des longueurs des pétales pour chaque espèce de fleur. Voici comment nous pouvons le faire en utilisant une fonction :\n\n# Chargement du dataset iris\ndata(iris)\n\n# Définition de la fonction pour calculer la moyenne des longueurs de pétales par espèce\ncalculer_moyenne_petales &lt;- function(espece) {\n  donnees_espece &lt;- subset(iris, Species == espece)\n  moyenne &lt;- mean(donnees_espece$Petal.Length)\n  return(moyenne)\n}\n\n# Utilisation de la fonction pour calculer la moyenne des longueurs de pétales pour chaque espèce\nespeces &lt;- unique(iris$Species)\nfor (espece in especes) {\n  moyenne &lt;- calculer_moyenne_petales(espece)\n  print(paste(\"Moyenne des longueurs de pétales pour\", espece, \":\", round(moyenne,2)))\n}\n\n[1] \"Moyenne des longueurs de pétales pour setosa : 1.46\"\n[1] \"Moyenne des longueurs de pétales pour versicolor : 4.26\"\n[1] \"Moyenne des longueurs de pétales pour virginica : 5.55\"\n\n\nDans cet exemple, nous avons défini une fonction calculer_moyenne_petales() qui prend le nom d’une espèce de fleur comme argument. La fonction filtre les données pour cette espèce, calcule la moyenne des longueurs de pétales et la renvoie. Ensuite, nous utilisons une boucle for pour itérer sur les différentes espèces du dataset “iris” et calculer la moyenne des longueurs de pétales pour chaque espèce.\n\n\nExemple 2 : Analyse du dataset mtcars\nLe dataset “mtcars” contient des informations sur différentes voitures. Supposons que nous voulons déterminer la consommation d’essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux. Voici comment nous pouvons le faire en utilisant une fonction :\n\n# Chargement du dataset mtcars\ndata(mtcars)\n\n# Définition de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux\ncalculer_consommation_moyenne &lt;- function(puissance_min) {\n  donnees_filtree &lt;- subset(mtcars, hp &gt; puissance_min)\n  consommation_moyenne &lt;- mean(donnees_filtree$mpg)\n  return(consommation_moyenne)\n}\n\n# Utilisation de la fonction pour calculer la consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux\npuissance_min &lt;- 150\nconsommation &lt;- calculer_consommation_moyenne(puissance_min)\nprint(paste(\"Consommation d'essence moyenne pour les voitures avec une puissance supérieure à\", puissance_min, \"chevaux :\", round(consommation,2)))\n\n[1] \"Consommation d'essence moyenne pour les voitures avec une puissance supérieure à 150 chevaux : 15.42\"\n\n\nDans cet exemple, nous avons défini une fonction calculer_consommation_moyenne() qui prend une puissance minimale en argument. La fonction filtre les données pour ne conserver que les voitures avec une puissance supérieure à la valeur donnée, calcule la consommation d’essence moyenne et la renvoie. Ensuite, nous utilisons la fonction print() pour afficher le résultat."
+  },
+  {
+    "objectID": "ia.html",
+    "href": "ia.html",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "",
+    "text": "Les fonctions sont l’un des éléments fondamentaux du langage de programmation R. Elles jouent un rôle clé dans l’organisation et la réutilisation du code, permettant aux programmeurs d’écrire des blocs de code autonomes qui peuvent être appelés et exécutés à plusieurs reprises. Dans cet article, nous explorerons les bases des fonctions dans R, leur syntaxe, leurs paramètres et leurs retours de valeur, ainsi que leur utilisation pratique avec des exemples concrets utilisant les datasets intégrés à R. Les fonctions sont un élément essentiel de R et permettent d’organiser et de réutiliser le code de manière efficace. Elles offrent une grande flexibilité et peuvent être adaptées à différents scénarios d’analyse de données. En comprenant les bases des fonctions, leur syntaxe, leurs paramètres et leurs retours de valeur, vous pourrez tirer pleinement parti de la puissance de R dans vos projets d’analyse de données."
+  },
+  {
+    "objectID": "ia.html#arguments-par-défaut",
+    "href": "ia.html#arguments-par-défaut",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Arguments par défaut",
+    "text": "Arguments par défaut\nLes fonctions en R peuvent avoir des arguments par défaut, ce qui signifie que si vous ne fournissez pas de valeur pour un argument donné lors de l’appel de la fonction, elle utilisera sa valeur par défaut prédéfinie. Voici un exemple :\n\n# Définition de la fonction avec un argument par défaut\ndire_bonjour &lt;- function(nom = \"Anonyme\") {\n  message(paste(\"Bonjour\", nom, \"!\"))\n}\n\n# Appels de la fonction avec et sans spécification de l'argument\ndire_bonjour()\ndire_bonjour(\"Alice\")\n\nDans cet exemple, la fonction dire_bonjour() est définie avec un argument nom qui a une valeur par défaut de “Anonyme”. Lorsque nous appelons la fonction sans spécifier d’argument, elle utilise la valeur par défaut et affiche “Bonjour Anonyme !”. Lorsque nous l’appelons avec l’argument “Alice”, la fonction utilise cette valeur spécifique et affiche “Bonjour Alice !”."
+  },
+  {
+    "objectID": "ia.html#fonctions-anonymes-lambda",
+    "href": "ia.html#fonctions-anonymes-lambda",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Fonctions anonymes (lambda)",
+    "text": "Fonctions anonymes (lambda)\nEn plus des fonctions nommées, R prend également en charge les fonctions anonymes, également appelées fonctions lambda. Les fonctions anonymes sont des fonctions sans nom qui peuvent être utilisées de manière concise dans certaines situations. Voici un exemple d’utilisation d’une fonction anonyme avec la fonction sapply() :\n\n# Utilisation d'une fonction anonyme avec sapply()\nvaleurs &lt;- c(1, 2, 3, 4, 5)\nresultats &lt;- sapply(valeurs, function(x) x^2)\nprint(resultats)\n\n[1]  1  4  9 16 25\n\n\nDans cet exemple, nous utilisons la fonction sapply() pour appliquer une fonction anonyme à chaque élément du vecteur valeurs. La fonction anonyme calcule le carré de chaque valeur, et sapply() renvoie un vecteur contenant les carrés correspondants."
+  },
+  {
+    "objectID": "ia.html#portée-des-variables",
+    "href": "ia.html#portée-des-variables",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Portée des variables",
+    "text": "Portée des variables\nLorsque vous travaillez avec des fonctions en R, il est important de comprendre la portée des variables. Les variables définies à l’intérieur d’une fonction sont généralement locales à cette fonction, ce qui signifie qu’elles ne sont pas accessibles en dehors de la fonction. Cependant, vous pouvez également accéder aux variables définies à l’extérieur d’une fonction à l’intérieur de celle-ci. Voici un exemple :\n\n# Variable globale\nnom &lt;- \"Alice\"\n\n# Fonction utilisant une variable globale et une variable locale\ndire_bonjour &lt;- function() {\n  # Variable locale\n  age &lt;- 30\n  message(paste(\"Bonjour\", nom, \"! Tu as\", age, \"ans.\"))\n}\n\n# Appel de la fonction\ndire_bonjour()\n\nDans cet exemple, nous avons une variable globale nom définie en dehors de la fonction dire_bonjour(), et une variable locale age définie à l’intérieur de la fonction. La fonction utilise à la fois la variable globale nom et la variable locale age pour afficher un message personnalisé."
+  },
+  {
+    "objectID": "ia.html#fonctions-récursives",
+    "href": "ia.html#fonctions-récursives",
+    "title": "Les fonctions dans R : Comprendre et utiliser la puissance des fonctions",
+    "section": "Fonctions récursives",
+    "text": "Fonctions récursives\nLes fonctions récursives sont des fonctions qui s’appellent elles-mêmes à l’intérieur de leur corps. Elles sont utiles lorsque vous avez besoin de résoudre des problèmes qui peuvent être décomposés en problèmes plus petits du même type. Voici un exemple de fonction récursive pour calculer le factoriel d’un nombre :\n\n# Fonction récursive pour calculer le factoriel\ncalculer_factoriel &lt;- function(n) {\n  if (n == 0 || n == 1) {\n    return(1)\n  } else {\n    return(n * calculer_factoriel(n - 1))\n  }\n}\n\n# Appel de la fonction pour calculer le factoriel de 5\nresultat &lt;- calculer_factoriel(5)\nprint(resultat)\n\n[1] 120\n\n\nDans cet exemple, la fonction calculer_factoriel() vérifie si le nombre n est égal à 0 ou 1. Si c’est le cas, elle renvoie 1. Sinon, elle appelle récursivement la fonction elle-même avec n - 1 et multiplie le résultat par n. Ainsi, elle calcule le factoriel du nombre donné.\nLes fonctions en R offrent une flexibilité et une puissance considérables pour organiser, réutiliser et automatiser le code. En comprenant les différents aspects des fonctions, vous pouvez créer des codes plus modulaires et plus efficaces."
+  },
+  {
+    "objectID": "ia2.html",
+    "href": "ia2.html",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "",
+    "text": "Il existe principalement deux types de boucles en R : la boucle “for” et la boucle “while”. Explorons-les plus en détail."
+  },
+  {
+    "objectID": "ia2.html#boucle-for",
+    "href": "ia2.html#boucle-for",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boucle “for”",
+    "text": "Boucle “for”\nLa boucle “for” est utilisée lorsque vous connaissez à l’avance le nombre de répétitions que vous souhaitez effectuer. La syntaxe générale de la boucle “for” en R est la suivante :\nfor (variable in sequence) {\n  # Instructions à exécuter\n}\nExplorons cela avec un exemple simple. Supposons que nous voulions afficher les nombres de 1 à 5 à l’aide d’une boucle “for”. Voici comment nous pouvons le faire en R :\n\nfor (i in 1:5) {\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n\n\nDans cette boucle, nous utilisons la variable “i” pour parcourir la séquence de nombres de 1 à 5 à l’aide de l’expression “1:5”. À chaque itération de la boucle, la valeur de “i” est mise à jour pour correspondre au nombre actuel de la séquence. À l’intérieur du bloc de la boucle, nous utilisons la fonction “print()” pour afficher la valeur de “i”. Ainsi, les nombres de 1 à 5 seront affichés à l’écran.\nVous pouvez également utiliser la fonction “seq()” pour créer une séquence personnalisée à utiliser dans une boucle “for”. Par exemple, si vous souhaitez afficher les nombres de 0 à 10 avec un pas de 2, vous pouvez utiliser la syntaxe suivante :\n\nfor (i in seq(0, 10, 2)) {\n  print(i)\n}\n\n[1] 0\n[1] 2\n[1] 4\n[1] 6\n[1] 8\n[1] 10\n\n\nDans cet exemple, la fonction “seq(0, 10, 2)” génère une séquence de nombres commençant par 0, se terminant par 10, et avec un pas de 2. Les nombres 0, 2, 4, 6, 8 et 10 seront affichés à l’écran."
+  },
+  {
+    "objectID": "ia2.html#boucle-while",
+    "href": "ia2.html#boucle-while",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boucle “while”",
+    "text": "Boucle “while”\nLa boucle “while” est utilisée lorsque vous ne connaissez pas à l’avance le nombre de répétitions que vous souhaitez effectuer. La boucle continuera à s’exécuter tant que la condition spécifiée est vraie. La syntaxe générale de la boucle “while” en R est la suivante :\nwhile (condition) {\n  # Instructions à exécuter\n}\nExplorons cela avec un exemple simple. Supposons que nous voulions afficher les nombres de 1 à 5 à l’aide d’une boucle “while”. Voici comment nous pouvons le faire en R :\n\ni &lt;- 1\nwhile (i &lt;= 5) {\n  print(i)\n  i &lt;- i + 1\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n\n\nDans cette boucle, nous utilisons une variable “i” pour garder une trace du nombre actuel que nous souhaitons afficher. La boucle continue à s’exécuter tant que “i” est inférieur ou égal à 5. À chaque itération, nous affichons la valeur de “i” à l’aide de la fonction “print()”, puis nous augmentons la valeur de “i” de 1 à l’aide de l’expression “i &lt;- i + 1”. Ainsi, les nombres de 1 à 5 seront affichés à l’écran.\nIl est important de s’assurer que la condition dans une boucle “while” finira par devenir fausse à un moment donné, sinon la boucle s’exécutera indéfiniment, entraînant une boucle infinie."
+  },
+  {
+    "objectID": "ia2.html#contrôle-de-boucle",
+    "href": "ia2.html#contrôle-de-boucle",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Contrôle de boucle",
+    "text": "Contrôle de boucle\nDans les boucles en R, vous pouvez utiliser des instructions spéciales pour contrôler le flux d’exécution à l’intérieur de la boucle. Voici quelques-unes des instructions couramment utilisées :\n\nL’instruction “break” est utilisée pour arrêter immédiatement l’exécution de la boucle et sortir de celle-ci.\nL’instruction “next” est utilisée pour passer à l’itération suivante de la boucle, en ignorant les instructions restantes dans le bloc de la boucle pour cette itération spécifique.\nL’instruction “return” est utilisée pour renvoyer une valeur et sortir de la fonction si la boucle est utilisée à l’intérieur d’une fonction.\n\nCes instructions vous permettent d’ajuster le comportement de votre boucle en fonction de conditions ou de critères spécifiques."
+  },
+  {
+    "objectID": "ia2.html#conclusion",
+    "href": "ia2.html#conclusion",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Conclusion",
+    "text": "Conclusion\nLes boucles sont des outils puissants en langage R qui permettent de répéter un bloc de code plusieurs fois. Les boucles “for” sont utilisées lorsque vous connaissez le nombre de répétitions à l’avance, tandis que les boucles “while” sont utilisées lorsque vous ne le connaissez pas à l’avance. Assurez-vous de bien contrôler vos boucles en utilisant les instructions “break”, “next” et “return” si nécessaire. Les boucles sont essentielles pour automatiser des tâches répétitives et rendre votre code plus efficace."
+  },
+  {
+    "objectID": "Shiny.html",
+    "href": "Shiny.html",
+    "title": "Shiny : Création d’applications web interactives en R",
+    "section": "",
+    "text": "R Shiny : librairie gratuite développée par R Studio, permettant le développement d’applications Web avec R.\nshinydashboard : développement aisé de tableaux de bord Web.\nStructure basée sur Admin LTE (exemple).\nFonctionnement général :\n\ncréer un répertoire dédié à l’application,\ndans ce répertoire, créer un fichier app.R (toujours ce nom) dans lequel seront chargées les librairies shiny et shinydashboard,\nle format shiny est reconnu par R Studio, qui propose des boutons dédiés,\nune fois le fichier app.R sauvegardé, le compiler avec le bouton Run App ou Reload App."
+  },
+  {
+    "objectID": "Shiny.html#applications-web-et-tableaux-de-bord",
+    "href": "Shiny.html#applications-web-et-tableaux-de-bord",
+    "title": "Shiny : Création d’applications web interactives en R",
+    "section": "",
+    "text": "R Shiny : librairie gratuite développée par R Studio, permettant le développement d’applications Web avec R.\nshinydashboard : développement aisé de tableaux de bord Web.\nStructure basée sur Admin LTE (exemple).\nFonctionnement général :\n\ncréer un répertoire dédié à l’application,\ndans ce répertoire, créer un fichier app.R (toujours ce nom) dans lequel seront chargées les librairies shiny et shinydashboard,\nle format shiny est reconnu par R Studio, qui propose des boutons dédiés,\nune fois le fichier app.R sauvegardé, le compiler avec le bouton Run App ou Reload App."
+  },
+  {
+    "objectID": "Shiny.html#bases-de-programmation",
+    "href": "Shiny.html#bases-de-programmation",
+    "title": "Shiny : Création d’applications web interactives en R",
+    "section": "Bases de programmation",
+    "text": "Bases de programmation\nLe squelette du fichier app.R doit contenir les lignes suivantes :\n\nlibrary(shiny)\n\nui = \nserver = function(input, output) {}\nshinyApp(ui = ui, server = server)\n\navec\n\nui (user interface) : contient tous les éléments visibles par l’utilisateur (inputs = entrées et ouputs = sorties),\nserver (serveur) : contient tous les éléments de calcul des sorties à partir des entrées renseignées par l’utilisateur.\nRemarque : possibilité de faire 3 fichiers app.R, ui.R et server.R."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-de-bord",
+    "href": "Shiny.html#tableaux-de-bord",
+    "title": "Shiny : Création d’applications web interactives en R",
+    "section": "Tableaux de bord",
+    "text": "Tableaux de bord\nPage (Page) de tableau de bord avec shinydashboard composée\n\nd’un bandeau (Header),\nd’une barre de menu verticale (Sidebar),\nd’un corps principal (Body), qui contient le rendu souhaité.\n\n\nlibrary(shiny)\nlibrary(shinydashboard)\n\nui = dashboardPage(\n    dashboardHeader(),\n    dashboardSidebar(),\n    dashboardBody(),\n    title = \"Titre dans le navigateur\",\n    skin = \"yellow\"\n  )"
+  },
+  {
+    "objectID": "Shiny.html#titre",
+    "href": "Shiny.html#titre",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Titre",
+    "text": "Titre\nTitre affiché sur la gauche du bandeau :\n\ndashboardHeader(\n      title = \"Ventes immobilières au Texas\",\n      titleWidth = 300\n    )\n\noù titlewidth règle la taille du texte."
+  },
+  {
+    "objectID": "Shiny.html#construction-de-lapplication",
+    "href": "Shiny.html#construction-de-lapplication",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Construction de l’application",
+    "text": "Construction de l’application\n\nQuelques fonctions utiles pour l’affichage (ui)\n\ntextOutput()\ntableOutput()\nplotOutput()\nimageOutput()\n\nQuelques fonctions utiles pour les calculs (server) : pour retourner différents types d’objets (graphiques, tableaux,textes, etc…).\n\nrenderText()\nrenderTable()\nrenderPlot()\nrenderImage()\n\nRemarque : les fonctions de types render necessitent parenthèses et accolades (renderText({}))"
+  },
+  {
+    "objectID": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output",
+    "href": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Exemple : création d’une page dynamique avec 1 output",
+    "text": "Exemple : création d’une page dynamique avec 1 output\nInsertion d’un curseur dans la barre de menu :\n\ndashboardSidebar(\n  # Input : nombre de classes ----\n  sliderInput(\"bins\",\n              label = \"Nombre de classes :\",\n              min = 1,\n              max = 50,\n              value = 30)\n    )\n\noù bins définit le nom de la valeur d’entrée indiquée par le curseur."
+  },
+  {
+    "objectID": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output-2",
+    "href": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Exemple : création d’une page dynamique avec 1 output (2)",
+    "text": "Exemple : création d’une page dynamique avec 1 output (2)\nRendu d’un histogramme dans le corps principal :\n\ndashboardBody(\n        # Output: histogramme ----\n        plotOutput(\"distPlot\")\n    )\n\noù distPlot définit le nom de la sortie à afficher, qui sera calculée dans la fonction server."
+  },
+  {
+    "objectID": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output-3",
+    "href": "Shiny.html#exemple-création-dune-page-dynamique-avec-1-output-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Exemple : création d’une page dynamique avec 1 output (3)",
+    "text": "Exemple : création d’une page dynamique avec 1 output (3)\n\nCharger la librairie ggplot2 au début du fichier app.R.\nCalcul de la sortie nommée displot dans le server :\n\n\nserver = function(input, output) {\n  output$distPlot = renderPlot({\n    ggplot(txhousing, aes(sales))+\n      geom_histogram(aes(y=..density..),\n                     bins=input$bins,\n                     colour = \"white\",\n                     fill = \"steelblue\"\n      )+\n      labs(x = \"Nombre de ventes\", \n           y = \"Densite\", \n           title = \"Histogramme du nombre de ventes\"\n      )+\n      theme_light()\n  })\n}"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-1-avec-shiny-shinydashboard-et-ggplot2",
+    "href": "Shiny.html#tp-exercice-1-avec-shiny-shinydashboard-et-ggplot2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 1 avec shiny, shinydashboard et ggplot2",
+    "text": "TP : Exercice 1 avec shiny, shinydashboard et ggplot2\n\nCréer un répertoire pour une application web concernant les Iris de Fisher\nCréer un fichier app.R dans ce répertoire avec les informations suivantes :\n\nui : titre, couleur, barre de menu avec une barre dynamique permettant de choisir le nombre de classes dans un histogramme, corps principal rendant l’output calculé dans server,\n\nserver : calcul et rendu avec ggplot2 de l’histogramme en densité de la longueur de Sépale, avec des bordures blanches et une couleur de remplissage bleue claire (indication : options color= et fill= dans la fonction geom_histogram())"
+  },
+  {
+    "objectID": "Shiny.html#a-faire",
+    "href": "Shiny.html#a-faire",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "A faire",
+    "text": "A faire\n\nDans le fichier app.R de l’application sur les ventes immobilières au Texas, effacer l’exemple simple.\nFaire de même dans le fichier app.R sur les Iris de Fisher."
+  },
+  {
+    "objectID": "Shiny.html#boîtes",
+    "href": "Shiny.html#boîtes",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîtes",
+    "text": "Boîtes\n\nshinydashboard : gestion des éléments du corps principal sous forme de boîtes.\n\nbox() : boîte générique, permettant notamment l’inclusion de graphiques.\ninfoBox() : boîte d’information courte, de type texte ou valeur numérique.\nvalueBox() : boîte d’information courte, de type valeur numérique.\ntabBox() : boîte tableau, avec possibilité de rendu de plusieurs panneaux (panels).\n\n\n\ndashboardBody(\n  box(),\n  infoBox(),\n  valueBox(),\n  tabBox()\n)\n\n\nGestion de l’aspect des boîtes via des options."
+  },
+  {
+    "objectID": "Shiny.html#boîte-générique",
+    "href": "Shiny.html#boîte-générique",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte générique",
+    "text": "Boîte générique\n\nExemple : affichage de l’évolution du volume des ventes immobilières au Texas entre 2000 et 2015.\nAjouter la boîte suivante dans le corps principal :\n\n\nbox(\n  title = \"Evolution du volume des ventes\",\n  footer = \"en US$\",\n  status = \"info\",\n  solidHeader = TRUE,\n  width = 8,\n  plotOutput(\"evolution\")\n  )\n\n\noù\n\ntitle donne un titre à la boîte,\nfooter met un texte en pied de page,\nstatus définit la couleur de la boîte (voir ?validStatuses),\nsolidHeader indique si le titre a une couleur de fond,\nwidth règle la taille de la boîte (de 1 à 12)."
+  },
+  {
+    "objectID": "Shiny.html#boîte-générique-2",
+    "href": "Shiny.html#boîte-générique-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte générique (2)",
+    "text": "Boîte générique (2)\n\nCalcul de l’évolution globale, à inclure au début du fichier, avant les définitions de ui et server :\n\n\nlibrary(dplyr)\nevol_globale = txhousing %&gt;%\n  group_by(year) %&gt;%\n  summarise(volume = sum(volume, na.rm = T))\n\n\nCalcul de la sortie evolution dans la fonction server :\n\n\nserver = function(input, output) {\n    output$evolution = renderPlot({\n      ggplot(evol_globale, aes(year, volume)) +\n        geom_line() +\n        theme_minimal() +\n        labs(x = \"Annee\", y = \"Volume des ventes\")\n    })\n  }"
+  },
+  {
+    "objectID": "Shiny.html#boîte-information",
+    "href": "Shiny.html#boîte-information",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte information",
+    "text": "Boîte information\n\nExemple : information sur la progression du volume des ventes.\nAjouter la boîte suivante dans le corps principal :\n\n\ninfoBox(\n  title = \"Progression\",\n  value = textOutput(\"progression\"),\n  subtitle = \"Entre 2000 et 2015\",\n  icon = icon(\"line-chart\"),\n  fill = TRUE,\n  color = \"light-blue\",\n  width = 4\n      )\n\n\noù\n\nvalue indique la valeur à afficher, ici un élément calculé,\nsubtitle ajoute un sous-titre à la boîte,\nicon définit l’icône à afficher à gauche de la boîte,\nfill indique si le texte remplit la boîte,\ncolor définit la couleur de la boîte."
+  },
+  {
+    "objectID": "Shiny.html#boîte-information-2",
+    "href": "Shiny.html#boîte-information-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte information (2)",
+    "text": "Boîte information (2)\nCalcul de la sortie progression : ajouter la ligne de commande suivante dans la fonction server\n\noutput$progression = renderText({\n  paste(round(\n    tail(evol_globale$volume, 1) / \n      head(evol_globale$volume, 1) * \n      100\n  ),\n  \"%\")\n})"
+  },
+  {
+    "objectID": "Shiny.html#boîte-valeur",
+    "href": "Shiny.html#boîte-valeur",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte valeur",
+    "text": "Boîte valeur\n\nExemple : affichage du volume total des ventes.\nAjouter la boîte suivante dans le corps principal :\n\n\nvalueBox(\n        value = textOutput(\"volume\"),\n        subtitle = \"Volume totale des ventes (en milliards)\",\n        icon = icon(\"usd\"),\n        color = \"green\",\n        width = 4\n      )\n\n\noù value est une valeur calculée."
+  },
+  {
+    "objectID": "Shiny.html#boîte-valeur-2",
+    "href": "Shiny.html#boîte-valeur-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte valeur (2)",
+    "text": "Boîte valeur (2)\nCalcul de la sortie volume : ajouter la ligne de commande suivante dans la fonction server\n\noutput$volume = renderText({\n      round(\n        sum(evol_globale$volume, na.rm = T) / 1e+9, 1\n        )\n    })"
+  },
+  {
+    "objectID": "Shiny.html#boîte-tableau",
+    "href": "Shiny.html#boîte-tableau",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte tableau",
+    "text": "Boîte tableau\n\nExemple : affichage d’un tableau résumant les informations sur le prix médian et le nombre de ventes.\nAjouter la boîte suivante dans le corps principal :\n\n\ntabBox(title = \"Informations\",\n        width = 4,\n        tabPanel(title = \"Prix médian\", \n          tableOutput(\"info_prix\")\n          ),\n        tabPanel(title = \"Nombre\",\n          tableOutput(\"info_nombre\")\n          )\n      )\n\n\noù tabPanel() définit un panneau, dans lequel la sortie est affichée, généralement calculée dans server sous forme de data.frame."
+  },
+  {
+    "objectID": "Shiny.html#boîte-tableau-2",
+    "href": "Shiny.html#boîte-tableau-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte tableau (2)",
+    "text": "Boîte tableau (2)\nCalcul de la sortie info_prix : ajouter la ligne de commande suivante dans la fonction server\n\noutput$info_prix = renderTable({\n      data.frame(\n        Statistique = c(\"Minimum\", \"Médiane\", \"Maximum\"),\n        Valeur = c(\n          min(txhousing$median, na.rm = T),\n          median(txhousing$median, na.rm = T),\n          max(txhousing$median, na.rm = T)\n        )\n      )\n    })"
+  },
+  {
+    "objectID": "Shiny.html#boîte-tableau-3",
+    "href": "Shiny.html#boîte-tableau-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Boîte tableau (3)",
+    "text": "Boîte tableau (3)\nCalcul de la sortie info_nombre : ajouter la ligne de commande suivante dans la fonction server\n\noutput$info_nombre = renderTable({\n      data.frame(\n        Statistique = c(\"Minimum\", \"Médiane\", \"Maximum\"),\n        Valeur = c(\n          min(txhousing$sales, na.rm = T),\n          median(txhousing$sales, na.rm = T),\n          max(txhousing$sales, na.rm = T)\n        )\n      )\n    })"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-2-avec-shiny-shinydashboard-dplyr-et-ggplot2",
+    "href": "Shiny.html#tp-exercice-2-avec-shiny-shinydashboard-dplyr-et-ggplot2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 2 avec shiny, shinydashboard, dplyr et ggplot2",
+    "text": "TP : Exercice 2 avec shiny, shinydashboard, dplyr et ggplot2\n\nReprendre l’application sur les Iris de Fisher.\nCréer une page affichant les informations suivantes :\n\nune boîte donnant les informations sur les données (nombre d’observations, nombre d’iris de chaque espèce, et toute information utile),\nune boîte donnant les informations sur les variables,\nune boîte affichant le diagramme circulaire de la distribution des espèces (voir les TPs sur la visualisation de données),\nune boîte affichant un tableau résumant les données par espèce, avec un panneau par variable.\n\nVoir ici pour une liste d’icônes.\nRappel : charger les librairies et effectuer le calcul de tout élément utile à la fonction server en début de code dans le fichier app.R."
+  },
+  {
+    "objectID": "Shiny.html#menus",
+    "href": "Shiny.html#menus",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Menus",
+    "text": "Menus\n\nPossibilité d’avoir plusieurs pages de tableau de bord, cliquables à partir du menu à gauche.\nSquelette de dashboardSidebar :\n\n\ndashboardSidebar(\n  sidebarMenu(\n    menuItem(\"titre\", \n             tabName = \"nom\", \n             icon = icon(\"dashboard\")\n             )\n  )\n)\n\n\noù\n\ntitre = nom apparaissant dans le menu, et icon l’icône associée,\nnom = nom donné à la page permettant d’associer le lien du menu à la page correspondante dans le corps principal."
+  },
+  {
+    "objectID": "Shiny.html#menus-2",
+    "href": "Shiny.html#menus-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Menus (2)",
+    "text": "Menus (2)\n\nCréation d’une page par élément du menu dans le corps principal :\n\n\ndashboardBody(\n  tabItems(\n        tabItem(\n          \"nom\",\n          ...\n        )\n  )\n)\n\n\noù nom permet de faire le lien entre la page et l’élément du menu correspondant."
+  },
+  {
+    "objectID": "Shiny.html#menus-3",
+    "href": "Shiny.html#menus-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Menus (3)",
+    "text": "Menus (3)\n\nExemple : ajout de deux liens dans le menu\n\n\ndashboardSidebar(\n      sidebarMenu(\n        menuItem(\"Vue globale\", tabName = \"vue\", \n                 icon = icon(\"dashboard\")\n                 ),\n        menuItem(\"Données\", \n                 icon = icon(\"database\"), \n                 href = \"https://www.recenter.tamu.edu/\"\n                 ),\n        menuItem(\"Liste des icônes\", \n                 icon = icon(\"font-awesome\"), \n                 href = \"http://fontawesome.io/icons/\"\n                 )\n      )\n    )"
+  },
+  {
+    "objectID": "Shiny.html#menus-4",
+    "href": "Shiny.html#menus-4",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Menus (4)",
+    "text": "Menus (4)\n\nExemple : relier le lien de menu nommé vue à la page créée précédemment :\n\n\ndashboardBody(\n      tabItems(\n        tabItem(\n          \"vue\",\n          \"coller ici les boîtes\"\n        )\n        )\n      )"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-3-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "href": "Shiny.html#tp-exercice-3-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 3 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats",
+    "text": "TP : Exercice 3 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats\n\nReprendre l’application sur les Iris de Fisher.\nCréer un menu avec deux éléments :\n\nun élément de résumé global,\nun élément concernant la description des variables.\n\nIntégrer la page calculée précédemment dans l’élément de résumé global.\nCréer une page pour l’élément de description de la variable Sepal.Length contenant\n\nl’histogramme en densité,\nles histogrammes en densité (sur le même graphique), un par espèce d’iris,\nla distribution par espèce sous forme de boîtes à moustaches, avec les moyennes et les barres d’erreur, classées par ordre croissant de la moyenne.\n\nIndication : pour les différents graphiques, reprendre les codes des TPs sur la visualisation de données."
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur",
+    "href": "Shiny.html#interaction-avec-lutilisateur",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur",
+    "text": "Interaction avec l’utilisateur\n\nPossibilité d’ajouter des boîtes, ou d’inclure dans une boîte, un choix (control widget) rentré par l’utilisateur.\nChoix géré dans l’application sous forme d’input.\nSous forme de curseur, de choix dans une liste, de rentrée d’un chiffre, etc…\nPour une liste des choix les plus communs, voir ici.\nChoix gérés par la fonction selectInput(), à intégrer dans l’ui à la place voulue (dans le menu, dans le corps principal, dans une boîte, etc…)."
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-2",
+    "href": "Shiny.html#interaction-avec-lutilisateur-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (2)",
+    "text": "Interaction avec l’utilisateur (2)\n\nExemple : ajouter une boîte contenant un choix déroulant des villes dans le corps principal, sous la première boîte\n\n\nbox(\n  width = 4,\n  selectInput(\"ville\", \n              \"Ville choisie\", \n              choices = c(\n                \"Toutes les villes\", \n                unique(txhousing$city)\n                )\n              )\n          )\n\n\noù :\n\nville est le nom de l’input, qui sera repris dans la fonction server,\nVille choisie est le nom associé à la boîte."
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-3",
+    "href": "Shiny.html#interaction-avec-lutilisateur-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (3)",
+    "text": "Interaction avec l’utilisateur (3)\n\nExemple : changer le calcul de la sortie evolution dans la fonction server\n\n\noutput$evolution = renderPlot({\n      if (input$ville == \"Toutes les villes\") {\n        evol = evol_globale\n      } else {\n        evol = txhousing %&gt;%\n          filter(city == input$ville) %&gt;%\n          group_by(year) %&gt;%\n          summarise(volume = sum(volume, na.rm = T))\n      }\n      ggplot(evol, aes(year, volume)) +\n        geom_line() +\n        theme_minimal() +\n        labs(x = \"\", y = \"Volume des ventes\")\n    })"
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-4",
+    "href": "Shiny.html#interaction-avec-lutilisateur-4",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (4)",
+    "text": "Interaction avec l’utilisateur (4)\n\nExemple : changer le calcul de la sortie progression dans la fonction server\n\n\noutput$progression = renderText({\n      if (input$ville == \"Toutes les villes\") {\n        evol = evol_globale\n      } else {\n        evol = txhousing %&gt;%\n          filter(city == input$ville) %&gt;%\n          group_by(year) %&gt;%\n          summarise(volume = sum(volume, na.rm = T))\n      }\n      paste(round(tail(evol$volume, 1) / \n                    head(evol$volume, 1) * 100),\n            \"%\")\n    })"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-4-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "href": "Shiny.html#tp-exercice-4-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 4 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats",
+    "text": "TP : Exercice 4 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats\n\nReprendre l’application sur les Iris de Fisher.\nSur la page “description”, ajouter :\n\nune boîte avec un curseur permettant de choisir le nombre de classes dans les deux histogrammes,\nune boîte permettant de choisir la variable à décrire parmi les 4 variables de mesures de Sépales et de Pétales, et rendant les mêmes graphiques que pour la variable Sepal.Length seule."
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-5",
+    "href": "Shiny.html#interaction-avec-lutilisateur-5",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (5)",
+    "text": "Interaction avec l’utilisateur (5)\n\nVariable reactive() : une fois l’input choisi, permet le calcul une seule fois d’un même élément pour plusieurs output.\nExemple : ajouter la variable reactive() suivante dans la fonction server\n\n\ndonnees = reactive({\n      if (input$ville == \"Toutes les villes\") {\n        evol = evol_globale\n      } else {\n        evol = txhousing %&gt;%\n          filter(city == input$ville) %&gt;%\n          group_by(year) %&gt;%\n          summarise(volume = sum(volume, na.rm = T))\n      }\n      evol\n    })"
+  },
+  {
+    "objectID": "Shiny.html#interaction-avec-lutilisateur-6",
+    "href": "Shiny.html#interaction-avec-lutilisateur-6",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Interaction avec l’utilisateur (6)",
+    "text": "Interaction avec l’utilisateur (6)\n\nExemple (suite) : dans le calcul des output, changer evol par donnees()\n\n\noutput$evolution = renderPlot({\n  ggplot(donnees(), aes(year, volume)) +\n    geom_line() +\n    theme_minimal() +\n    labs(x = \"\", y = \"Volume des ventes\")\n})\n    \noutput$progression = renderText({\n  evol = donnees()\n  paste(round(\n    tail(evol$volume, 1) /\n      head(evol$volume, 1) * 100\n      ), \n    \"%\")\n})"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-5-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "href": "Shiny.html#tp-exercice-5-avec-shiny-shinydashboard-dplyr-ggplot2-scales-et-forcats",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 5 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats",
+    "text": "TP : Exercice 5 avec shiny, shinydashboard, dplyr, ggplot2, scales et forcats\n\nReprendre l’application sur les Iris de Fisher.\nCréer une variable reactive() permettant de fixer la variable choisie sur la page “description” pour les 3 graphiques représentés.\nIndication : afin de gérer les noms de variables à la fois avec ggplot et dplyr, utiliser la fonction aes_string() dans ggplot (voir l’aide)."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée",
+    "href": "Shiny.html#tableaux-présentation-améliorée",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée",
+    "text": "Tableaux : présentation améliorée\n\nLibrairie DT :\n\ngénération de tableaux paramétrables,\nmeilleure gestion des grandes tables de données,\nprésentations plus intéressantes (et interactives).\n\nGénération du tableau avec la fonction datatable() :\n\n\ndatatable(tableau)\n\noù tableau est le tableau à afficher, de type data.frame.\n\nRendu de la sortie (output) avec la fonction renderDataTable({})\n\n\nrenderDataTable({\n    datatable(tableau)\n  })\n\n\nDocumentation consultable sur https://rstudio.github.io/DT/."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-2",
+    "href": "Shiny.html#tableaux-présentation-améliorée-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (2)",
+    "text": "Tableaux : présentation améliorée (2)\n\nExemple : ajouter la table de données dans le menu (dashboardSidebar()), associé à la page donnees\n\n\nmenuItem(\"Tableau\", tabName = \"donnees\",\n        icon = icon(\"table\")\n      )\n\n\nDéfinir la page “donnees” (dans dashboardBody())\n\n\ntabItem(\n        \"donnees\",\n        dataTableOutput(\"tableau\")\n      )\n\n\nDans la fonction server(), calculer la sortie tableau\n\n\noutput$tableau &lt;- renderDataTable({\n    datatable(txhousing)\n  })"
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-3",
+    "href": "Shiny.html#tableaux-présentation-améliorée-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (3)",
+    "text": "Tableaux : présentation améliorée (3)\nQuelques options utiles de la fonction datatable() :\n\nrownames = FALSE : supprime les noms des lignes,\ncolnames = c(‘nouveau nom’ = ‘nom d’origine’, …) : change les noms des variables d’origine indiquées dans le tableau en de nouveaux noms,\ncaption = ‘titre’ : ajoute un titre au tableau,\nfilter = xxx : ajoute un filtre sur les colonnes, où\n\nxxx = ‘none’ =&gt; pas de filtre,\nxxx = ‘top’ =&gt; filtre positionné en haut du tableau,\nxxx = ‘bottom’ =&gt; filtre positionné en bas du tableau."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-4",
+    "href": "Shiny.html#tableaux-présentation-améliorée-4",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (4)",
+    "text": "Tableaux : présentation améliorée (4)\n\nExemple : supprimer les noms des lignes, ajouter un titre, changer les noms de 3 variables, ajouter un filtre dans la sortie tableau\n\n\noutput$tableau &lt;- renderDataTable({\n  datatable(txhousing,\n            rownames = FALSE, \n            colnames = c('Ville' = 'city', \n                         'Année' = 'year', \n                         'Mois' = 'month'),\n            caption = \"Données concernant \n            les ventes immobilières au Texas\n            - 2000-2015\",\n            filter = 'top')\n  })"
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-5",
+    "href": "Shiny.html#tableaux-présentation-améliorée-5",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (5)",
+    "text": "Tableaux : présentation améliorée (5)\n\nPossibilité de formater une ou plusieurs colonnes :\n\nformatStyle() : fromatage du style (couleur de fond, couleur du texte, police, etc…),\nformatCurrency() : formatage monétaire,\nformatDate() : formatage de la date.\n\nPossibilité de colorer suivant les valeurs dans une colonne avec styleColorBar()."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-6",
+    "href": "Shiny.html#tableaux-présentation-améliorée-6",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (6)",
+    "text": "Tableaux : présentation améliorée (6)\n\nExemple : formater le tableau issu de la fonction datatable() :\n\n\nlibrary(lubridate)\ndatatable(txhousing %&gt;%\n            mutate(date = date_decimal(date))\n) %&gt;%\n  formatCurrency(c(\"volume\", \"median\")) %&gt;%\n  formatDate(\"date\", \"toLocaleDateString\") %&gt;%\n  formatStyle('city',\n              color = 'white',\n              backgroundColor = 'slategrey',\n              fontWeight = 'bold') %&gt;%\n  formatStyle('median',\n              background = styleColorBar(\n                range(txhousing$median, na.rm = TRUE),\n                'lightblue')\n  )"
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-7",
+    "href": "Shiny.html#tableaux-présentation-améliorée-7",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (7)",
+    "text": "Tableaux : présentation améliorée (7)\n\nQuelques extensions de la fonction datatable() :\n\nextensions = ‘Button’ : affiche un bouton permettant de télécharger le tableau de données,\nextensions = ‘FixedColumns’ : fixe des colonnes, et permet le scrolling lorsque toutes les colonnes ne sont pas visibles.\n\nOptions pour les extensions, sous la forme options = list() :\n\ndom =  : définit dans quel ordre apparaissent les éléments additionnels (boutons ou scrolling),\nbuttons = c(‘copy’, ‘csv’, ‘excel’, ‘pdf’, ‘print’) : boutons proposés pour le format du fichier téléchargé,\nscrollX = TRUE : permet le scrolling sur les colonnes,\nfixedColumns = list(leftColumns = a, rightColumns = b) : nombre de colonnes fixes à gauche (=a), et à droite (=b) lorsque l’on scroll.\n\nUne liste des extensions possibles est consultable sur cette page."
+  },
+  {
+    "objectID": "Shiny.html#tableaux-présentation-améliorée-8",
+    "href": "Shiny.html#tableaux-présentation-améliorée-8",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Tableaux : présentation améliorée (8)",
+    "text": "Tableaux : présentation améliorée (8)\n\nExemple : ajouter une barre de scrolling sur le tableau\n\n\ndatatable(\n  txhousing,\n  rownames = FALSE,\n  extensions = 'FixedColumns',\n  options = list(\n    dom = 't',\n    scrollX = TRUE,\n    fixedColumns = list(leftColumns = 1, rightColumns = 1)\n  )\n)"
+  },
+  {
+    "objectID": "Shiny.html#tp-exercice-6-avec-shiny-shinydashboard-dplyr-ggplot2-scales-forcats-et-dt",
+    "href": "Shiny.html#tp-exercice-6-avec-shiny-shinydashboard-dplyr-ggplot2-scales-forcats-et-dt",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "TP : Exercice 6 avec shiny, shinydashboard, dplyr, ggplot2, scales, forcats et DT",
+    "text": "TP : Exercice 6 avec shiny, shinydashboard, dplyr, ggplot2, scales, forcats et DT\n\nReprendre l’application sur les Iris de Fisher.\nAvec la librairie DT, améliorer le tableau résumant les variables sur la page “résumé global” :\n\nChanger les noms des variables afin d’obtenir un tableau plus lisible,\nchanger la couleur de fond, la fonte et la couleur de texte de la colonne concernant les espèces."
+  },
+  {
+    "objectID": "Shiny.html#cartes-choroplèthes-avec-leaflet",
+    "href": "Shiny.html#cartes-choroplèthes-avec-leaflet",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Cartes choroplèthes avec leaflet",
+    "text": "Cartes choroplèthes avec leaflet\n\nGénération de cartes avec leaflet.\nDans la fonction ui() et dashboarBody(), la commande de rendu est\n\n\nleafletOutput(\"nom\")\n\noù nom est le nom de l’output souhaité.\n\nDans la fonction server(), la commande de calcul est\n\n\nlibrary(leaflet)\nnom$output = renderLeaflet({\n  leaflet() %&gt;%\n    addTiles() %&gt;%\n    addPolygons()\n})"
+  },
+  {
+    "objectID": "Shiny.html#cartes-choroplèthes-avec-leaflet-2",
+    "href": "Shiny.html#cartes-choroplèthes-avec-leaflet-2",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Cartes choroplèthes avec leaflet (2)",
+    "text": "Cartes choroplèthes avec leaflet (2)\n\nExemple : Calcul de la carte couleurs fonction de la somme des volumes des ventes, en amont des fonctions ui() et server().\nCalcul des éléments et de la palette de couleurs :\n\n\nresume = txhousing %&gt;%\n  group_by(city) %&gt;%\n  summarise(volume = sum(volume, na.rm = TRUE))\n\ntxgeo = geojson_read(\"texas-city.geojson\", what = \"sp\")\ntxgeo = subset(txgeo, sub(\", TX\", \"\", name) %in% \n                unique(txhousing$city))\n\ntxgeo@data$city = sub(\", TX\", \"\", txgeo@data$name)\ntxgeo@data = txgeo@data %&gt;% \n  left_join(resume, all.x = TRUE)\n\npal = colorNumeric(\"viridis\", NULL)"
+  },
+  {
+    "objectID": "Shiny.html#cartes-choroplèthes-avec-leaflet-3",
+    "href": "Shiny.html#cartes-choroplèthes-avec-leaflet-3",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Cartes choroplèthes avec leaflet (3)",
+    "text": "Cartes choroplèthes avec leaflet (3)\n\nCalcul de la carte (toujours en amont des fonctions ui() et server()) :\n\n\nmap = leaflet(txgeo) %&gt;%\n  addTiles() %&gt;%\n  addPolygons(fillColor = ~pal(volume), \n              fillOpacity = .5, \n              color = \"red\", weight = 1,\n              label = ~paste0(\n                city, \": \", \n                formatC(volume, big.mark = \",\")\n                )\n              ) %&gt;%\n  addLegend(pal = pal, values = ~volume, opacity = 1.0,\n            labFormat = labelFormat(\n              transform = function(x) round(x)\n              )\n            )"
+  },
+  {
+    "objectID": "Shiny.html#cartes-choroplèthes-avec-leaflet-3-1",
+    "href": "Shiny.html#cartes-choroplèthes-avec-leaflet-3-1",
+    "title": "Les boucles dans R : Comprendre et utiliser la puissance des boucles",
+    "section": "Cartes choroplèthes avec leaflet (3)",
+    "text": "Cartes choroplèthes avec leaflet (3)\n\nAjout de la carte dans un menu dans dashboardSidebar(),\n\n\nmenuItem(\"Carte\", tabName = \"carte\",\n        icon = icon(\"map\")\n      )\n\n\nAjout de la carte sur une page dans dashboardBody(),\n\n\ntabItem(\n        \"carte\",\n        leafletOutput(\"carte\")\n      )\n\n\net calcul dans server().\n\n\noutput$carte = renderLeaflet({\n  map\n})"
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/index.html",
+    "href": "posts/2022-02-15-feature-tables/index.html",
+    "title": "Scraping et base Excel",
+    "section": "",
+    "text": "Le scraping (ou web scraping) est le processus de collecte automatique de données à partir de sites web en utilisant des logiciels ou des scripts. Il permet d’extraire des informations telles que des textes, des images, des prix, etc. à partir de pages web. Dans notre exemple, nous utiliserons un script R pour que cette collecte nous crée notre base de données\nQuarto includes a number of features aimed at making it easy to to author and customize markdown table output, including:\nThis post provides an overview of these capabilities in Quarto. For more detail about all the features Quarto for authoring tables, see Tables."
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/index.html#markdown-tables",
+    "href": "posts/2022-02-15-feature-tables/index.html#markdown-tables",
+    "title": "Scraping et base Excel",
+    "section": "Markdown Tables",
+    "text": "Markdown Tables\nThe most commonly used markdown table is known as a pipe table. Pipe tables support specifying per column alignment as well as captions. For example:\n| Default | Left | Right | Center |\n|---------|:-----|------:|:------:|\n| 12      | 12   |    12 |   12   |\n| 123     | 123  |   123 |  123   |\n| 1       | 1    |     1 |   1    |\n\n: Demonstration of pipe table sytnax\nHere is the table rendered to HTML:\n\nDemonstration of pipe table syntax\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1\n\n\n\n\nCaption Location\nBy default, table captions are positioned above tables. You can modify this behavior using the tbl-cap-location option. For example:\n---\ntbl-cap-location: top\n---"
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/index.html#explicit-column-widths",
+    "href": "posts/2022-02-15-feature-tables/index.html#explicit-column-widths",
+    "title": "Scraping et base Excel",
+    "section": "Explicit Column Widths",
+    "text": "Explicit Column Widths\nBeyond standard pipe table syntax for expressing column width, you can also explicitly specify columns widths using the tbl-colwidths attribute or document-level option. For an individual markdown table, add the attribute after the caption. For example:\n| fruit  | price  |\n|--------|--------:\n| apple  | 2.05   |\n| pear   | 1.37   |\n| orange | 3.09   |\n\n: Fruit prices {tbl-colwidths=\"[75,25]\"}\nNote that this option is specified at the top level so that it can be shared by both PDF and HTML formats. If you are only targeting a single format you can place it alongside other format specific options.\nValid values for the caption location include:\n\n\n\nValue\nDescription\n\n\n\n\ntop\nPosition the caption above the table.\n\n\nbottom\nPosition the caption below the table.\n\n\nmargin\nPosition the caption in the margin."
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/index.html#computations",
+    "href": "posts/2022-02-15-feature-tables/index.html#computations",
+    "title": "Scraping et base Excel",
+    "section": "Computations",
+    "text": "Computations\nAll of the options described above work for tables produced by executable code cells. For example, here we apply the tbl-cap, tbl-colwidths and tbl-caption-location options to a code cell:\n```{r}\n#| tbl-cap: \"Cars\"\n#| tbl-colwidths: [60,40]\n#| tbl-cap-location: margin\n\nlibrary(knitr)\nkable(head(cars))\n```\nIn addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the documentation. for more detail."
+  },
+  {
+    "objectID": "posts/2022-06-21-rstudio-conf-2022-quarto/index.html",
+    "href": "posts/2022-06-21-rstudio-conf-2022-quarto/index.html",
+    "title": "Quarto at rstudio::conf(2022)",
+    "section": "",
+    "text": "rstudio::conf(2022) will feature a variety of workshops and talks on Quarto. Join us in Washington DC this July 25-28 to learn more about Quarto and hear from folks using Quarto to create, share, and collaborate.\nHere is a list of Quarto-related talks and workshops (and scroll down for details on each):"
+  },
+  {
+    "objectID": "posts/2022-06-21-rstudio-conf-2022-quarto/index.html#keynote",
+    "href": "posts/2022-06-21-rstudio-conf-2022-quarto/index.html#keynote",
+    "title": "Quarto at rstudio::conf(2022)",
+    "section": "Keynote",
+    "text": "Keynote\nReimagine + Collaborate + Share with Quarto (Keynote): (Talk recording)\n\nPresented by Julia Stewart Lowndes (Director, Openscapes) and Mine Çetinkaya-Rundel (Developer Educator at RStudio and Professor at Duke University).\nThursday July 28, 9:00am - 10:00am EDT.\nWhat is Quarto? In this talk, in four acts, we will discuss how Quarto unifies and extends the R Markdown ecosystem. Through our work with NASA Openscapes, Duke University, and RStudio, we will share our experiences authoring, teaching, and collaborating with Quarto. Full of demos with Quarto in RStudio and Jupyter and weaving together narrative, R, and Python code, we will showcase features of Quarto that have enabled us to reimagine our reproducible workflows. This talk will help you get the most out of Quarto regardless of your background with R Markdown, the computing language(s) you use, and your tool of choice for authoring."
+  },
+  {
+    "objectID": "posts/2022-06-21-rstudio-conf-2022-quarto/index.html#workshops",
+    "href": "posts/2022-06-21-rstudio-conf-2022-quarto/index.html#workshops",
+    "title": "Quarto at rstudio::conf(2022)",
+    "section": "Workshops",
+    "text": "Workshops\nWe will have two Quarto workshops at the conference, held on July 25-26, one for those who have no or little prior experience with R Markdown and the other for those who want to take their R Markdown skills and expertise and apply them in Quarto.\n\nGetting Started with Quarto: This workshop is designed for those who have no or little prior experience with R Markdown. In this 2 day workshop you will learn about the Quarto format for technical communication and computation. The workshop will teach you how to get started creating and fully customizing Quarto outputs (HTML, PDF, Presentations) and the use of RStudio’s Visual Editor which provides a user interface for editing all of Pandoc markdown. The workshop will also provide an overview of Quarto’s developer tooling support in alternative tools such as Jupyter, VS Code, and any text editors. The workshop will briefly cover how to add interactivity to Quarto with Shiny, Observable JS, htmlwidgets or Jupyter Widgets. Lastly, the workshop will cover Quarto Projects for aggregating many files such as complex web sites or entire books. Presented by Tom Mock, Customer Enablement Lead at RStudio, this workshop will be appropriate for attendees who answer yes to these questions:\n\nHave you programmed in R and want to better encapsulate your code, documentation, and outputs in a cohesive “data product”?\nDo you want to learn about the next generation of RMarkdown for data science?\nDo you want to have a better interactive experience when writing technical or scientific documents with literate programming?\n\nFind out more about this workshop and register at https://www.rstudio.com/conference/2022/workshops/get-started-quarto/.\nFrom R Markdown to Quarto: This workshop is designed for those who want to take their R Markdown skills and expertise and apply them in Quarto. In this workshop you will learn how to apply your reproducible authoring skills to the Quarto format and learn about new tools and workflows for authoring with Quarto in RStudio. You will learn to create static documents, to add interactivity to them with Shiny and htmlwidgets, and to create presentations in various formats such as reveal.js, beamer, and pptx. The workshop will also introduce you to Quarto projects which you can use to build websites and write blogs and books. Finally, you will learn various ways to deploy and publish your Quarto projects on the web. Independent modules will also highlight authoring in Quarto with Jupyter and VS Code as well as other text editors. Presented by Andrew Bray, Associate Teaching Professor in the Department of Statistics at UC Berkeley, this workshop will be appropriate for you if you answer yes to any of these questions:\n\nHave you authored R Markdown documents and are you interested in migrating your workflow to its successor format, Quarto?\nAre you interested in exploring the wide spectrum of documents that can be produced with Quarto, including static documents, websites, and slides?\n\nFind out more about this workshop and register at https://www.rstudio.com/conference/2022/workshops/rmd-to-quarto."
+  },
+  {
+    "objectID": "posts/2022-06-21-rstudio-conf-2022-quarto/index.html#talks",
+    "href": "posts/2022-06-21-rstudio-conf-2022-quarto/index.html#talks",
+    "title": "Quarto at rstudio::conf(2022)",
+    "section": "Talks",
+    "text": "Talks\n\nQuarto for R Markdown users: (Talk recording)\n\nPresented by Tom Mock, Customer Enablement Lead at RStudio.\nWednesday July 27, 3:20pm - 3:40pm EDT.\nAre you curious about Quarto? Maybe you saw it on Twitter or the RStudio::conf agenda. Perhaps this raised questions like: What exactly is Quarto? What about RMarkdown? (don’t worry it’s not going away!) What features does Quarto add? What should I do with my existing Rmd/ipynb files? This talk will answer all of those questions and more! I’ll present Quarto as a next-gen version of RMarkdown, compare the similarities, and then discuss the new features in Quarto for publishing documents, presentations, blog posts, lab notebooks and more! Lastly, I’ll cover what this means for our customers using RStudio Team, and the exciting new world for Python users.\n\nThese are a few of my favorite things (about Quarto presentations): (Talk recording)\n\nPresented by Tracy Teal, Open Source Program Director at RStudio.\nThursday July 28, 2022 3:20pm - 3:40pm EDT.\nQuarto is the next generation of RMarkdown, and comes with a new presentation format, revealjs. In this talk, I’ll show a few of my favorite things about making interactive HTML presentations with Quarto. Along the way you’ll learn about the visual editor, multiple columns, delivering an effective talk with speaker notes and mode, making your presentations pop with transitions, effective ways to incorporate code into your presentation, beautiful themes (and how to match your corporate style guide), and sharing it as pdf and HTML. I’ll finish off with a brief look at generating a PowerPoint presentation from a template.\n\nLiterate Programming With Jupyter Notebooks and Quarto: (Talk recording)\n\nPresented by Hamel Husain, head of Data Science at Outerbounds (the developers of Metaflow) and core developer at fast.ai.\nThursday July 28, 3:40pm - 4:00pm EDT.\nJupyter Notebooks play a critical role in in the workflow of many users. Notebooks are used to document existing code, to quickly prototype and iterate on ideas, and as a medium of technical communication. However, package developers typically use an entirely separate set of more traditional development tools, and the context switching between these tools and notebooks can be frustrating. Not only do you lose the ability to iterate fast, but you lose the ability to document and test your code in-situ, requiring you to create documentation and tests separately from source code. Nbdev is a literate programming framework that allows you to develop Python libraries within Jupyter Notebooks. This talk will describe the integration between Nbdev and Quarto, which enables library developers to author their documentation right alongside their code, and automatically produce a Quarto website for their package. The result is a seamless workflow for developing, documenting, and testing software packages all within Jupyter Notebooks, with no context-switching required.\n\nWebsites & Books & Blogs, oh my! Creating Rich Content with Quarto: (Talk recording)\n\nPresented by Devin Pastoor, Solutions Engineer at RStudio.\nThursday July 28, 4:00pm - 4:20pm EDT.\nA number of packages have emerged in the R ecosystem to help create websites (hugodown), books (bookdown), and blogs (blogdown). In this talk, I’ll show you how Quarto handles creating these types of content and more. Whether you’re a grad student considering your first blog post about R, or a python expert about to write a technical book, I’ll show you how Quarto enables you to focus on content while it takes care of the rest. In addition, I’ll show the RStudio team is making it as easy as possible to publish and share content within your organization and to the whole community.\n\n\nTo find out more about the conference and register, visit rstd.io/conf. Looking forward to seeing you in DC!\nCan’t make it to the conference in person, but don’t want to miss this content? You can follow along with the talks remotely via the live stream and we will share materials from the workshops in a post-conf roundup post."
+  },
+  {
+    "objectID": "posts/2022-10-25-shinylive-extension/index.html",
+    "href": "posts/2022-10-25-shinylive-extension/index.html",
+    "title": "Shinylive Extension",
+    "section": "",
+    "text": "The new Shinylive Quarto extension makes it easy to embed Shiny for Python applications in your Quarto documents. This makes it possible to add interactivity to your documents with just Python code. For example, you can include an interactive Shiny application like this, directly inside your Quarto document.\n\n\n\n\n\nIn case you’re not already familiar with Shiny, here’s some background: Shiny is a framework for creating web applications. Shiny was originally just for R, but we’ve recently released an alpha version of Shiny for Python.\nOne of the exciting new features of Shiny for Python is a deployment method called Shinylive: the application can be run entirely within the browser, without needing a remote server running Python. Instead, Python runs in the web browser, thanks to the magic of WebAssembly. In essence, but the server and client sides of the Shiny application run in the browser.\nThe Shiny for Python website contains many interactive, editable Shiny applications, and is built using this extension.\nBear in mind that not all Shiny applications can be deployed with Shinylive, in part because not all Python packages can run in WebAssembly – but for those that can, this extension makes it possible to deploy the Quarto document with the embedded application on any web hosting service. To learn more about Shinylive, see this page.\nThe new Shinylive Quarto extension makes it easy to embed Shiny for Python applications in Quarto documents. This is a great way of adding interactive components to your Quarto document. And, once again, you don’t need a server running Python to share these Quarto documents – just deploy the generated files as you would for any other Quarto website."
+  },
+  {
+    "objectID": "posts/2022-07-25-feature-extensions/index.html",
+    "href": "posts/2022-07-25-feature-extensions/index.html",
+    "title": "Quarto Extensions",
+    "section": "",
+    "text": "Quarto Extensions are a powerful way to modify or extend the behavior of Quarto, and can be created and distributed by anyone. There are three types of extensions available:\n\nShortcodes are special markdown directives that generate various types of content. For example, you could create shortcodes to embed tweets or videos in a document.\nFilters are a flexible and powerful tool for introducing new global behaviors and/or new markdown rendering behaviors. For example, you could create filters to implement output folding, an image carousel, or just about anything you can imagine!\nFormats enable you to create new output formats by bundling together document options, templates, stylesheets, and other content.\n\nExtensions are a recently released Quarto feature so you should be sure to install the very latest version of Quarto (at least v1.0.36) if you want to try them out.\nHere are some examples of extensions developed and maintained by the core Quarto team:\n\n\n\n\n\n\n\nExtension\nDescription\n\n\n\n\nlightbox\nCreate lightbox treatments for images in your HTML documents.\n\n\nfancy-text\nOutput nicely formatted versions of fancy strings such as LaTeX and BibTeX in multiple formats.\n\n\nfontawesome\nUse Font Awesome icons in HTML and PDF documents.\n\n\nlatex-environment\nQuarto extension to output custom LaTeX environments.\n\n\n\nTo learn more about using extensions, see the Extensions documentation on the Quarto website. If you want to dive in to creating your own extensions check out the articles on Creating Shortcodes, Creating Filters, and Creating Formats."
+  },
+  {
+    "objectID": "posts/2022-02-13-feature-callouts/index.html",
+    "href": "posts/2022-02-13-feature-callouts/index.html",
+    "title": "Using Callouts",
+    "section": "",
+    "text": "Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some scenarios."
+  },
+  {
+    "objectID": "posts/2022-02-13-feature-callouts/index.html#callout-basics",
+    "href": "posts/2022-02-13-feature-callouts/index.html#callout-basics",
+    "title": "Using Callouts",
+    "section": "Callout Basics",
+    "text": "Callout Basics\nThere are five different types of callouts available.\n\nnote\ntip\nimportant\ncaution\nwarning\n\nThe color and icon will be different depending upon the type that you select."
+  },
+  {
+    "objectID": "posts/2022-02-13-feature-callouts/index.html#syntax",
+    "href": "posts/2022-02-13-feature-callouts/index.html#syntax",
+    "title": "Using Callouts",
+    "section": "Syntax",
+    "text": "Syntax\nCreate callouts in markdown using the following syntax (note that the first markdown heading used within the callout is used as the callout heading):\n:::{.callout-note}\nNote that there are five types of callouts, including:\n`note`, `tip`, `warning`, `caution`, and `important`.\n:::\n\n:::{.callout-tip}\n## Tip With Caption\n\nThis is an example of a callout with a caption.\n:::\nSee our documentation on Callouts, to learn more, including more about how to customize the appearance and behavior of callouts."
+  },
+  {
+    "objectID": "posts/2022-02-17-advanced-layout/index.html",
+    "href": "posts/2022-02-17-advanced-layout/index.html",
+    "title": "Positioning Content in the Margin",
+    "section": "",
+    "text": "Quarto supports a variety of page layout options that enable you to author content that\nThis post will demonstrate a few of the capabilities for positioning content in the margin of the page. You can read more about the complete capabilities in the the Article Layout Guide."
+  },
+  {
+    "objectID": "posts/2022-02-17-advanced-layout/index.html#margin-figures",
+    "href": "posts/2022-02-17-advanced-layout/index.html#margin-figures",
+    "title": "Positioning Content in the Margin",
+    "section": "Margin Figures",
+    "text": "Margin Figures\nFigures that you create using code cells can be placed in the margin by using the column: margin code cell option. If the code produces more than one figure, each of the figures will be placed in the margin.\n\n```{r}\n#| label: fig-mtcars\n#| fig-cap: \"MPG vs horsepower, colored by transmission.\"\n#| column: margin\n\nlibrary(ggplot2)\nmtcars2 &lt;- mtcars\nmtcars2$am &lt;- factor(\n  mtcars$am, labels = c('automatic', 'manual')\n)\nggplot(mtcars2, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\") +\n  theme(legend.position = 'bottom')\n```\n\n\n\n\n\nFigure 1: MPG vs horsepower, colored by transmission."
+  },
+  {
+    "objectID": "posts/2022-02-17-advanced-layout/index.html#margin-tables",
+    "href": "posts/2022-02-17-advanced-layout/index.html#margin-tables",
+    "title": "Positioning Content in the Margin",
+    "section": "Margin Tables",
+    "text": "Margin Tables\nYou an also place tables in the margin of your document by specifying column: margin.\n\n```{r}\n#| column: margin\n\nknitr::kable(\n  mtcars[1:3, 1:3]\n)\n```\n\n\n\n\n\n\nmpg\ncyl\ndisp\n\n\n\n\nMazda RX4\n21.0\n6\n160\n\n\nMazda RX4 Wag\n21.0\n6\n160\n\n\nDatsun 710\n22.8\n4\n108"
+  },
+  {
+    "objectID": "posts/2022-02-17-advanced-layout/index.html#other-content",
+    "href": "posts/2022-02-17-advanced-layout/index.html#other-content",
+    "title": "Positioning Content in the Margin",
+    "section": "Other Content",
+    "text": "Other Content\nYou can also place content in the margin by targeting the margin column using a div with the .column-margin class. For example:\n::: {.column-margin}\nWe know from *the first fundamental theorem of calculus* that for $x$ in $[a, b]$:\n\n$$\\frac{d}{dx}\\left( \\int_{a}^{x} f(u)\\,du\\right)=f(x).$$\n:::\n\n\nWe know from the first fundamental theorem of calculus that for \\(x\\) in \\([a, b]\\):\n\\[\\frac{d}{dx}\\left( \\int_{a}^{x} f(u)\\,du\\right)=f(x).\\]"
+  },
+  {
+    "objectID": "posts/2022-02-17-advanced-layout/index.html#margin-references",
+    "href": "posts/2022-02-17-advanced-layout/index.html#margin-references",
+    "title": "Positioning Content in the Margin",
+    "section": "Margin References",
+    "text": "Margin References\nFootnotes and the bibliography typically appear at the end of the document, but you can choose to have them placed in the margin by setting the following option[^1] in the document front matter:\n---\nreference-location: margin\ncitation-location: margin\n---\nWith these options set, footnotes and citations will (respectively) be automatically be placed in the margin of the document rather than the bottom of the page. As an example, when I cite @xie2018, the citation bibliography entry itself will now appear in the margin.\n\nAsides\nAsides allow you to place content aside from the content it is placed in. Asides look like footnotes, but do not include the footnote mark (the superscript number). This is a span that has the class aside which places it in the margin without a footnote number.\n[This is a span that has the class aside which places it in the margin without a footnote number.]{.aside}"
+  },
+  {
+    "objectID": "posts/2022-02-17-advanced-layout/index.html#margin-captions",
+    "href": "posts/2022-02-17-advanced-layout/index.html#margin-captions",
+    "title": "Positioning Content in the Margin",
+    "section": "Margin Captions",
+    "text": "Margin Captions\nFor figures and tables, you may leave the content in the body of the document while placing the caption in the margin of the document. Using cap-location: margin in a code cell or document front matter to control this. For example:\n\n```{r}\n#| label: fig-cap-margin\n#| fig-cap: \"MPG vs horsepower, colored by transmission.\"\n#| cap-location: margin\n\nlibrary(ggplot2)\nmtcars2 &lt;- mtcars\nmtcars2$am &lt;- factor(\n  mtcars$am, labels = c('automatic', 'manual')\n)\nggplot(mtcars2, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\") +\n  theme(legend.position = 'bottom')\n```\n\n\n\n\nFigure 2: MPG vs horsepower, colored by transmission."
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "arXiv Preprint | Code\nOver the centuries, I have devoted countless hours to deciphering and translating the ancient scripts and dialects of the various peoples of Middle-earth. My goal is to gain a deeper understanding of the cultures and histories of these peoples by studying their languages. Currently, I am working on a monograph that explores the linguistic roots of the Elvish languages. Through extensive research and analysis, I hope to shed light on the connections between the different dialects of Elvish and their origins. This project has been particularly challenging, as Elvish is a complex and nuanced language, but I am determined to see it through to completion."
+  },
+  {
+    "objectID": "projects/index.html#the-languages-of-middle-earth",
+    "href": "projects/index.html#the-languages-of-middle-earth",
+    "title": "Projects",
+    "section": "",
+    "text": "arXiv Preprint | Code\nOver the centuries, I have devoted countless hours to deciphering and translating the ancient scripts and dialects of the various peoples of Middle-earth. My goal is to gain a deeper understanding of the cultures and histories of these peoples by studying their languages. Currently, I am working on a monograph that explores the linguistic roots of the Elvish languages. Through extensive research and analysis, I hope to shed light on the connections between the different dialects of Elvish and their origins. This project has been particularly challenging, as Elvish is a complex and nuanced language, but I am determined to see it through to completion."
+  },
+  {
+    "objectID": "projects/index.html#the-history-of-the-war-of-the-ring",
+    "href": "projects/index.html#the-history-of-the-war-of-the-ring",
+    "title": "Projects",
+    "section": "The History of the War of the Ring",
+    "text": "The History of the War of the Ring\n\narXiv Preprint | Code\nI am creating a comprehensive and detailed history of the conflict that goes beyond the surface-level events. By gathering information from a variety of sources, including my own memories, written accounts, and oral histories, I hope to shed new light on this important period in Middle-earth’s history and provide valuable insights into the motivations and actions of the various players involved.\n\nView the tutorial for this template (+ download link)"
+  },
+  {
+    "objectID": "cv/index.html",
+    "href": "cv/index.html",
+    "title": "Curriculum vitae",
+    "section": "",
+    "text": "Download current CV\n  \n\n\n  \n\n\nView the tutorial for this template (+ download link)"
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/index.html#in-addition-to-the-above-which-focused-on-some-of-the-features-of-quarto-when-writing-pipe-tables-in-markdown-you-can-also-author-tables-using-grid-syntax.-you-review-the-documentation.-for-more-detail.",
+    "href": "posts/2022-02-15-feature-tables/index.html#in-addition-to-the-above-which-focused-on-some-of-the-features-of-quarto-when-writing-pipe-tables-in-markdown-you-can-also-author-tables-using-grid-syntax.-you-review-the-documentation.-for-more-detail.",
+    "title": "Customizing Table Output",
+    "section": "In addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the documentation. for more detail.",
+    "text": "In addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the documentation. for more detail."
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/scrap.html",
+    "href": "posts/2022-02-15-feature-tables/scrap.html",
+    "title": "Scraping et base Excel",
+    "section": "",
+    "text": "Le scraping (ou web scraping) est le processus de collecte automatique de données à partir de sites web en utilisant des logiciels ou des scripts. Il permet d’extraire des informations telles que des textes, des images, des prix, etc. à partir de pages web. Dans notre exemple, nous utiliserons un script R pour que cette collecte nous crée notre base de données\nQuarto includes a number of features aimed at making it easy to to author and customize markdown table output, including:\nThis post provides an overview of these capabilities in Quarto. For more detail about all the features Quarto for authoring tables, see Tables."
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/scrap.html#markdown-tables",
+    "href": "posts/2022-02-15-feature-tables/scrap.html#markdown-tables",
+    "title": "Scraping et base Excel",
+    "section": "Markdown Tables",
+    "text": "Markdown Tables\nThe most commonly used markdown table is known as a pipe table. Pipe tables support specifying per column alignment as well as captions. For example:\n| Default | Left | Right | Center |\n|---------|:-----|------:|:------:|\n| 12      | 12   |    12 |   12   |\n| 123     | 123  |   123 |  123   |\n| 1       | 1    |     1 |   1    |\n\n: Demonstration of pipe table sytnax\nHere is the table rendered to HTML:\n\nDemonstration of pipe table syntax\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1\n\n\n\n\nCaption Location\nBy default, table captions are positioned above tables. You can modify this behavior using the tbl-cap-location option. For example:\n---\ntbl-cap-location: top\n---"
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/scrap.html#explicit-column-widths",
+    "href": "posts/2022-02-15-feature-tables/scrap.html#explicit-column-widths",
+    "title": "Scraping et base Excel",
+    "section": "Explicit Column Widths",
+    "text": "Explicit Column Widths\nBeyond standard pipe table syntax for expressing column width, you can also explicitly specify columns widths using the tbl-colwidths attribute or document-level option. For an individual markdown table, add the attribute after the caption. For example:\n| fruit  | price  |\n|--------|--------:\n| apple  | 2.05   |\n| pear   | 1.37   |\n| orange | 3.09   |\n\n: Fruit prices {tbl-colwidths=\"[75,25]\"}\nNote that this option is specified at the top level so that it can be shared by both PDF and HTML formats. If you are only targeting a single format you can place it alongside other format specific options.\nValid values for the caption location include:\n\n\n\nValue\nDescription\n\n\n\n\ntop\nPosition the caption above the table.\n\n\nbottom\nPosition the caption below the table.\n\n\nmargin\nPosition the caption in the margin."
+  },
+  {
+    "objectID": "posts/2022-02-15-feature-tables/scrap.html#computations",
+    "href": "posts/2022-02-15-feature-tables/scrap.html#computations",
+    "title": "Scraping et base Excel",
+    "section": "Computations",
+    "text": "Computations\nAll of the options described above work for tables produced by executable code cells. For example, here we apply the tbl-cap, tbl-colwidths and tbl-caption-location options to a code cell:\n```{r}\n#| tbl-cap: \"Cars\"\n#| tbl-colwidths: [60,40]\n#| tbl-cap-location: margin\n\nlibrary(knitr)\nkable(head(cars))\n```\nIn addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the documentation. for more detail."
+  },
+  {
+    "objectID": "posts/scrap.html",
+    "href": "posts/scrap.html",
+    "title": "Scraping et base Excel",
+    "section": "",
+    "text": "Le scraping (ou web scraping) est le processus de collecte automatique de données à partir de sites web en utilisant des logiciels ou des scripts. Il permet d’extraire des informations telles que des textes, des images, des prix, etc. à partir de pages web. Dans notre exemple, nous utiliserons un script R pour que cette collecte nous crée notre base de données\nQuarto includes a number of features aimed at making it easy to to author and customize markdown table output, including:\nThis post provides an overview of these capabilities in Quarto. For more detail about all the features Quarto for authoring tables, see Tables."
+  },
+  {
+    "objectID": "posts/scrap.html#markdown-tables",
+    "href": "posts/scrap.html#markdown-tables",
+    "title": "Scraping et base Excel",
+    "section": "Markdown Tables",
+    "text": "Markdown Tables\nThe most commonly used markdown table is known as a pipe table. Pipe tables support specifying per column alignment as well as captions. For example:\n| Default | Left | Right | Center |\n|---------|:-----|------:|:------:|\n| 12      | 12   |    12 |   12   |\n| 123     | 123  |   123 |  123   |\n| 1       | 1    |     1 |   1    |\n\n: Demonstration of pipe table sytnax\nHere is the table rendered to HTML:\n\nDemonstration of pipe table syntax\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1\n\n\n\n\nCaption Location\nBy default, table captions are positioned above tables. You can modify this behavior using the tbl-cap-location option. For example:\n---\ntbl-cap-location: top\n---"
+  },
+  {
+    "objectID": "posts/scrap.html#explicit-column-widths",
+    "href": "posts/scrap.html#explicit-column-widths",
+    "title": "Scraping et base Excel",
+    "section": "Explicit Column Widths",
+    "text": "Explicit Column Widths\nBeyond standard pipe table syntax for expressing column width, you can also explicitly specify columns widths using the tbl-colwidths attribute or document-level option. For an individual markdown table, add the attribute after the caption. For example:\n| fruit  | price  |\n|--------|--------:\n| apple  | 2.05   |\n| pear   | 1.37   |\n| orange | 3.09   |\n\n: Fruit prices {tbl-colwidths=\"[75,25]\"}\nNote that this option is specified at the top level so that it can be shared by both PDF and HTML formats. If you are only targeting a single format you can place it alongside other format specific options.\nValid values for the caption location include:\n\n\n\nValue\nDescription\n\n\n\n\ntop\nPosition the caption above the table.\n\n\nbottom\nPosition the caption below the table.\n\n\nmargin\nPosition the caption in the margin."
+  },
+  {
+    "objectID": "posts/scrap.html#computations",
+    "href": "posts/scrap.html#computations",
+    "title": "Scraping et base Excel",
+    "section": "Computations",
+    "text": "Computations\nAll of the options described above work for tables produced by executable code cells. For example, here we apply the tbl-cap, tbl-colwidths and tbl-caption-location options to a code cell:\n```{r}\n#| tbl-cap: \"Cars\"\n#| tbl-colwidths: [60,40]\n#| tbl-cap-location: margin\n\nlibrary(knitr)\nkable(head(cars))\n```\nIn addition to the above, which focused on some of the features of Quarto when writing pipe tables in markdown, you can also author tables using grid syntax. You review the documentation. for more detail."
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": " et Posit",
+    "section": "",
+    "text": "Présentation, prise en main, en passant par le processus d’installation."
+  },
+  {
+    "objectID": "posts.html#tous-les-documents",
+    "href": "posts.html#tous-les-documents",
+    "title": " et Posit",
+    "section": "Tous les documents :",
+    "text": "Tous les documents :"
+  }
+]
