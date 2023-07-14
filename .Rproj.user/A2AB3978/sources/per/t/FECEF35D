@@ -1,24 +1,25 @@
 {
-    "id": "7F0510B3",
-    "path": "~/Downloads/samanthacsik.github.io-main/index.qmd",
+    "id": "FECEF35D",
+    "path": "~/Documents/Sans titre copie/Shiny.qmd",
     "project_path": null,
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "303641955",
     "contents": "",
     "dirty": false,
-    "created": 1689288291561.0,
+    "created": 1689290126066.0,
     "source_on_save": false,
-    "relative_order": 1,
+    "relative_order": 2,
     "properties": {
+        "chunk_output_type": "console",
         "source_window_id": "",
         "Source": "Source"
     },
     "folds": "",
-    "lastKnownWriteTime": 1687238918,
+    "lastKnownWriteTime": 1689285552,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1687238918,
+    "last_content_update": 1689285552,
     "read_only": false,
     "read_only_alternatives": []
 }
