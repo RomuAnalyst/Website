@@ -80,6 +80,6 @@ format:
     smooth-scroll: true
     link-external-icon: false
     link-external-newwindow: true
-    link-external-filter: '^(?:http:|https:)\/\/romuanalyst.github.io/Website2/**'
+    link-external-filter: '^(?:http:|https:)\/\/romuanalyst.github.io/Website/**'
 editor: source
 
