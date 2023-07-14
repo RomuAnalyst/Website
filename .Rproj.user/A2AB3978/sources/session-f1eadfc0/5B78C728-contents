@@ -10,7 +10,7 @@ execute:
 
 website:
   title: "RomuAnalyst"
-  site-url: https://romuanalyst.github.io/RomuAnalyst_website
+  site-url: https://romuanalyst.github.io/Website
   description: Website, portfolio, aide à l'apprentissage...
   repo-url: https://github.com/.............
   image: img/logo.png
