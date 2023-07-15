@@ -61,5 +61,11 @@
   },
   "presentation.qmd": {
     "presentation.html": "91273242"
+  },
+  "packages.qmd": {
+    "packages.html": "db1c35fd"
+  },
+  "packages/rvest/rvest.qmd": {
+    "rvest.html": "527345bc"
   }
 }

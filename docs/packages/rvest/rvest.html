@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RomuAnalyst - Les boucles dans R : Comprendre et utiliser la puissance des boucles</title>
+<title>RomuAnalyst - rvest</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,27 +57,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,20 +100,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="assets/ek-styles.css">
-<meta property="og:title" content="RomuAnalyst - Les boucles dans R : Comprendre et utiliser la puissance des boucles">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://romuanalyst.github.io/Website/images/logo.png">
+<link rel="stylesheet" href="../../assets/ek-styles.css">
+<meta property="og:title" content="RomuAnalyst - rvest">
+<meta property="og:description" content="Aide à la collecte de données web">
+<meta property="og:image" content="https://romuanalyst.github.io/Website/packages/rvest/images/logo.png">
 <meta property="og:site-name" content="RomuAnalyst">
 <meta property="og:locale" content="fr-FR">
 <meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
-<meta name="twitter:image" content="https://romuanalyst.github.io/Website/img/favicon.png">
+<meta name="twitter:image" content="https://romuanalyst.github.io/Website/packages/rvest/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
 <meta name="twitter:site" content="@Romu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="1600">
-<meta name="twitter:image-width" content="1600">
 </head>
 
 <body class="nav-fixed">
@@ -123,10 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/tree.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/tree.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst👨🏾‍💻<span class="icon-line"></span></span>
     </a>
   </div>
@@ -137,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-house-user" aria-label="house-user"></i></span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -146,41 +144,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-cours">    
         <li>
-    <a class="dropdown-item" href="./R et Posit.html" rel="" target="">
+    <a class="dropdown-item" href="../../R et Posit.html" rel="" target="">
  <span class="dropdown-text"><i class="fa-brands fa-r-project" aria-label="r-project"></i> et Posit</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./test2.html" rel="" target="">
+    <a class="dropdown-item" href="../../test2.html" rel="" target="">
  <span class="dropdown-text">ggplot2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ia.html" rel="" target="">
+    <a class="dropdown-item" href="../../ia.html" rel="" target="">
  <span class="dropdown-text">les fonctions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ia2.html" rel="" target="">
+    <a class="dropdown-item" href="../../ia2.html" rel="" target="">
  <span class="dropdown-text">les boucles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Shiny.html" rel="" target="">
+    <a class="dropdown-item" href="../../Shiny.html" rel="" target="">
  <span class="dropdown-text">Shiny</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html" rel="" target="">
+    <a class="nav-link" href="../../posts.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./packages.html" rel="" target="">
+    <a class="nav-link" href="../../packages.html" rel="" target="">
  <span class="menu-text">Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./community.qmd" rel="" target="">
+    <a class="nav-link" href="../../community.qmd" rel="" target="">
  <span class="menu-text">Divers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.html" rel="" target="">
+    <a class="nav-link" href="../../presentation.html" rel="" target="">
  <span class="menu-text">Bio</span></a>
   </li>  
 </ul>
@@ -200,25 +198,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tables des matières</h2>
-   
-  <ul>
-  <li><a href="#boucle-for" id="toc-boucle-for" class="nav-link active" data-scroll-target="#boucle-for">Boucle “for”</a></li>
-  <li><a href="#boucle-while" id="toc-boucle-while" class="nav-link" data-scroll-target="#boucle-while">Boucle “while”</a></li>
-  <li><a href="#contrôle-de-boucle" id="toc-contrôle-de-boucle" class="nav-link" data-scroll-target="#contrôle-de-boucle">Contrôle de boucle</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Les boucles dans R : Comprendre et utiliser la puissance des boucles</h1>
-</div>
+<h1 class="title"><strong>rvest</strong></h1>
+<p class="subtitle lead">Aide à la collecte de données web</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Web</div>
+    <div class="quarto-category">Tables</div>
+  </div>
+  </div>
 
 
 
@@ -232,83 +225,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Il existe principalement deux types de boucles en R : la boucle “for” et la boucle “while”. Explorons-les plus en détail.</p>
-<section id="boucle-for" class="level2">
-<h2 class="anchored" data-anchor-id="boucle-for">Boucle “for”</h2>
-<p>La boucle “for” est utilisée lorsque vous connaissez à l’avance le nombre de répétitions que vous souhaitez effectuer. La syntaxe générale de la boucle “for” en R est la suivante :</p>
-<pre><code>for (variable in sequence) {
-  # Instructions à exécuter
-}</code></pre>
-<p>Explorons cela avec un exemple simple. Supposons que nous voulions afficher les nombres de 1 à 5 à l’aide d’une boucle “for”. Voici comment nous pouvons le faire en R :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5</code></pre>
+<hr>
+<p>peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche <strong>R</strong> on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site <a href="https://stats.stackexchange.com/">Cross Validated</a>).</p>
+<p>Le but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de <strong>R</strong>. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage <strong>R</strong> (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!</p>
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html"><img src="rvest.png" class="img-fluid"></a>
 </div>
 </div>
-<p>Dans cette boucle, nous utilisons la variable “i” pour parcourir la séquence de nombres de 1 à 5 à l’aide de l’expression “1:5”. À chaque itération de la boucle, la valeur de “i” est mise à jour pour correspondre au nombre actuel de la séquence. À l’intérieur du bloc de la boucle, nous utilisons la fonction “print()” pour afficher la valeur de “i”. Ainsi, les nombres de 1 à 5 seront affichés à l’écran.</p>
-<p>Vous pouvez également utiliser la fonction “seq()” pour créer une séquence personnalisée à utiliser dans une boucle “for”. Par exemple, si vous souhaitez afficher les nombres de 0 à 10 avec un pas de 2, vous pouvez utiliser la syntaxe suivante :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0
-[1] 2
-[1] 4
-[1] 6
-[1] 8
-[1] 10</code></pre>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="rvest.png" class="img-fluid"></a>
 </div>
 </div>
-<p>Dans cet exemple, la fonction “seq(0, 10, 2)” génère une séquence de nombres commençant par 0, se terminant par 10, et avec un pas de 2. Les nombres 0, 2, 4, 6, 8 et 10 seront affichés à l’écran.</p>
-</section>
-<section id="boucle-while" class="level2">
-<h2 class="anchored" data-anchor-id="boucle-while">Boucle “while”</h2>
-<p>La boucle “while” est utilisée lorsque vous ne connaissez pas à l’avance le nombre de répétitions que vous souhaitez effectuer. La boucle continuera à s’exécuter tant que la condition spécifiée est vraie. La syntaxe générale de la boucle “while” en R est la suivante :</p>
-<pre><code>while (condition) {
-  # Instructions à exécuter
-}</code></pre>
-<p>Explorons cela avec un exemple simple. Supposons que nous voulions afficher les nombres de 1 à 5 à l’aide d’une boucle “while”. Voici comment nous pouvons le faire en R :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5</code></pre>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="rvest.png" class="img-fluid"></a>
 </div>
 </div>
-<p>Dans cette boucle, nous utilisons une variable “i” pour garder une trace du nombre actuel que nous souhaitons afficher. La boucle continue à s’exécuter tant que “i” est inférieur ou égal à 5. À chaque itération, nous affichons la valeur de “i” à l’aide de la fonction “print()”, puis nous augmentons la valeur de “i” de 1 à l’aide de l’expression “i &lt;- i + 1”. Ainsi, les nombres de 1 à 5 seront affichés à l’écran.</p>
-<p>Il est important de s’assurer que la condition dans une boucle “while” finira par devenir fausse à un moment donné, sinon la boucle s’exécutera indéfiniment, entraînant une boucle infinie.</p>
-</section>
-<section id="contrôle-de-boucle" class="level2">
-<h2 class="anchored" data-anchor-id="contrôle-de-boucle">Contrôle de boucle</h2>
-<p>Dans les boucles en R, vous pouvez utiliser des instructions spéciales pour contrôler le flux d’exécution à l’intérieur de la boucle. Voici quelques-unes des instructions couramment utilisées :</p>
-<ul>
-<li>L’instruction “break” est utilisée pour arrêter immédiatement l’exécution de la boucle et sortir de celle-ci.</li>
-<li>L’instruction “next” est utilisée pour passer à l’itération suivante de la boucle, en ignorant les instructions restantes dans le bloc de la boucle pour cette itération spécifique.</li>
-<li>L’instruction “return” est utilisée pour renvoyer une valeur et sortir de la fonction si la boucle est utilisée à l’intérieur d’une fonction.</li>
-</ul>
-<p>Ces instructions vous permettent d’ajuster le comportement de votre boucle en fonction de conditions ou de critères spécifiques.</p>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Les boucles sont des outils puissants en langage R qui permettent de répéter un bloc de code plusieurs fois. Les boucles “for” sont utilisées lorsque vous connaissez le nombre de répétitions à l’avance, tandis que les boucles “while” sont utilisées lorsque vous ne le connaissez pas à l’avance. Assurez-vous de bien contrôler vos boucles en utilisant les instructions “break”, “next” et “return” si nécessaire. Les boucles sont essentielles pour automatiser des tâches répétitives et rendre votre code plus efficace.</p>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/rvest/rvest.html" class="card-link third-color-link heading-font"><img src="rvest.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-8">
+<div class="card-body d-flex flex-column">
+<div style="margin-top: auto;">
+<p class="card-text">
+</p><p>peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche <strong>R</strong> on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site <a href="https://stats.stackexchange.com/">Cross Validated</a>).</p>
+Le but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de <strong>R</strong>. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage <strong>R</strong> (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!
+<p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -677,5 +684,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

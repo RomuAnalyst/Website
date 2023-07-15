@@ -726,5 +726,19 @@
     "title": "Romuald ZAMI",
     "section": "Notes de bas de page",
     "text": "Notes de bas de page\n\n\nDiplôme Universitaire↩︎\nInstitut Universitaire et Technologique↩︎\nDiplôme Universitaire et Technologique↩︎\nStatistique et Traitement Informatique des Données↩︎"
+  },
+  {
+    "objectID": "packages.html",
+    "href": "packages.html",
+    "title": "Les packages",
+    "section": "",
+    "text": "Trier par\n       Ordre par défaut\n         \n          Titre\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nTitre\n\n\nSous-titre\n\n\nCatégories\n\n\n\n\n\n\n\n\n\n\nrvest\n\n\nAide à la collecte de données web\n\n\nR,Web,Tables\n\n\n\n\n\n\n\n\nScraping et base Excel\n\n\nCollecte de données web et création de fichiers excel\n\n\nR,Web,Tables\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "packages/rvest/rvest.html",
+    "href": "packages/rvest/rvest.html",
+    "title": "rvest",
+    "section": "",
+    "text": "peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche R on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site Cross Validated).\nLe but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de R. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage R (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npeut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche R on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site Cross Validated).\nLe but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de R. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage R (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(rvest)"
   }
 ]

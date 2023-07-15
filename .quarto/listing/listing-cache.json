@@ -6,6 +6,9 @@
     ],
     "index.qmd": [
       "posts"
+    ],
+    "packages.qmd": [
+      "packages/**/*.qmd"
     ]
   }
 }

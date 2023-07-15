@@ -20,7 +20,9 @@ website:
     logo: img/tree.png
     title: "<span class='icon-line'></span>RomuAnalyst👨🏾‍💻<span class='icon-line'></span>"
     right:
-      - text: R
+      - text: "{{< fa solid house-user >}}"
+        href: index.qmd
+      - text: Cours
         menu: 
           - text: "{{< fa brands r-project >}} et Posit"
             href: R et Posit.qmd
@@ -34,11 +36,9 @@ website:
             href: Shiny.qmd 
       - text: Articles
         href: posts.qmd
-      - text: Rendu élèves
-        href: blog.qmd
-      - text: packages
+      - text: Packages
         href: packages.qmd
-      - text: community
+      - text: Divers
         href: community.qmd
       - text: Bio
         href: presentation.qmd

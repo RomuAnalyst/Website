@@ -36,5 +36,12 @@
       "/posts/2022-02-17-advanced-layout/index.html",
       "/posts/2022-02-13-feature-callouts/index.html"
     ]
+  },
+  {
+    "listing": "/packages.html",
+    "items": [
+      "/packages/rvest/rvest.html",
+      "/packages/wopyOfrvest/wcrvest.html"
+    ]
   }
 ]
