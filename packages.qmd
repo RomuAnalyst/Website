@@ -5,6 +5,7 @@ listing:
   contents: packages/**/*.qmd
   type: table
   categories: true
+  sort-ui: false
   filter-ui: true
   fields: [image, title, subtitle, categories]
   feed: true
@@ -16,3 +17,17 @@ execute:
   echo: false
 ---
 
+:::: {.grid}
+
+::: {.g-col-12}
+
+Installation et chargement du packages :
+```r
+install.packages("nom_du_package")     # installation package
+library(nom_du_package)                       # chargement package
+```
+:::
+
+::::
+
+-----------

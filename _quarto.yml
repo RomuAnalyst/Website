@@ -18,7 +18,7 @@ website:
   reader-mode: true
   navbar:
     logo: img/tree.png
-    title: "<span class='icon-line'></span>RomuAnalyst👨🏾‍💻<span class='icon-line'></span>"
+    title: "<span class='icon-line'></span>RomuAnalyst {{< fa solid person-walking >}}span class='icon-line'></span>"
     right:
       - text: "{{< fa solid house-user >}}"
         href: index.qmd
@@ -46,7 +46,7 @@ website:
       #  href: https://github.com/EllaKaye
       #- icon: twitter
       #  href: https://twitter.com/ellamkaye
-  favicon: img/favicon.png
+  favicon: img/tree.png
   twitter-card: 
     title: "RomuAnalyst"
     description: Mon site sur mes projets

@@ -1,10 +1,9 @@
 ---
-title: "**rvest**"
+title: "**<u>rvest</u>**"
 subtitle: Aide à la collecte de données web
 categories:
-  - R
-  - Web
-  - Tables
+  - web
+  - table
 image: rvest.png
 lang: fr
 page-layout: full
