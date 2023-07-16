@@ -18,7 +18,7 @@ website:
   reader-mode: true
   navbar:
     logo: img/tree.png
-    title: "<span class='icon-line'></span>RomuAnalyst {{< fa solid person-walking >}}span class='icon-line'></span>"
+    title: "<span class='icon-line'></span>RomuAnalyst {{< fa solid person-walking >}}<span class='icon-line'></span>"
     right:
       - text: "{{< fa solid house-user >}}"
         href: index.qmd

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Romu">
 
-<title>RomuAnalyst – r-et-posit</title>
+<title>RomuAnalyst - dplyr</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,27 +57,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/tree.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/tree.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,18 +98,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="assets/ek-styles.css">
+<link rel="stylesheet" href="../../assets/ek-styles.css">
+<meta property="og:title" content="RomuAnalyst - dplyr">
+<meta property="og:description" content="Essentiel pour la manipulation de données">
+<meta property="og:image" content="https://romuanalyst.github.io/Website/packages/dplyr/images/logo.png">
+<meta property="og:site-name" content="RomuAnalyst">
+<meta property="og:locale" content="fr-FR">
 <meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
-<meta name="twitter:image" content="https://romuanalyst.github.io/Website/img/favicon.png">
+<meta name="twitter:image" content="https://romuanalyst.github.io/Website/packages/dplyr/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
 <meta name="twitter:site" content="@Romu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="1600">
-<meta name="twitter:image-width" content="1600">
 </head>
 
 <body class="nav-fixed">
@@ -120,10 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/tree.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/tree.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst <i class="fa-solid fa-person-walking" aria-label="person-walking"></i><span class="icon-line"></span></span>
     </a>
   </div>
@@ -134,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-house-user" aria-label="house-user"></i></span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -143,41 +144,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-cours">    
         <li>
-    <a class="dropdown-item" href="./R et Posit.html" rel="" target="">
+    <a class="dropdown-item" href="../../R et Posit.html" rel="" target="">
  <span class="dropdown-text"><i class="fa-brands fa-r-project" aria-label="r-project"></i> et Posit</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./test2.html" rel="" target="">
+    <a class="dropdown-item" href="../../test2.html" rel="" target="">
  <span class="dropdown-text">ggplot2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ia.html" rel="" target="">
+    <a class="dropdown-item" href="../../ia.html" rel="" target="">
  <span class="dropdown-text">les fonctions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ia2.html" rel="" target="">
+    <a class="dropdown-item" href="../../ia2.html" rel="" target="">
  <span class="dropdown-text">les boucles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Shiny.html" rel="" target="">
+    <a class="dropdown-item" href="../../Shiny.html" rel="" target="">
  <span class="dropdown-text">Shiny</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html" rel="" target="">
+    <a class="nav-link" href="../../posts.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./packages.html" rel="" target="">
+    <a class="nav-link" href="../../packages.html" rel="" target="">
  <span class="menu-text">Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./community.qmd" rel="" target="">
+    <a class="nav-link" href="../../community.qmd" rel="" target="">
  <span class="menu-text">Divers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.html" rel="" target="">
+    <a class="nav-link" href="../../presentation.html" rel="" target="">
  <span class="menu-text">Bio</span></a>
   </li>  
 </ul>
@@ -197,131 +198,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
-   
-  <ul>
-  <li><a href="#r-et-son-environnement" id="toc-r-et-son-environnement" class="nav-link active" data-scroll-target="#r-et-son-environnement">R et son environnement</a>
-  <ul class="collapse">
-  <li><a href="#quest-ce-que-fa-brands-r-project" id="toc-quest-ce-que-fa-brands-r-project" class="nav-link" data-scroll-target="#quest-ce-que-fa-brands-r-project">Qu’est-ce que <i class="fa-brands fa-r-project" aria-label="r-project"></i> ?</a></li>
-  <li><a href="#prise-en-main-de-rstudio" id="toc-prise-en-main-de-rstudio" class="nav-link" data-scroll-target="#prise-en-main-de-rstudio">Prise en main de <strong>Rstudio</strong></a></li>
-  <li><a href="#laide-en-ligne" id="toc-laide-en-ligne" class="nav-link" data-scroll-target="#laide-en-ligne">L’aide en ligne</a></li>
-  <li><a href="#utilisation-de-rrstudio" id="toc-utilisation-de-rrstudio" class="nav-link" data-scroll-target="#utilisation-de-rrstudio">Utilisation de R/Rstudio</a></li>
-  <li><a href="#les-packages" id="toc-les-packages" class="nav-link" data-scroll-target="#les-packages">Les packages</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content page-columns page-full column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong><u>dplyr</u></strong></h1>
+<p class="subtitle lead">Essentiel pour la manipulation de données</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">manipulation de données</div>
+    <div class="quarto-category">tidyverse</div>
+  </div>
+  </div>
 
 
 
-<section id="r-et-son-environnement" class="level1 page-columns page-full">
-<h1>R et son environnement</h1>
-<section id="quest-ce-que-fa-brands-r-project" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="quest-ce-que-fa-brands-r-project">Qu’est-ce que <i class="fa-brands fa-r-project" aria-label="r-project"></i> ?</h2>
-<p>Le logiciel <strong>R</strong> est un langage dédié à la statistique. Il a été développé à partir des années 90 à l’University of Auckland, Nouvelle-Zélande. Son implémentation principale est en open source (gratuit et modifiable) <strong>R</strong> : <a href="http://cran.r-project.org">cran.r-project.org</a>.</p>
-<p><strong>R</strong> est un <a href="http://www.france-ioi.org/algo/course.php?idChapter=561&amp;idCourse=2368">langage interprété</a> (comme <code>Python</code><i class="fa-brands fa-python" aria-label="python"></i>) et non compilé, c’est-à-dire que les commandes tapées au clavier sont directement exécutées sans avoir besoin de construire un programme complet. On dit également qu’il est “exécuté à la volée”. Par exemple, on peut à partir d’une ligne de commande écrire :</p>
+<div class="quarto-title-meta">
 
-<div class="no-row-height column-margin column-container"><div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hello world!'</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Hello world!"</code></pre>
-</div>
-</div></div><p>Pour simplifier son utilisation, il est possible d’écrire des scripts c’est à dire une suite de commandes qui se trouvent dans un fichier dont l’extension est <code>.R</code> mais on pourrait tout aussi bien les écrire dans un <code>.txt</code>.</p>
-<p>Pour simplifier l’utilisation de <strong>R</strong>, il est nécessaire d’avoir une interface graphique (appelée aussi <em>GUI</em> pour Graphic User Interfaces). Celle offerte par <strong>R</strong> est très simpliste et beaucoup préfèrent utiliser <strong>RStudio</strong> (<a href="www.rstudio.com">www.rstudio.com</a>) à juste titre. Cet outil permet de réellement fluidifier le travail avec ce langage.</p>
-</section>
-<section id="prise-en-main-de-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="prise-en-main-de-rstudio">Prise en main de <strong>Rstudio</strong></h2>
-<p>La fenêtre de <strong>RStudio</strong> se divise généralement en quatre sous-fenêtres. En partant de haut à gauche et en les parcourant dans le sens horaire on trouve :</p>
-<ol type="1">
-<li>un éditeur de texte pour les scripts</li>
-<li>l’espace de travail ou d’historique de commandes</li>
-<li>le navigateur de fichiers, graphiques, packages, documentations</li>
-<li>la console <strong>R</strong>, c’est à dire la ligne de commande ainsi que les résultats des exécutions du code.</li>
-</ol>
-<p><img src="img/Console_Rstudio.png" class="img-fluid"></p>
-<p>Typiquement, on tape le code dans l’éditeur (1) puis on l’exécute. il se retrouve alors dans console. Pour cela on place le curseur dans la ligne qu’on veut exécuter et on envoie la commande à la console à l’aide de la combinaison <code>⌘ + ⏎</code> dans IOS et <code>Ctrl + ⏎</code> sous Windows ou tout simplement à l’aide de la commande <code>Run</code>.</p>
-</section>
-<section id="laide-en-ligne" class="level2">
-<h2 class="anchored" data-anchor-id="laide-en-ligne">L’aide en ligne</h2>
-<p><strong>R</strong> dispose d’une documentation très complète et l’aide en ligne peut être très utile pour l’utilisation de fonctions, librairies et jeux de données. On peut accéder directement à l’aide en tapant <code>?</code> suivi par la <em>fonction</em> (ou autre instruction, jeu de données,…) sur laquelle on souhaite se renseigner :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>affichera par exemple la page d’aide pour la fonction <code>mean()</code>. La commande</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(mean)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>aura le même effet.</p>
-<p>On peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche <strong>R</strong> on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site <a href="https://stats.stackexchange.com/">Cross Validated</a>).</p>
-<p>Le but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de <strong>R</strong>. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage <strong>R</strong> (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!</p>
-</section>
-<section id="utilisation-de-rrstudio" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="utilisation-de-rrstudio">Utilisation de R/Rstudio</h2>
-<div class="page-columns page-full"><p>L’une des premières utilisation est la création d’<code>objets</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, qui seront mis en mémoire pour l’utilisation dans de futur fonctions ou codes. Un objet peut être créé en utilisant “l’assignation”. Il s’agit d’assigner à un objet (lettre, mot, …) une valeur à l’aide d’une flèche (&lt;-) ou avec le signe <code>=</code>. Je préconise cependant d’utiliser l’assigantion par la “flèche”, cela permet d’avoir un code plus propre et de pouvoir différencier l’assignation et le code en lui même. Une fois l’objet créé nous pouvons afficher son contenu en tapant le nom de l’objet.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;<em>Les objets sont en général des vecteurs, matrices, listes …, auxquels nous appliqueront des fonctions</em></p></li></div></div>
-<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="">Exemple :</span></div></div>
+    
+  
+    
+  </div>
+  
 
-<div class="no-row-height column-margin column-container"><div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> (<span class="dv">20</span> <span class="sc">+</span> <span class="dv">10</span>)<span class="sc">/</span><span class="dv">5</span>       <span class="co"># création de n et assignation du résultat de l'opération</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n                      <span class="co"># appel de l'objet n pour affichage de sa valeur</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-</div></div><div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><em>Le chiffre 1 entre crochets indique qu’il s’agit du premier élément d’une série de n valeurs. Dans l’exemple précedent, la série comprend 1 valeur.</em></p>
-</div>
-</div>
-<p>Le nom d’un objet doit obligatoirement commencer par une lettre. Il peut être suivi de chiffres, de points, d’espace soulignés (_). De plus, le langage <strong>R</strong> fait la distinction entre les majuscules et les minuscules : <code>n</code> et <code>N</code> pourront servir à nommer/créer 2 objets distincts.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><em>Si l’objet existe déja, sa valeur précédente est éffacée. C’est un annule et remplace.</em></p>
-</div>
-</div>
-</section>
-<section id="les-packages" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="les-packages">Les packages</h2>
-<p>Les deux grands avantages de <strong>R</strong> est d’être gratuit et open source. De ce fait il jouit d’une communauté d’utilisateurs très active dans le monde scientifique (statistiques, science des données, bioinformatique, sciences sociales,…). Il est de plus très utilisé par la communauté scientifique et de plus en plus dans les entreprises.</p>
-<p>Toute nouvelle méthode statistique a très rapidement une implémentation dans ce langage, ce qui n’est pas toujours le cas pour d’autres langages. Cela enrichi considérablement le logiciel et se fait à l’aide de ce qu’on appelle des paquets (ou <em>packages</em> ou <em>library</em>) Ces derniers sont développés par les utilisateurs et les développeurs. On peut les installer pour augmenter les capacités et possibilités du logiciel dans des domaines très variés de la statistique mais pas seulement en statistique. Il en existe un très grand nombre sur le site du <strong>CRAN</strong> : <a href="http://cran.r-project.org">cran.r-project.org</a>.</p>
-<p>Pour installer un package:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>) <span class="co"># avec guillemets!</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Une fois un package installé, il faudra le charger en mémoire à chaque fois qu’une nouvelle session est ouverte:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># sans guillemets!</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr) <span class="co"># fonction équivalente</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><em>Le <code>#</code> sert à commenter les instructions. Le texte/code situé après <code>#</code> (sur la même ligne) ne sera pas éxécuté, ce sera juste un commentaire.</em></p>
-</div>
-</div>
-<div class="page-columns page-full"><p>Asides allow you to place content objet from the content it is placed in. Asides look like footnotes, but do not include the footnote mark (the superscript number). </p><div class="no-row-height column-margin column-container"><span class="">This is a span that has the class <code>objet</code> which places it in the margin without a footnote number.</span></div></div>
+</header>
 
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="rvest.qmd"><img src="dplyr.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-10">
+<div style="margin-top: auto;">
+<p class="card-text">
+Le package “dplyr” est un package populaire en R qui fournit une grammaire de manipulation de données cohérente et facile à utiliser. Il simplifie le processus de manipulation, de transformation et de filtrage des données, en offrant des fonctions puissantes et intuitives. Le package “dplyr” est largement utilisé dans l’analyse de données avec R en raison de sa syntaxe concise et de sa puissance de manipulation de données. Il offre une approche cohérente et intuitive pour effectuer des opérations courantes sur les données.
+</p>
+</div>
+</div>
+</div>
+<p><br> Vous trouverez ci dessous, certaines des principales fonctionnalités du package “dplyr”, illustrées par des exemples. Nous utiliserons, le célèbre dataset “iris” inclus dans R :</p>
+<p><br> 1. <strong>Sélection de colonnes</strong> : “dplyr” propose la fonction <code>select()</code> qui permet de sélectionner les colonnes d’un dataframe en fonction de leur nom. Vous pouvez utiliser des opérations de sélection pour spécifier les colonnes à conserver ou à exclure. Par exemple, pour sélectionner uniquement les colonnes “Species” et “Sepal.Length” du dataset iris, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>iris_selection <span class="ot">&lt;-</span> <span class="fu">select</span>(iris, Species, Sepal.Length)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br> 2. <strong>Filtrage des lignes</strong> : La fonction <code>filter()</code> de “dplyr” permet de filtrer les lignes d’un dataframe en fonction de certaines conditions. Vous pouvez utiliser des opérateurs de comparaison (par exemple, “==”, “&lt;”, “&gt;”) et des opérateurs logiques (par exemple, “&amp;”, “|”) pour spécifier les conditions de filtrage. Par exemple, pour filtrer les lignes où la valeur de la colonne “Sepal.Width” est supérieure à 3, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>iris_filtre <span class="ot">&lt;-</span> <span class="fu">filter</span>(iris, Sepal.Width <span class="sc">&gt;</span> <span class="dv">3</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br> 3. <strong>Ajout de nouvelles colonnes</strong> : “dplyr” permet d’ajouter de nouvelles colonnes à un dataframe à l’aide de la fonction <code>mutate()</code>. Vous pouvez effectuer des calculs ou appliquer des transformations sur les colonnes existantes pour créer de nouvelles colonnes. Par exemple, pour créer une nouvelle colonne “Petal.Ratio” qui représente le ratio de longueur du pétale par rapport à la largeur du pétale, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iris_nouvelle_colonne <span class="ot">&lt;-</span> <span class="fu">mutate</span>(iris, <span class="at">Petal.Ratio =</span> Petal.Length <span class="sc">/</span> Petal.Width)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br> 4. <strong>Chaînage des opérations</strong> : L’un des points forts de “dplyr” est la possibilité de chaîner plusieurs opérations ensemble de manière fluide à l’aide de l’opérateur <code>%&gt;%</code>. Cela permet d’écrire un code lisible et concis en enchaînant les fonctions “dplyr” les unes après les autres. Par exemple, pour sélectionner les colonnes “Species” et “Petal.Width”, puis filtrage des lignes où la valeur de “Petal.Width” est supérieure à 1.5, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Species, Petal.Width) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Petal.Width <span class="sc">&gt;</span> <span class="fl">1.5</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br> 5. <strong>Jointure de tables</strong> : “dplyr” permet de réaliser des jointures entre des tables à l’aide de la fonction <code>join()</code>. Vous pouvez combiner les lignes de plusieurs tables en fonction de clés de jointure communes. “dplyr” prend en charge différents types de jointures tels que la jointure interne, la jointure externe, la jointure gauche et la jointure droite. Par exemple, pour effectuer une jointure dataset iris avec le dataset SpeciesInfo en utilisant la colonne “Species” comme clé de jointure, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>iris_jointure <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(iris, SpeciesInfo, <span class="at">by =</span> <span class="st">"Species"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br> 6. <strong>Agrégation des données</strong> : “dplyr” fournit des fonctions d’agrégation telles que <code>summarize()</code> et <code>group_by()</code> pour effectuer des opérations d’agrégation sur les données. Vous pouvez regrouper les lignes en fonction d’une ou plusieurs variables, puis calculer des statistiques agrégées (par exemple, la somme, la moyenne, le maximum) sur les groupes. Par exemple, pour calculer la moyenne de la colonne “Petal.Length” pour chaque espèce, vous pouvez utiliser :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>iris_agreges <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">moyenne_Petal.Length =</span> <span class="fu">mean</span>(Petal.Length))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-</section>
-</section>
 
 
 </main> <!-- /main -->
@@ -691,5 +622,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

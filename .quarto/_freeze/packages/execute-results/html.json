@@ -1,7 +1,7 @@
 {
-  "hash": "d3f6e17172fda036a62e636acae7e0c0",
+  "hash": "92f7aae37018bd292e0e593ad1123e80",
   "result": {
-    "markdown": "---\ntitle: \"Les packages\"\npage-layout: full\nlisting:\n  contents: packages/**/*.qmd\n  type: table\n  categories: true\n  filter-ui: true\n  fields: [image, title, subtitle, categories]\n  feed: true\ntitle-block-banner: false\nknitr:\n  opts_chunk: \n    collapse: true\nexecute: \n  echo: false\n---\n",
+    "markdown": "---\ntitle: \"Les packages\"\npage-layout: full\nlisting:\n  contents: packages/**/*.qmd\n  type: table\n  categories: true\n  sort-ui: false\n  filter-ui: true\n  fields: [image, title, subtitle, categories]\n  feed: true\ntitle-block-banner: false\nknitr:\n  opts_chunk: \n    collapse: true\nexecute: \n  echo: false\n---\n\n\n:::: {.grid}\n\n::: {.g-col-12}\n\nInstallation et chargement du packages :\n```r\ninstall.packages(\"nom_du_package\")     # installation package\nlibrary(nom_du_package)                       # chargement package\n```\n:::\n\n::::\n\n-----------",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

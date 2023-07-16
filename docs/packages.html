@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./img/favicon.png" rel="icon" type="image/png">
+<link href="./img/tree.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -77,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-subtitle','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -125,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="./img/tree.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst👨🏾‍💻<span class="icon-line"></span></span>
+    <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst <i class="fa-solid fa-person-walking" aria-label="person-walking"></i><span class="icon-line"></span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Recherche"></div>
@@ -200,7 +234,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Tables">Tables <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Web">Web <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(3)</span></div><div class="category" data-category="manipulation de données">manipulation de données <span class="quarto-category-count">(1)</span></div><div class="category" data-category="table">table <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tidyverse">tidyverse <span class="quarto-category-count">(2)</span></div><div class="category" data-category="visualisation de données">visualisation de données <span class="quarto-category-count">(1)</span></div><div class="category" data-category="web">web <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -221,22 +255,20 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="grid">
+<div class="g-col-12">
+<p>Installation et chargement du packages :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nom_du_package"</span>)     <span class="co"># installation package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nom_du_package)                       <span class="co"># chargement package</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<hr>
 
 
 
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 <div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Trier par" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Trier par</option>
-       <option value="index" data-direction="asc">Ordre par défaut</option>
-         <option value="listing-title-sort" data-direction="asc">
-          Titre
-        </option>
-     </select>
-  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
@@ -249,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
 <th>
 </th>
 <th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Titre</a>
+Titre
 </th>
 <th>
 Sous-titre
@@ -260,34 +292,47 @@ Catégories
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-categories="manipulation de données,tidyverse" data-listing-file-modified-sort="1689500471063" data-listing-reading-time-sort="3" data-listing-title-sort="**<u>dplyr</u>**" data-listing-filename-sort="dplyr.qmd">
+<td>
+<span class="listing-image"><img src="./packages/dplyr/dplyr.png" style="height: 40px;"></span>
+</td>
+<td>
+<a href="./packages/dplyr/dplyr.html" class="title listing-title"><strong><u>dplyr</u></strong></a>
+</td>
+<td>
+<span class="listing-subtitle">Essentiel pour la manipulation de données</span>
+</td>
+<td>
+<span class="listing-categories">manipulation de données,tidyverse</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="visualisation de données,tidyverse" data-listing-file-modified-sort="1689496060936" data-listing-reading-time-sort="1" data-listing-title-sort="**<u>ggplot2</u>**" data-listing-filename-sort="ggplot2.qmd">
+<td>
+<span class="listing-image"><img src="./packages/ggplot2/ggplot2.png" style="height: 40px;"></span>
+</td>
+<td>
+<a href="./packages/ggplot2/ggplot2.html" class="title listing-title"><strong><u>ggplot2</u></strong></a>
+</td>
+<td>
+<span class="listing-subtitle">Essentiel pour la visualisation de données</span>
+</td>
+<td>
+<span class="listing-categories">visualisation de données,tidyverse</span>
+</td>
+</tr>
 
-<tr data-index="0" data-categories="R,Web,Tables" data-listing-file-modified-sort="1689449455080" data-listing-reading-time-sort="2" data-listing-title-sort="**rvest**" data-listing-filename-sort="rvest.qmd">
+<tr data-index="2" data-categories="web,table" data-listing-file-modified-sort="1689465160251" data-listing-reading-time-sort="2" data-listing-title-sort="**<u>rvest</u>**" data-listing-filename-sort="rvest.qmd">
 <td>
 <span class="listing-image"><img src="./packages/rvest/rvest.png" style="height: 40px;"></span>
 </td>
 <td>
-<a href="./packages/rvest/rvest.html" class="title listing-title"><strong>rvest</strong></a>
+<a href="./packages/rvest/rvest.html" class="title listing-title"><strong><u>rvest</u></strong></a>
 </td>
 <td>
 <span class="listing-subtitle">Aide à la collecte de données web</span>
 </td>
 <td>
-<span class="listing-categories">R,Web,Tables</span>
-</td>
-</tr>
-
-<tr data-index="1" data-categories="R,Web,Tables" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1689448566661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Scraping et base Excel" data-listing-filename-sort="wcrvest.qmd">
-<td>
-<span class="listing-image"><img src="./packages/wopyOfrvest/rvest.png" style="height: 40px;" alt="Table 1: Example. Has two subtables: Subtable a, Cars, with columns for speed and dist; and subtable b, Pressure, with columns for temperature and pressure."></span>
-</td>
-<td>
-<a href="./packages/wopyOfrvest/wcrvest.html" class="title listing-title">Scraping et base Excel</a>
-</td>
-<td>
-<span class="listing-subtitle">Collecte de données web et création de fichiers excel</span>
-</td>
-<td>
-<span class="listing-categories">R,Web,Tables</span>
+<span class="listing-categories">web,table</span>
 </td>
 </tr>
 </tbody>

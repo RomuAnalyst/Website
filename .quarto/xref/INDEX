@@ -67,5 +67,11 @@
   },
   "packages/rvest/rvest.qmd": {
     "rvest.html": "527345bc"
+  },
+  "packages/ggplot2/ggplot2.qmd": {
+    "ggplot2.html": "3ce019e9"
+  },
+  "packages/dplyr/dplyr.qmd": {
+    "dplyr.html": "7281c130"
   }
 }

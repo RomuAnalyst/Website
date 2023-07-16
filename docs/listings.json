@@ -40,8 +40,9 @@
   {
     "listing": "/packages.html",
     "items": [
-      "/packages/rvest/rvest.html",
-      "/packages/wopyOfrvest/wcrvest.html"
+      "/packages/dplyr/dplyr.html",
+      "/packages/ggplot2/ggplot2.html",
+      "/packages/rvest/rvest.html"
     ]
   }
 ]
