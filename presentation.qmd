@@ -24,7 +24,7 @@ about:
 
 :::{#hero-heading}
 
-`Romuanalyst` manifeste un intérêt marqué pour l'apprentissage et le partage de ses connaissances. En dehors de ses engagements professionnels et personnels, il consacre son temps libre au basket{{< fa solid basketball >}}, un loisir qui lui tient à cœur.
+`Romuanalyst` manifeste un intérêt marqué pour l'apprentissage et le partage de ses connaissances. En dehors de ses engagements professionnels et personnels, il consacre son temps libre au basket {{< fa solid basketball >}}, un loisir qui lui tient à cœur.
 
 ## Derniers diplômes :
 
