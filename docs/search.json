@@ -207,7 +207,7 @@
     "href": "index.html",
     "title": "RomuAnalyst",
     "section": "",
-    "text": "Cours d’introduction à  et Posit (ex-Rstudio)\n\n\nCours\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBIO\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBio\n\n\n\n\n\n\n\n\n2 derniers articles :\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nSous-titre\n\n\n\n\n\n\n12/07/23\n\n\nScraping et base Excel\n\n\nCollecte de données web et création de fichiers excel\n\n\n\n\n25/10/22\n\n\nShinylive Extension\n\n\nEmbed Shinylive applications in Quarto documents\n\n\n\n\n\nAucun article correspondant"
+    "text": "Cours d’introduction à  et Posit (ex-Rstudio)\n\n\nCours\n\n\n\n\n\n\n\n\nSite web réalisé à partir de Quarto\n\n\nQuarto\n\n\n\n\n\n\n\n\nVous voulez en savoir plus sur moi? Voici un petit résumé\n\n\nBio\n\n\n\n\n\n\n\n\n2 derniers articles :\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nSous-titre\n\n\n\n\n\n\n12/07/23\n\n\nScraping et base Excel\n\n\nCollecte de données web et création de fichiers excel\n\n\n\n\n25/10/22\n\n\nShinylive Extension\n\n\nEmbed Shinylive applications in Quarto documents\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "about.html",
@@ -240,9 +240,9 @@
   {
     "objectID": "posts.html",
     "href": "posts.html",
-    "title": "posts",
+    "title": "Les posts",
     "section": "",
-    "text": "Scraping et base Excel\n\n\nCollecte de données web et création de fichiers excel\n\n\n\nR\n\n\nWeb\n\n\nTables\n\n\n\n\n12 juil. 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShinylive Extension\n\n\nEmbed Shinylive applications in Quarto documents\n\n\n\nExtensions\n\n\nFeatures\n\n\n\n\n25 oct. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Extensions\n\n\nExtend Quarto with new capabilities\n\n\n\nExtensions\n\n\nFeatures\n\n\n\n\n25 juil. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto at rstudio::conf(2022)\n\n\nQuarto-related workshops and talks at rstudio::conf(2022)\n\n\n\nconf\n\n\nworkshop\n\n\ntalk\n\n\n\n\n21 juin 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPositioning Content in the Margin\n\n\nCreate ‘Tufte’ style documents with sidenotes, margin tables and figures, and other margin content\n\n\n\nFeatures\n\n\nLayout\n\n\n\n\n17 févr. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUsing Callouts\n\n\nUse callouts to draw attention to important complementary content without interupting the document flow\n\n\n\nFeatures\n\n\nAuthoring\n\n\n\n\n13 févr. 2022\n\n\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Vous trouverez ici une collection d’articles informatifs et intéressants axés sur l’analyse de données, la programmation et l’utilisation de . Que vous soyez un débutant cherchant à apprendre les bases de  ou un utilisateur expérimenté cherchant à approfondir vos connaissances et à découvrir de nouvelles techniques, cette partie est conçu pour vous. Les articles couvrent une large gamme de sujets, allant de l’analyse exploratoire des données à la visualisation des résultats, en passant par les meilleures pratiques pour le nettoyage et la préparation des données. Bonne lecture!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScraping et base Excel\n\n\nCollecte de données web et création de fichiers excel\n\n\n\nR\n\n\nWeb\n\n\nTables\n\n\n\n\n12 juil. 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShinylive Extension\n\n\nEmbed Shinylive applications in Quarto documents\n\n\n\nExtensions\n\n\nFeatures\n\n\n\n\n25 oct. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Extensions\n\n\nExtend Quarto with new capabilities\n\n\n\nExtensions\n\n\nFeatures\n\n\n\n\n25 juil. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto at rstudio::conf(2022)\n\n\nQuarto-related workshops and talks at rstudio::conf(2022)\n\n\n\nconf\n\n\nworkshop\n\n\ntalk\n\n\n\n\n21 juin 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPositioning Content in the Margin\n\n\nCreate ‘Tufte’ style documents with sidenotes, margin tables and figures, and other margin content\n\n\n\nFeatures\n\n\nLayout\n\n\n\n\n17 févr. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUsing Callouts\n\n\nUse callouts to draw attention to important complementary content without interupting the document flow\n\n\n\nFeatures\n\n\nAuthoring\n\n\n\n\n13 févr. 2022\n\n\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "resources.html",
@@ -310,7 +310,7 @@
   {
     "objectID": "posts.html#tous-les-documents",
     "href": "posts.html#tous-les-documents",
-    "title": " et Posit",
+    "title": "Les posts",
     "section": "Tous les documents :",
     "text": "Tous les documents :"
   },
@@ -718,21 +718,21 @@
     "href": "presentation.html#experiences-actuelles",
     "title": "Romuald ZAMI",
     "section": "Experiences actuelles :",
-    "text": "Experiences actuelles :\nChargé d’analyse de données de pilotage  Direction générale de Pôle emploi | depuis janvier 2019\nIntervenant sur les cours de programmation R  IUT Paris Rives-de-Seine | depuis septembre 2022"
+    "text": "Experiences actuelles :\nChargé d’analyse de données de pilotage  Direction générale de Pôle emploi | depuis janvier 2019\nIntervenant sur les cours de programmation R  et de SAE5 décisionnelle  IUT Paris Rives-de-Seine | depuis septembre 2022"
   },
   {
     "objectID": "presentation.html#footnotes",
     "href": "presentation.html#footnotes",
     "title": "Romuald ZAMI",
     "section": "Notes de bas de page",
-    "text": "Notes de bas de page\n\n\nDiplôme Universitaire↩︎\nInstitut Universitaire et Technologique↩︎\nDiplôme Universitaire et Technologique↩︎\nStatistique et Traitement Informatique des Données↩︎"
+    "text": "Notes de bas de page\n\n\nDiplôme Universitaire↩︎\nInstitut Universitaire et Technologique↩︎\nDiplôme Universitaire et Technologique↩︎\nStatistique et Traitement Informatique des Données↩︎\nSituation d’Apprentissage et d’Évaluation↩︎"
   },
   {
     "objectID": "packages.html",
     "href": "packages.html",
     "title": "Les packages",
     "section": "",
-    "text": "Installation et chargement du packages :\ninstall.packages(\"nom_du_package\")     # installation package\nlibrary(nom_du_package)                       # chargement package\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\nTitre\n\n\nSous-titre\n\n\nCatégories\n\n\n\n\n\n\n\n\n\ndplyr\n\n\nEssentiel pour la manipulation de données\n\n\nmanipulation de données,tidyverse\n\n\n\n\n\n\n\nggplot2\n\n\nEssentiel pour la visualisation de données\n\n\nvisualisation de données,tidyverse\n\n\n\n\n\n\n\nleaflet\n\n\nCartes intéractives\n\n\nvisualisation de données,cartographie\n\n\n\n\n\n\n\n\nrvest\n\n\nAide à la collecte de données web\n\n\nweb,table\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Installation et chargement du package :\ninstall.packages(\"nom_du_package\")     # installation package\nlibrary(nom_du_package)                       # chargement package\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\nTitre\n\n\nSous-titre\n\n\nCatégories\n\n\n\n\n\n\n\n\n\ndplyr\n\n\nEssentiel pour la manipulation de données\n\n\nmanipulation de données,tidyverse\n\n\n\n\n\n\n\nggplot2\n\n\nEssentiel pour la visualisation de données\n\n\nvisualisation de données,tidyverse\n\n\n\n\n\n\n\nleaflet\n\n\nCartes intéractives\n\n\nvisualisation de données,cartographie\n\n\n\n\n\n\n\n\nrvest\n\n\nAide à la collecte de données web\n\n\nweb,table\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "packages/rvest/rvest.html",

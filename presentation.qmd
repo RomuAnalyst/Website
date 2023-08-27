@@ -44,7 +44,9 @@ about:
 
 **Chargé d'analyse de données de pilotage** <br> _Direction générale de Pôle emploi | depuis janvier 2019_
 
-**Intervenant sur les cours de programmation R** <br> _IUT Paris Rives-de-Seine | depuis septembre 2022_
+**Intervenant sur les cours de programmation R** <br> et de **SAE**[^SAE] **décisionnelle** <br> _IUT Paris Rives-de-Seine | depuis septembre 2022_
+
+[^SAE]: *Situation d'Apprentissage et d'Évaluation*
 
 :::
 ---------------------------------------------------

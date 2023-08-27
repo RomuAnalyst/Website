@@ -21,7 +21,7 @@ execute:
 
 ::: {.g-col-12}
 
-Installation et chargement du packages :
+Installation et chargement du package :
 ```r
 install.packages("nom_du_package")     # installation package
 library(nom_du_package)                       # chargement package
