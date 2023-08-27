@@ -13,11 +13,9 @@
 <url>https://romuanalyst.github.io/Website/img/logo.png</url>
 <title>RomuAnalyst</title>
 <link>https://romuanalyst.github.io/Website/packages.html</link>
-<height>100</height>
-<width>100</width>
 </image>
 <generator>quarto-1.3.353</generator>
-<lastBuildDate>Sun, 16 Jul 2023 20:18:05 GMT</lastBuildDate>
+<lastBuildDate>Sun, 27 Aug 2023 13:04:04 GMT</lastBuildDate>
 <item>
   <title>dplyr</title>
   <link>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</link>
@@ -118,7 +116,7 @@ font-style: inherit;">mean</span>(Petal.Length))</span></code></pre></div>
   <category>manipulation de données</category>
   <category>tidyverse</category>
   <guid>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</guid>
-  <pubDate>Sun, 16 Jul 2023 20:18:05 GMT</pubDate>
+  <pubDate>Sun, 27 Aug 2023 13:04:04 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/dplyr/dplyr.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
@@ -157,8 +155,139 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
   <category>visualisation de données</category>
   <category>tidyverse</category>
   <guid>https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.html</guid>
-  <pubDate>Sun, 16 Jul 2023 20:18:05 GMT</pubDate>
+  <pubDate>Sun, 27 Aug 2023 13:04:04 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>leaflet</title>
+  <link>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</link>
+  <description><![CDATA[ 
+
+
+
+<hr>
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/leaflet/leaflet.html"><img src="https://romuanalyst.github.io/Website/packages/leaflet/leaflet.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-10">
+<div style="margin-top: auto;">
+<p class="card-text">
+Le package <strong>leaflet</strong> en R est une bibliothèque interactive de cartographie qui permet de créer des <code>cartes interactives</code> et de les intégrer dans des applications web ou des rapports RMarkdown. <strong>Leaflet</strong> est basé sur la bibliothèque JavaScript Leaflet.js, ce qui en fait une solution puissante pour la visualisation de données géospatiales.
+</p>
+</div>
+</div>
+</div>
+<p>Les cartes créées avec “leaflet” sont interactives par défaut. Vous pouvez zoomer, faire glisser, et cliquer sur les marqueurs pour afficher des informations supplémentaires. Vous pouvez également personnaliser l’interaction en ajoutant des couches de contrôle. De plus, vous pouvez ajouter une couche de contrôle pour basculer entre différentes vues de carte, activer/désactiver les couches et ajouter des légendes.</p>
+<p>Dans l’exemple ci dessous nous avons ajouté un popup qui donne des informations sur le lieu indiqué, l’IUT Paris Rives de Seine (lien vers le site internet et l’adresse)</p>
+<div class="grid">
+<div class="g-col-6">
+
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(leaflet))) <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"leaflet"</span>)</span>
+<span id="cb1-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span>(htmlwidgets))) <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"htmlwidgets"</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(leaflet)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(htmlwidgets)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4">adresse_iut <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(</span>
+<span id="cb2-5">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;b&gt;&lt;a href='https://iutparis-seine.u-paris.fr/'&gt;IUT Paris Rives de Seine&lt;/a&gt;&lt;/b&gt;"</span>,</span>
+<span id="cb2-6">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"143 Av. de Versailles"</span>,</span>
+<span id="cb2-7">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"75016 Paris"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;br/&gt;"</span></span>
+<span id="cb2-8">)</span>
+<span id="cb2-9"></span>
+<span id="cb2-10">carte <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">leaflet</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb2-11">          <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">addTiles</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-12">          <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">addPopups</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.267872726605464</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">48.84218567506416</span>, adresse_iut,</span>
+<span id="cb2-13">            <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">popupOptions</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">closeButton =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span>
+<span id="cb2-14">  )</span>
+<span id="cb2-15"></span>
+<span id="cb2-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">saveWidget</span>(carte, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"iut_leaflet.html"</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+ ]]></description>
+  <category>visualisation de données</category>
+  <category>cartographie</category>
+  <guid>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</guid>
+  <pubDate>Sun, 27 Aug 2023 13:04:04 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/Website/packages/leaflet/leaflet.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
   <title>rvest</title>
@@ -267,7 +396,7 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
   <category>web</category>
   <category>table</category>
   <guid>https://romuanalyst.github.io/Website/packages/rvest/rvest.html</guid>
-  <pubDate>Sun, 16 Jul 2023 20:18:05 GMT</pubDate>
+  <pubDate>Sun, 27 Aug 2023 13:04:04 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 </channel>

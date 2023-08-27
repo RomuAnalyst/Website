@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RomuAnalyst - Les packages</title>
+<title>RomuAnalyst - leaflet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,29 +57,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/tree.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/tree.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,53 +97,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-subtitle','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="assets/ek-styles.css">
-<link rel="alternate" type="application/rss+xml" title="RomuAnalyst" href="packages.xml"><meta property="og:title" content="RomuAnalyst - Les packages">
-<meta property="og:image" content="https://romuanalyst.github.io/Website/images/logo.png">
+<link rel="stylesheet" href="../../assets/ek-styles.css">
+<meta property="og:title" content="RomuAnalyst - leaflet">
+<meta property="og:description" content="Cartes intéractives">
+<meta property="og:image" content="https://romuanalyst.github.io/Website/packages/leaflet/images/logo.png">
 <meta property="og:site-name" content="RomuAnalyst">
 <meta property="og:locale" content="fr-FR">
 <meta name="twitter:title" content="RomuAnalyst">
 <meta name="twitter:description" content="Mon site sur mes projets">
-<meta name="twitter:image" content="https://romuanalyst.github.io/Website/img/favicon.png">
+<meta name="twitter:image" content="https://romuanalyst.github.io/Website/packages/leaflet/img/favicon.png">
 <meta name="twitter:creator" content="@Romu">
 <meta name="twitter:site" content="@Romu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="1600">
-<meta name="twitter:image-width" content="1600">
 </head>
 
 <body class="nav-fixed">
@@ -155,10 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/tree.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/tree.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><span class="icon-line"></span>RomuAnalyst <i class="fa-solid fa-person-walking" aria-label="person-walking"></i><span class="icon-line"></span></span>
     </a>
   </div>
@@ -169,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-house-user" aria-label="house-user"></i></span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -178,41 +144,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-cours">    
         <li>
-    <a class="dropdown-item" href="./R et Posit.html" rel="" target="">
+    <a class="dropdown-item" href="../../R et Posit.html" rel="" target="">
  <span class="dropdown-text"><i class="fa-brands fa-r-project" aria-label="r-project"></i> et Posit</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./test2.html" rel="" target="">
+    <a class="dropdown-item" href="../../test2.html" rel="" target="">
  <span class="dropdown-text">ggplot2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ia.html" rel="" target="">
+    <a class="dropdown-item" href="../../ia.html" rel="" target="">
  <span class="dropdown-text">les fonctions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ia2.html" rel="" target="">
+    <a class="dropdown-item" href="../../ia2.html" rel="" target="">
  <span class="dropdown-text">les boucles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Shiny.html" rel="" target="">
+    <a class="dropdown-item" href="../../Shiny.html" rel="" target="">
  <span class="dropdown-text">Shiny</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html" rel="" target="">
+    <a class="nav-link" href="../../posts.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./packages.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../packages.html" rel="" target="">
  <span class="menu-text">Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./community.qmd" rel="" target="">
+    <a class="nav-link" href="../../community.qmd" rel="" target="">
  <span class="menu-text">Divers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.html" rel="" target="">
+    <a class="nav-link" href="../../presentation.html" rel="" target="">
  <span class="menu-text">Bio</span></a>
   </li>  
 </ul>
@@ -232,16 +198,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(4)</span></div><div class="category" data-category="cartographie">cartographie <span class="quarto-category-count">(1)</span></div><div class="category" data-category="manipulation de données">manipulation de données <span class="quarto-category-count">(1)</span></div><div class="category" data-category="table">table <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tidyverse">tidyverse <span class="quarto-category-count">(2)</span></div><div class="category" data-category="visualisation de données">visualisation de données <span class="quarto-category-count">(2)</span></div><div class="category" data-category="web">web <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Les packages</h1>
-</div>
+<h1 class="title"><strong><u>leaflet</u></strong></h1>
+<p class="subtitle lead">Cartes intéractives</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">visualisation de données</div>
+    <div class="quarto-category">cartographie</div>
+  </div>
+  </div>
 
 
 
@@ -255,107 +224,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="grid">
-<div class="g-col-12">
-<p>Installation et chargement du packages :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nom_du_package"</span>)     <span class="co"># installation package</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nom_du_package)                       <span class="co"># chargement package</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
 <hr>
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/leaflet/leaflet.html"><img src="leaflet.png" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-10">
+<div style="margin-top: auto;">
+<p class="card-text">
+Le package <strong>leaflet</strong> en R est une bibliothèque interactive de cartographie qui permet de créer des <code>cartes interactives</code> et de les intégrer dans des applications web ou des rapports RMarkdown. <strong>Leaflet</strong> est basé sur la bibliothèque JavaScript Leaflet.js, ce qui en fait une solution puissante pour la visualisation de données géospatiales.
+</p>
+</div>
+</div>
+</div>
+<p>Les cartes créées avec “leaflet” sont interactives par défaut. Vous pouvez zoomer, faire glisser, et cliquer sur les marqueurs pour afficher des informations supplémentaires. Vous pouvez également personnaliser l’interaction en ajoutant des couches de contrôle. De plus, vous pouvez ajouter une couche de contrôle pour basculer entre différentes vues de carte, activer/désactiver les couches et ajouter des légendes.</p>
+<p>Dans l’exemple ci dessous nous avons ajouté un popup qui donne des informations sur le lieu indiqué, l’IUT Paris Rives de Seine (lien vers le site internet et l’adresse)</p>
+<div class="grid">
+<div class="g-col-6">
 
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="fu">require</span>(leaflet))) <span class="fu">install.packages</span>(<span class="st">"leaflet"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="fu">require</span>(htmlwidgets))) <span class="fu">install.packages</span>(<span class="st">"htmlwidgets"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmlwidgets)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>adresse_iut <span class="ot">&lt;-</span> <span class="fu">paste</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"&lt;b&gt;&lt;a href='https://iutparis-seine.u-paris.fr/'&gt;IUT Paris Rives de Seine&lt;/a&gt;&lt;/b&gt;"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"143 Av. de Versailles"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"75016 Paris"</span>, <span class="at">sep =</span> <span class="st">"&lt;br/&gt;"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>carte <span class="ot">&lt;-</span> <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>          <span class="fu">addPopups</span>(<span class="fl">2.267872726605464</span>, <span class="fl">48.84218567506416</span>, adresse_iut,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">options =</span> <span class="fu">popupOptions</span>(<span class="at">closeButton =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWidget</span>(carte, <span class="at">file =</span> <span class="st">"iut_leaflet.html"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-Titre
-</th>
-<th>
-Sous-titre
-</th>
-<th>
-Catégories
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="manipulation de données,tidyverse" data-listing-file-modified-sort="1689500471063" data-listing-reading-time-sort="3" data-listing-title-sort="**<u>dplyr</u>**" data-listing-filename-sort="dplyr.qmd">
-<td>
-<span class="listing-image"><img src="./packages/dplyr/dplyr.png" style="height: 40px;"></span>
-</td>
-<td>
-<a href="./packages/dplyr/dplyr.html" class="title listing-title"><strong><u>dplyr</u></strong></a>
-</td>
-<td>
-<span class="listing-subtitle">Essentiel pour la manipulation de données</span>
-</td>
-<td>
-<span class="listing-categories">manipulation de données,tidyverse</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="visualisation de données,tidyverse" data-listing-file-modified-sort="1689496060936" data-listing-reading-time-sort="1" data-listing-title-sort="**<u>ggplot2</u>**" data-listing-filename-sort="ggplot2.qmd">
-<td>
-<span class="listing-image"><img src="./packages/ggplot2/ggplot2.png" style="height: 40px;"></span>
-</td>
-<td>
-<a href="./packages/ggplot2/ggplot2.html" class="title listing-title"><strong><u>ggplot2</u></strong></a>
-</td>
-<td>
-<span class="listing-subtitle">Essentiel pour la visualisation de données</span>
-</td>
-<td>
-<span class="listing-categories">visualisation de données,tidyverse</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="visualisation de données,cartographie" data-listing-file-modified-sort="1693141440492" data-listing-reading-time-sort="2" data-listing-title-sort="**<u>leaflet</u>**" data-listing-filename-sort="leaflet.qmd">
-<td>
-<span class="listing-image"><img src="./packages/leaflet/leaflet.png" style="height: 40px;"></span>
-</td>
-<td>
-<a href="./packages/leaflet/leaflet.html" class="title listing-title"><strong><u>leaflet</u></strong></a>
-</td>
-<td>
-<span class="listing-subtitle">Cartes intéractives</span>
-</td>
-<td>
-<span class="listing-categories">visualisation de données,cartographie</span>
-</td>
-</tr>
 
-<tr data-index="3" data-categories="web,table" data-listing-file-modified-sort="1689465160251" data-listing-reading-time-sort="2" data-listing-title-sort="**<u>rvest</u>**" data-listing-filename-sort="rvest.qmd">
-<td>
-<span class="listing-image"><img src="./packages/rvest/rvest.png" style="height: 40px;"></span>
-</td>
-<td>
-<a href="./packages/rvest/rvest.html" class="title listing-title"><strong><u>rvest</u></strong></a>
-</td>
-<td>
-<span class="listing-subtitle">Aide à la collecte de données web</span>
-</td>
-<td>
-<span class="listing-categories">web,table</span>
-</td>
-</tr>
-</tbody>
 
-</table>
-<div class="listing-no-matching d-none">
-Aucun article correspondant
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -722,5 +640,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

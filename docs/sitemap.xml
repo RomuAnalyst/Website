@@ -162,11 +162,11 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/presentation.html</loc>
-    <lastmod>2023-08-26T15:46:21.477Z</lastmod>
+    <lastmod>2023-08-27T11:55:14.656Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/index.html</loc>
-    <lastmod>2023-07-16T20:17:32.370Z</lastmod>
+    <lastmod>2023-08-27T13:01:02.749Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/R et Posit.html</loc>
@@ -194,7 +194,7 @@
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/packages.html</loc>
-    <lastmod>2023-07-16T20:18:05.869Z</lastmod>
+    <lastmod>2023-08-27T13:04:04.917Z</lastmod>
   </url>
   <url>
     <loc>https://romuanalyst.github.io/Website/posts/2022-02-15-feature-tables/index.html</loc>
@@ -211,5 +211,9 @@
   <url>
     <loc>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</loc>
     <lastmod>2023-07-16T20:16:56.185Z</lastmod>
+  </url>
+  <url>
+    <loc>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</loc>
+    <lastmod>2023-08-27T13:04:03.516Z</lastmod>
   </url>
 </urlset>
