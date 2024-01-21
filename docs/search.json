@@ -242,7 +242,7 @@
     "href": "posts.html",
     "title": "Les posts",
     "section": "",
-    "text": "Vous trouverez ici une collection d’articles informatifs et intéressants axés sur l’analyse de données, la programmation et l’utilisation de . Que vous soyez un débutant cherchant à apprendre les bases de  ou un utilisateur expérimenté cherchant à approfondir vos connaissances et à découvrir de nouvelles techniques, cette partie est conçu pour vous. Les articles couvrent une large gamme de sujets, allant de l’analyse exploratoire des données à la visualisation des résultats, en passant par les meilleures pratiques pour le nettoyage et la préparation des données. Bonne lecture!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLignes de métro parisien\n\n\nLignes de métro passant par une station\n\n\n\nR\n\n\ncartographie\n\n\ntable\n\n\n\n\n27 oct. 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScraping et base Excel\n\n\nCollecte de données web et création de fichiers excel\n\n\n\nR\n\n\nWeb\n\n\nTables\n\n\n\n\n12 juil. 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShinylive Extension\n\n\nEmbed Shinylive applications in Quarto documents\n\n\n\nExtensions\n\n\nFeatures\n\n\n\n\n25 oct. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Extensions\n\n\nExtend Quarto with new capabilities\n\n\n\nExtensions\n\n\nFeatures\n\n\n\n\n25 juil. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto at rstudio::conf(2022)\n\n\nQuarto-related workshops and talks at rstudio::conf(2022)\n\n\n\nconf\n\n\nworkshop\n\n\ntalk\n\n\n\n\n21 juin 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPositioning Content in the Margin\n\n\nCreate ‘Tufte’ style documents with sidenotes, margin tables and figures, and other margin content\n\n\n\nFeatures\n\n\nLayout\n\n\n\n\n17 févr. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUsing Callouts\n\n\nUse callouts to draw attention to important complementary content without interupting the document flow\n\n\n\nFeatures\n\n\nAuthoring\n\n\n\n\n13 févr. 2022\n\n\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Vous trouverez ici une collection d’articles informatifs et intéressants axés sur l’analyse de données, la programmation et l’utilisation de . Que vous soyez un débutant cherchant à apprendre les bases de  ou un utilisateur expérimenté cherchant à approfondir vos connaissances et à découvrir de nouvelles techniques, cette partie est conçu pour vous. Les articles couvrent une large gamme de sujets, allant de l’analyse exploratoire des données à la visualisation des résultats, en passant par les meilleures pratiques pour le nettoyage et la préparation des données. Bonne lecture!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLignes de métro parisien\n\n\nLignes de métro passant par une station\n\n\n\nR\n\n\ncartographie\n\n\ntable\n\n\n\n\n27 oct. 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScraping et base Excel\n\n\nCollecte de données web et création de fichiers excel\n\n\n\nR\n\n\nWeb\n\n\nTables\n\n\n\n\n12 juil. 2023\n\n\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "resources.html",
@@ -739,14 +739,14 @@
     "href": "packages/rvest/rvest.html",
     "title": "rvest",
     "section": "",
-    "text": "::: {.grid} ::: {.g-col-2}\n\n\n\n::: ::: {.g-col-10}\n\n\nEn cours….\n\n::: :::\nlibrary(tidyverse)\nlibrary(rvest)"
+    "text": "En cours….\n\n\n\n\nlibrary(tidyverse)\nlibrary(rvest)"
   },
   {
     "objectID": "packages/ggplot2/ggplot2.html",
     "href": "packages/ggplot2/ggplot2.html",
     "title": "ggplot2",
     "section": "",
-    "text": "::: {.grid} ::: {.g-col-2}\n\n\n\n::: ::: {.g-col-10}\n\n\nEn cours….\n\n::: :::\nlibrary(tidyverse)\nlibrary(ggplot2)"
+    "text": "En cours….\n\n\n\n\nlibrary(tidyverse)\nlibrary(ggplot2)"
   },
   {
     "objectID": "packages/dplyr/dplyr.html",

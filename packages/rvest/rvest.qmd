@@ -14,12 +14,10 @@ page-layout: full
 
 ::: {.grid}
 ::: {.g-col-2}
-<div style="margin-top: auto;"><a href="rvest.qmd">![](ggplot2.png)</a></div>
+<div style="margin-top: auto;"><a href="rvest.qmd">![](rvest.png)</a></div>
 :::
 ::: {.g-col-10}
-<div style="margin-top: auto;"><p class="card-text">En cours....
-
-
+<div style="margin-top: auto;"><p class="card-text">En cours....</p>
 </div>
 :::
 :::

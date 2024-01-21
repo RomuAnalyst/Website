@@ -16,7 +16,7 @@ page-layout: full
 <div style="margin-top: auto;"><a href="rvest.qmd">![](ggplot2.png)</a></div>
 :::
 ::: {.g-col-10}
-<div style="margin-top: auto;"><p class="card-text">En cours....
+<div style="margin-top: auto;"><p class="card-text">En cours....</p>
 
 
 </div>
