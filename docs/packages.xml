@@ -13,11 +13,9 @@
 <url>https://romuanalyst.github.io/Website/img/logo.png</url>
 <title>RomuAnalyst</title>
 <link>https://romuanalyst.github.io/Website/packages.html</link>
-<height>100</height>
-<width>100</width>
 </image>
-<generator>quarto-1.3.353</generator>
-<lastBuildDate>Sun, 27 Aug 2023 22:00:16 GMT</lastBuildDate>
+<generator>quarto-1.3.433</generator>
+<lastBuildDate>Sun, 05 Nov 2023 11:20:12 GMT</lastBuildDate>
 <item>
   <title>dplyr</title>
   <link>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</link>
@@ -118,7 +116,7 @@ font-style: inherit;">mean</span>(Petal.Length))</span></code></pre></div>
   <category>manipulation de données</category>
   <category>tidyverse</category>
   <guid>https://romuanalyst.github.io/Website/packages/dplyr/dplyr.html</guid>
-  <pubDate>Sun, 27 Aug 2023 22:00:16 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/dplyr/dplyr.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
@@ -157,8 +155,2677 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
   <category>visualisation de données</category>
   <category>tidyverse</category>
   <guid>https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.html</guid>
-  <pubDate>Sun, 27 Aug 2023 22:00:16 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/ggplot2/ggplot2.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>gt</title>
+  <link>https://romuanalyst.github.io/Website/packages/gt/gt.html</link>
+  <description><![CDATA[ 
+
+
+
+<hr>
+<div class="grid">
+<div class="g-col-2">
+<div style="margin-top: auto;">
+<a href="../../packages/gt/gt.html"><img src="https://romuanalyst.github.io/Website/packages/gt/gt.svg" class="img-fluid"></a>
+</div>
+</div>
+<div class="g-col-10">
+<div style="margin-top: auto;">
+<p class="card-text">
+Le package <strong>gt</strong> est une bibliothèque de R qui permet de créer et de <code>personnaliser des tableaux</code> de données de manière simple et élégante. Il a été développé pour simplifier la création de tableaux dans R en offrant des fonctionnalités de personnalisation avancées tout en étant convivial pour les utilisateurs. Nous verrons comment utiliser <strong>gt</strong> pour créer un tableau, personnaliser l’apparence, modifier les en-têtes, les couleurs, les polices, et bien plus encore.
+</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Installation et chargement du package depuis le dépôt CRAN (Comprehensive R Archive Network)</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gt"</span>)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(gt)</span></code></pre></div>
+<p></p>
+</div>
+</div>
+</div>
+<p>Le package gt permet de créer des tableaux de données à partir de différents types de données, notamment des dataframes, les tibbles et les data tables, des matrices et des listes. Il est également possible de créer des tableaux à partir de données externes, telles que des fichiers CSV ou des bases de données.<br>
+Ici, nous allons nous concentrer sur la création de tableaux à partir de données saisies dans R.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pourquoi utiliser gt ?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les avantages de l’utilisation du package gt par rapport à d’autres packages de création de tableaux sont les suivants :</p>
+<p><strong>1. Syntaxe simple et intuitive</strong> : Le package gt offre une syntaxe simple et lisible pour créer des tableaux, ce qui le rend idéal pour les débutants. Vous pouvez créer des tableaux de données sans avoir besoin d’apprendre des commandes complexes.<br>
+<strong>2. Personnalisation avancée</strong> : Vous pouvez personnaliser facilement l’apparence de votre tableau en modifiant les en-têtes, les couleurs, les polices, et bien plus encore. Cela permet de créer des tableaux visuellement attrayants.<br>
+<strong>3. Compatibilité avec les données R</strong> : Le package gt est conçu pour fonctionner en harmonie avec les données R. Vous pouvez charger des données directement à partir de votre environnement R et les afficher sous forme de tableau.<br>
+<strong>4. Intégration avec d’autres packages</strong> : gt s’intègre parfaitement avec d’autres packages populaires tels que <a href="../../packages/dplyr/dplyr.html"><strong>dplyr</strong></a> et <a href="../../packages/ggplot2/ggplot2.html"><strong>ggplot2</strong></a>. Vous pouvez manipuler vos données avec dplyr, puis les afficher dans un tableau gt.<br>
+<strong>5. Exportation facile</strong> : Vous pouvez exporter vos tableaux gt vers différents formats, notamment HTML, ce qui facilite le partage de vos résultats avec d’autres.</p>
+</div>
+</div>
+<section id="création-dun-tableau-simple" class="level2">
+<h2 class="anchored" data-anchor-id="création-dun-tableau-simple">Création d’un tableau simple</h2>
+<div class="grid">
+<div class="g-col-10">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(gt)</span>
+<span id="cb2-2"></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># création du dataframe "joueur"</span></span>
+<span id="cb2-4">joueur <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>( </span>
+<span id="cb2-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Nom =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Curry"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"James"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Harden"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Durant"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Wemby"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Tatum"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Brown"</span>),</span>
+<span id="cb2-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Taille =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.88</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.06</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.08</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.24</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.03</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.98</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"m"</span>)</span>
+<span id="cb2-7">)</span>
+<span id="cb2-8"></span>
+<span id="cb2-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># création du tableau de base gt</span></span>
+<span id="cb2-10">tableau <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> joueur <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gt</span>() </span></code></pre></div>
+</div>
+<div class="g-col-2">
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="bwelppaqbi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bwelppaqbi table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bwelppaqbi thead, #bwelppaqbi tbody, #bwelppaqbi tfoot, #bwelppaqbi tr, #bwelppaqbi td, #bwelppaqbi th {
+  border-style: none;
+}
+
+#bwelppaqbi p {
+  margin: 0;
+  padding: 0;
+}
+
+#bwelppaqbi .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bwelppaqbi .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bwelppaqbi .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bwelppaqbi .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bwelppaqbi .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bwelppaqbi .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bwelppaqbi .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bwelppaqbi .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bwelppaqbi .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bwelppaqbi .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bwelppaqbi .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bwelppaqbi .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bwelppaqbi .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bwelppaqbi .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bwelppaqbi .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bwelppaqbi .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bwelppaqbi .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bwelppaqbi .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bwelppaqbi .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bwelppaqbi .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bwelppaqbi .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bwelppaqbi .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bwelppaqbi .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bwelppaqbi .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bwelppaqbi .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bwelppaqbi .gt_left {
+  text-align: left;
+}
+
+#bwelppaqbi .gt_center {
+  text-align: center;
+}
+
+#bwelppaqbi .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bwelppaqbi .gt_font_normal {
+  font-weight: normal;
+}
+
+#bwelppaqbi .gt_font_bold {
+  font-weight: bold;
+}
+
+#bwelppaqbi .gt_font_italic {
+  font-style: italic;
+}
+
+#bwelppaqbi .gt_super {
+  font-size: 65%;
+}
+
+#bwelppaqbi .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bwelppaqbi .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bwelppaqbi .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bwelppaqbi .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bwelppaqbi .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bwelppaqbi .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bwelppaqbi .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Nom">Nom</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Taille">Taille</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Nom" class="gt_row gt_left">Curry</td>
+<td headers="Taille" class="gt_row gt_left">1.88 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">James</td>
+<td headers="Taille" class="gt_row gt_left">2.06 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Harden</td>
+<td headers="Taille" class="gt_row gt_left">1.96 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Durant</td>
+<td headers="Taille" class="gt_row gt_left">2.08 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Wemby</td>
+<td headers="Taille" class="gt_row gt_left">2.24 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Tatum</td>
+<td headers="Taille" class="gt_row gt_left">2.03 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Brown</td>
+<td headers="Taille" class="gt_row gt_left">1.98 m</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Travail effectué : chargement du package gt, puis création d’un tableau de base à partir d’un dataframe en utilisant la fonction gt(). Le tableau est ensuite stocké dans la variable tableau et affiché dans la console.</p>
+<p>Voici un exemple montrant comment personnaliser un tableau gt avec des couleurs et des en-têtes de colonnes :</p>
+<div class="grid">
+<div class="g-col-10">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Petit rappel du dataframe "joueur"</span></span>
+<span id="cb3-2">joueur <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb3-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Nom =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Curry"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"James"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Harden"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Durant"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Wemby"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Tatum"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Brown"</span>),</span>
+<span id="cb3-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Taille =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.88</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.06</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.08</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.24</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.03</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.98</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"m"</span>)</span>
+<span id="cb3-5">)</span>
+<span id="cb3-6"></span>
+<span id="cb3-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Ajout d'une palette de couleurs, de nouvelles etiquettes de colonne, d'un titre et des sous-titres</span></span>
+<span id="cb3-8">tableau <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> joueur <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gt</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data_color</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columns =</span> Taille,</span>
+<span id="cb3-11">             <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">palette =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"viridis"</span>,</span>
+<span id="cb3-12">             <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">reverse =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cols_label</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Nom =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Joueur"</span>,</span>
+<span id="cb3-14">             <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Taille =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Taille (m)"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tab_header</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Joueurs NBA"</span>,</span>
+<span id="cb3-16">             <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Taille en mètres...🙂"</span>)</span></code></pre></div>
+</div>
+</div>
+<div class="g-col-2">
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="bedryswetb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bedryswetb table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bedryswetb thead, #bedryswetb tbody, #bedryswetb tfoot, #bedryswetb tr, #bedryswetb td, #bedryswetb th {
+  border-style: none;
+}
+
+#bedryswetb p {
+  margin: 0;
+  padding: 0;
+}
+
+#bedryswetb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bedryswetb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bedryswetb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bedryswetb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bedryswetb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bedryswetb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bedryswetb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bedryswetb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bedryswetb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bedryswetb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bedryswetb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bedryswetb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bedryswetb .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bedryswetb .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bedryswetb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bedryswetb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bedryswetb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bedryswetb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bedryswetb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bedryswetb .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bedryswetb .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bedryswetb .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bedryswetb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bedryswetb .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bedryswetb .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bedryswetb .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bedryswetb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bedryswetb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bedryswetb .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bedryswetb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bedryswetb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bedryswetb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bedryswetb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bedryswetb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bedryswetb .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bedryswetb .gt_left {
+  text-align: left;
+}
+
+#bedryswetb .gt_center {
+  text-align: center;
+}
+
+#bedryswetb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bedryswetb .gt_font_normal {
+  font-weight: normal;
+}
+
+#bedryswetb .gt_font_bold {
+  font-weight: bold;
+}
+
+#bedryswetb .gt_font_italic {
+  font-style: italic;
+}
+
+#bedryswetb .gt_super {
+  font-size: 65%;
+}
+
+#bedryswetb .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bedryswetb .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bedryswetb .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bedryswetb .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bedryswetb .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bedryswetb .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bedryswetb .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="2" class="gt_heading gt_title gt_font_normal" style="">Joueurs NBA</td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Taille en mètres...🙂</td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Joueur">Joueur</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Taille (m)">Taille (m)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Nom" class="gt_row gt_left">Curry</td>
+<td headers="Taille" class="gt_row gt_left" style="background-color: #FDE725; color: #000000;">1.88 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">James</td>
+<td headers="Taille" class="gt_row gt_left" style="background-color: #31688E; color: #FFFFFF;">2.06 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Harden</td>
+<td headers="Taille" class="gt_row gt_left" style="background-color: #8FD644; color: #000000;">1.96 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Durant</td>
+<td headers="Taille" class="gt_row gt_left" style="background-color: #443A83; color: #FFFFFF;">2.08 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Wemby</td>
+<td headers="Taille" class="gt_row gt_left" style="background-color: #440154; color: #FFFFFF;">2.24 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Tatum</td>
+<td headers="Taille" class="gt_row gt_left" style="background-color: #21908D; color: #FFFFFF;">2.03 m</td></tr>
+    <tr><td headers="Nom" class="gt_row gt_left">Brown</td>
+<td headers="Taille" class="gt_row gt_left" style="background-color: #35B779; color: #FFFFFF;">1.98 m</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Travail effectué : utilisation de <strong>data_color</strong> pour ajouter des couleurs aux données de la colonne “Taille” , <strong>tab_header</strong> pour personnaliser le titre et le sous-titre du tableau et <strong>cols_label</strong> pour modifier les étiquettes de colonnes.</p>
+<p>Cette petite introduction n’est qu’un très petit aperçu des possibilités de ce package. Nous tacherons d’aller un peu plus loin dans les prochaines lignes.</p>
+</section>
+<section id="agrégation" class="level2">
+<h2 class="anchored" data-anchor-id="agrégation">Agrégation</h2>
+<p>Agrégation de données Le package gt vous permet également d’agrégation de données pour résumer les informations dans le tableau. Voici comment vous pouvez agréger des données dans un tableau gt :</p>
+<div class="grid">
+<div class="g-col-8">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Création d'un tableau de base</span></span>
+<span id="cb4-2">data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb4-3">  Catégorie <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Fruits"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Légumes"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Fruits"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Légumes"</span>),</span>
+<span id="cb4-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Produit =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Pommes"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Carottes"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bananes"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Brocolis"</span>),</span>
+<span id="cb4-5">  Quantité <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb4-6">)</span>
+<span id="cb4-7"></span>
+<span id="cb4-8">tableau <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gt</span>()</span>
+<span id="cb4-10"></span>
+<span id="cb4-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Agrégation de données</span></span>
+<span id="cb4-12">tableau_agrégé <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> tableau <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grand_summary_rows</span>(</span>
+<span id="cb4-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columns =</span> Quantité,</span>
+<span id="cb4-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fns =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Total =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sum"</span>)</span>
+<span id="cb4-16">  )</span></code></pre></div>
+</div>
+</div>
+<div class="g-col-4">
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="dijxigfoqn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dijxigfoqn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dijxigfoqn thead, #dijxigfoqn tbody, #dijxigfoqn tfoot, #dijxigfoqn tr, #dijxigfoqn td, #dijxigfoqn th {
+  border-style: none;
+}
+
+#dijxigfoqn p {
+  margin: 0;
+  padding: 0;
+}
+
+#dijxigfoqn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dijxigfoqn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dijxigfoqn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dijxigfoqn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dijxigfoqn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dijxigfoqn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dijxigfoqn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dijxigfoqn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dijxigfoqn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dijxigfoqn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dijxigfoqn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dijxigfoqn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dijxigfoqn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dijxigfoqn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dijxigfoqn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dijxigfoqn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dijxigfoqn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dijxigfoqn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dijxigfoqn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dijxigfoqn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dijxigfoqn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dijxigfoqn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dijxigfoqn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dijxigfoqn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dijxigfoqn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dijxigfoqn .gt_left {
+  text-align: left;
+}
+
+#dijxigfoqn .gt_center {
+  text-align: center;
+}
+
+#dijxigfoqn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dijxigfoqn .gt_font_normal {
+  font-weight: normal;
+}
+
+#dijxigfoqn .gt_font_bold {
+  font-weight: bold;
+}
+
+#dijxigfoqn .gt_font_italic {
+  font-style: italic;
+}
+
+#dijxigfoqn .gt_super {
+  font-size: 65%;
+}
+
+#dijxigfoqn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dijxigfoqn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dijxigfoqn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dijxigfoqn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dijxigfoqn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dijxigfoqn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dijxigfoqn .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Catégorie">Catégorie</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Produit">Produit</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Quantité">Quantité</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub"></th>
+<td headers="stub_1_1 Catégorie" class="gt_row gt_left">Fruits</td>
+<td headers="stub_1_1 Produit" class="gt_row gt_left">Pommes</td>
+<td headers="stub_1_1 Quantité" class="gt_row gt_right">10</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub"></th>
+<td headers="stub_1_2 Catégorie" class="gt_row gt_left">Légumes</td>
+<td headers="stub_1_2 Produit" class="gt_row gt_left">Carottes</td>
+<td headers="stub_1_2 Quantité" class="gt_row gt_right">15</td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub"></th>
+<td headers="stub_1_3 Catégorie" class="gt_row gt_left">Fruits</td>
+<td headers="stub_1_3 Produit" class="gt_row gt_left">Bananes</td>
+<td headers="stub_1_3 Quantité" class="gt_row gt_right">8</td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub"></th>
+<td headers="stub_1_4 Catégorie" class="gt_row gt_left">Légumes</td>
+<td headers="stub_1_4 Produit" class="gt_row gt_left">Brocolis</td>
+<td headers="stub_1_4 Quantité" class="gt_row gt_right">12</td></tr>
+    <tr><th id="grand_summary_stub_1" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">sum</th>
+<td headers="grand_summary_stub_1 Catégorie" class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">—</td>
+<td headers="grand_summary_stub_1 Produit" class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">—</td>
+<td headers="grand_summary_stub_1 Quantité" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">45</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Dans cet exemple, nous avons utilisé <strong>grand_summary_rows</strong> pour agréger les données dans la colonne “Quantité” en calculant la somme totale. Cela ajoute une ligne de résumé au tableau.</p>
+<p>Le <em>groupement</em> et <em>l’agrégation</em> de données dans le package <em>gt</em> sont utiles pour organiser et résumer des informations complexes dans vos tableaux, en permettant une visualisation plus claire des données.</p>
+</section>
+<section id="sauvegarde-du-tableau" class="level2">
+<h2 class="anchored" data-anchor-id="sauvegarde-du-tableau">Sauvegarde du tableau</h2>
+<p>Sauvegarde en HTML Vos tableaux au format HTML, vous permettent de partager vos résultats de manière conviviale sur le web. Voici comment vous pouvez sauvegarder un tableau gt en HTML :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Création du tableau à partir du dataset mtcars</span></span>
+<span id="cb5-2">df_mtcars <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> mtcars <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gt</span>()</span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Sauvegarder le tableau en format HTML</span></span>
+<span id="cb5-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gtsave</span>(df_mtcars, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tableau_cars.html"</span>)</span></code></pre></div>
+</div>
+<p>Dans cet exemple, nous avons créé un tableau de base avec le package gt, puis utilisé la fonction <strong>gtsave</strong> pour sauvegarder le tableau. Vous pouvez spécifier le nom du fichier HTML dans l’argument file.</p>
+<p>Exportation en d’autres formats Le package gt vous permet également d’exporter vos tableaux dans d’autres formats, tels que PDF et Excel. Il est important de noter que pour exporter en PDF et Excel, vous devrez peut-être installer et charger d’autres packages R spécifiques à ces formats.. Assurez-vous d’installer et de charger les packages nécessaires avant d’effectuer l’exportation vers ces formats.</p>
+<p>L’exportation vers différents formats permet de partager vos tableaux avec d’autres de manière flexible, en fonction de leurs besoins.</p>
+</section>
+<section id="exemple-analyse-des-ventes-de-pizzas" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-analyse-des-ventes-de-pizzas">Exemple : Analyse des ventes de pizzas</h2>
+<p>Ici nous allons reprendre un code de la documentation <i class="fa-brands fa-r-project" aria-label="r-project"></i> du package gt et l’adapter à notre cas d’étude. Nous utiliserons le dataset <em>pizzaplace</em> qui contient les données de vente d’une pizzeria.</p>
+<p>Vous trouverez dans le code suivant de nombreuses fonctions du package <em>gt</em> qui permettent de personnaliser le tableau. Les commentaires dans le code vous permettront de comprendre le rôle de chaque fonction.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">final <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> pizzaplace <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb6-2">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(type, size) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># regroupement par type et taille de pizza</span></span>
+<span id="cb6-3">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarize</span>(  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># données aggrégées : nombre de pizza vendues et gain (somme des prix)</span></span>
+<span id="cb6-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">nb_vendu=</span> dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">n</span>(),</span>
+<span id="cb6-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">gain =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(price),</span>
+<span id="cb6-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"drop_last"</span></span>
+<span id="cb6-7">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb6-8">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(type) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># regroupement par type de pizza</span></span>
+<span id="cb6-9">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">part_vendu =</span> nb_vendu <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(nb_vendu)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># part des ventes pour chaque type de pizza en divisant le nombre de ventes par le total des ventes pour chaque type</span></span>
+<span id="cb6-10">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># conversion de la taille de pizza en facteur pour pouvoir la trier</span></span>
+<span id="cb6-11">    size, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"S"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"L"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"XL"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"XXL"</span>))</span>
+<span id="cb6-12">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb6-13">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(type, size) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># tri par type de pizza (type) et taille de pizza (size).</span></span>
+<span id="cb6-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gt</span>(  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># conversion en tableau gt</span></span>
+<span id="cb6-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rowname_col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"size"</span>,</span>
+<span id="cb6-16">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">groupname_col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span></span>
+<span id="cb6-17">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tab_header</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ventes de pizzas et gains - 2015"</span>,</span>
+<span id="cb6-18">                  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Données de la pizzeria Pizzaplace"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb6-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cols_label</span>(  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># renommage des colonnes</span></span>
+<span id="cb6-20">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">nb_vendu =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Nombre de ventes"</span>,</span>
+<span id="cb6-21">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">gain =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Gains"</span>,</span>
+<span id="cb6-22">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">part_vendu =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Part des ventes"</span></span>
+<span id="cb6-23">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb6-24">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fmt_integer</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columns =</span> nb_vendu) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># formatage des nombres de ventes en entiers</span></span>
+<span id="cb6-25">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fmt_currency</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columns =</span> gain,  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># formatage des gains en euros</span></span>
+<span id="cb6-26">               <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">currency =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"euro"</span>,</span>
+<span id="cb6-27">               <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">placement =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"right"</span>,</span>
+<span id="cb6-28">               <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">incl_space =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb6-29">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fmt_percent</span>(  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># formatage des pourcentages avec une décimale</span></span>
+<span id="cb6-30">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columns =</span> part_vendu,</span>
+<span id="cb6-31">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">decimals =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb6-32">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb6-33">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cols_merge</span>(  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># fusion des colonnes "size" et "part_vendu" pour afficher la taille et la part de vente de cette pizza dans la même cellule</span></span>
+<span id="cb6-34">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columns =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(size, part_vendu),</span>
+<span id="cb6-35">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pattern =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"{1} ({2})"</span></span>
+<span id="cb6-36">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb6-37">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cols_align</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">align =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"left"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columns =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">stub</span>()) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># alignement à gauche des colonnes</span></span>
+<span id="cb6-38">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data_color</span>(  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># coloration des données en fonction de leur valeur</span></span>
+<span id="cb6-39">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>,</span>
+<span id="cb6-40">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">palette =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ggsci::purple_material"</span></span>
+<span id="cb6-41">  )</span></code></pre></div>
+</div>
+<p>Le tableau final reprend les données de ventes de pizzas et les agrège par type de pizza. Les données sont ensuite triées par type de pizza et taille de pizza.</p>
+<center>
+<strong>Ci-dessous, les 3 stades de la création du tableau :</strong>
+</center>
+<p>.</p>
+<div class="grid">
+<div class="g-col-4">
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span> lignes aléatoires du dataset pizzaplace</span></code></pre></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>            id       date     time         name size    type price
+1  2015-018052 2015-11-04 13:47:41    ital_supr    M supreme 16.50
+2  2015-003907 2015-03-07 18:06:44     cali_ckn    S chicken 12.75
+3  2015-012829 2015-08-02 17:21:25   southw_ckn    L chicken 20.75
+4  2015-015615 2015-09-18 13:50:36   veggie_veg    M  veggie 16.00
+5  2015-008454 2015-05-22 12:50:41 mediterraneo    L  veggie 20.25
+6  2015-008465 2015-05-22 16:01:51   spicy_ital    L supreme 20.75
+7  2015-009204 2015-06-03 21:48:26     thai_ckn    M chicken 16.75
+8  2015-003295 2015-02-25 12:44:09  ital_cpcllo    L classic 20.50
+9  2015-004000 2015-03-09 11:34:01     thai_ckn    L chicken 20.75
+10 2015-006697 2015-04-23 12:15:04     mexicana    L  veggie 20.25
+11 2015-014390 2015-08-28 19:28:51   spicy_ital    L supreme 20.75
+12 2015-021092 2015-12-24 18:53:52      bbq_ckn    L chicken 20.75
+13 2015-014125 2015-08-24 12:20:13    ckn_pesto    S chicken 12.75
+14 2015-002024 2015-02-03 16:04:02  soppressata    S supreme 12.50
+15 2015-013400 2015-08-11 22:28:52     hawaiian    S classic 10.50
+16 2015-006194 2015-04-14 19:13:18  classic_dlx    M classic 16.00
+17 2015-020232 2015-12-10 14:19:58      bbq_ckn    S chicken 12.75
+18 2015-008145 2015-05-16 18:11:45   southw_ckn    L chicken 20.75
+19 2015-014473 2015-08-29 22:22:07     mexicana    L  veggie 20.25
+20 2015-020543 2015-12-15 17:34:31    the_greek   XL classic 25.50</code></pre>
+</div>
+</div>
+</div>
+<div class="g-col-4">
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">Regroupement type et taille de pizza  </span>
+<span id="cb9-2">(nombre de pizzas, somme des prix et part des ventes)</span></code></pre></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      type size nb_vendu      gain  part_vendu
+1  chicken    S     2224  28356.00 0.201266968
+2  chicken    M     3894  65224.50 0.352398190
+3  chicken    L     4932 102339.00 0.446334842
+4  classic    S     6139  69870.25 0.412345513
+5  classic    M     4112  60581.75 0.276195594
+6  classic    L     4057  74518.50 0.272501343
+7  classic   XL      552  14076.00 0.037076840
+8  classic  XXL       28   1006.60 0.001880709
+9  supreme    S     3377  47463.50 0.281721865
+10 supreme    M     4046  66475.00 0.337532327
+11 supreme    L     4564  94258.50 0.380745808
+12  veggie    S     2663  32386.75 0.228603314
+13  veggie    M     3583  57101.00 0.307580050
+14  veggie    L     5403 104202.70 0.463816637</code></pre>
+</div>
+</div>
+</div>
+<div class="g-col-4">
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">Tableau final des données de ventes</span></code></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="cslvcogwwd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cslvcogwwd table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cslvcogwwd thead, #cslvcogwwd tbody, #cslvcogwwd tfoot, #cslvcogwwd tr, #cslvcogwwd td, #cslvcogwwd th {
+  border-style: none;
+}
+
+#cslvcogwwd p {
+  margin: 0;
+  padding: 0;
+}
+
+#cslvcogwwd .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cslvcogwwd .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cslvcogwwd .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cslvcogwwd .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cslvcogwwd .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cslvcogwwd .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cslvcogwwd .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cslvcogwwd .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cslvcogwwd .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cslvcogwwd .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cslvcogwwd .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#cslvcogwwd .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cslvcogwwd .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cslvcogwwd .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cslvcogwwd .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cslvcogwwd .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cslvcogwwd .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cslvcogwwd .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cslvcogwwd .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cslvcogwwd .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cslvcogwwd .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cslvcogwwd .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cslvcogwwd .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cslvcogwwd .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cslvcogwwd .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cslvcogwwd .gt_left {
+  text-align: left;
+}
+
+#cslvcogwwd .gt_center {
+  text-align: center;
+}
+
+#cslvcogwwd .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cslvcogwwd .gt_font_normal {
+  font-weight: normal;
+}
+
+#cslvcogwwd .gt_font_bold {
+  font-weight: bold;
+}
+
+#cslvcogwwd .gt_font_italic {
+  font-style: italic;
+}
+
+#cslvcogwwd .gt_super {
+  font-size: 65%;
+}
+
+#cslvcogwwd .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cslvcogwwd .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cslvcogwwd .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cslvcogwwd .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cslvcogwwd .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cslvcogwwd .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cslvcogwwd .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="3" class="gt_heading gt_title gt_font_normal" style="">Ventes de pizzas et gains - 2015</td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Données de la pizzeria Pizzaplace</td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Nombre de ventes">Nombre de ventes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Gains">Gains</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="chicken">chicken</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">S (20.1%)</th>
+<td headers="chicken stub_1_1 nb_vendu" class="gt_row gt_right" style="background-color: #B761C5; color: #FFFFFF;">2,224</td>
+<td headers="chicken stub_1_1 gain" class="gt_row gt_right" style="background-color: #C683D2; color: #FFFFFF;">28,356.00 €</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">M (35.2%)</th>
+<td headers="chicken stub_1_2 nb_vendu" class="gt_row gt_right" style="background-color: #9225AC; color: #FFFFFF;">3,894</td>
+<td headers="chicken stub_1_2 gain" class="gt_row gt_right" style="background-color: #9425AC; color: #FFFFFF;">65,224.50 €</td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">L (44.6%)</th>
+<td headers="chicken stub_1_3 nb_vendu" class="gt_row gt_right" style="background-color: #771EA0; color: #FFFFFF;">4,932</td>
+<td headers="chicken stub_1_3 gain" class="gt_row gt_right" style="background-color: #4F158E; color: #FFFFFF;">102,339.00 €</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="classic">classic</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">S (41.2%)</th>
+<td headers="classic stub_1_4 nb_vendu" class="gt_row gt_right" style="background-color: #4A148C; color: #FFFFFF;">6,139</td>
+<td headers="classic stub_1_4 gain" class="gt_row gt_right" style="background-color: #8E24AA; color: #FFFFFF;">69,870.25 €</td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">M (27.6%)</th>
+<td headers="classic stub_1_5 nb_vendu" class="gt_row gt_right" style="background-color: #8E24AA; color: #FFFFFF;">4,112</td>
+<td headers="classic stub_1_5 gain" class="gt_row gt_right" style="background-color: #9926AF; color: #FFFFFF;">60,581.75 €</td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub">L (27.3%)</th>
+<td headers="classic stub_1_6 nb_vendu" class="gt_row gt_right" style="background-color: #8F24AA; color: #FFFFFF;">4,057</td>
+<td headers="classic stub_1_6 gain" class="gt_row gt_right" style="background-color: #8622A7; color: #FFFFFF;">74,518.50 €</td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub">XL (3.7%)</th>
+<td headers="classic stub_1_7 nb_vendu" class="gt_row gt_right" style="background-color: #E5C7EA; color: #000000;">552</td>
+<td headers="classic stub_1_7 gain" class="gt_row gt_right" style="background-color: #DEB8E5; color: #000000;">14,076.00 €</td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub">XXL (0.2%)</th>
+<td headers="classic stub_1_8 nb_vendu" class="gt_row gt_right" style="background-color: #F3E5F5; color: #000000;">28</td>
+<td headers="classic stub_1_8 gain" class="gt_row gt_right" style="background-color: #F3E5F5; color: #000000;">1,006.60 €</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="supreme">supreme</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub">S (28.2%)</th>
+<td headers="supreme stub_1_9 nb_vendu" class="gt_row gt_right" style="background-color: #9D2AB1; color: #FFFFFF;">3,377</td>
+<td headers="supreme stub_1_9 gain" class="gt_row gt_right" style="background-color: #AA46BB; color: #FFFFFF;">47,463.50 €</td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub">M (33.8%)</th>
+<td headers="supreme stub_1_10 nb_vendu" class="gt_row gt_right" style="background-color: #8F24AA; color: #FFFFFF;">4,046</td>
+<td headers="supreme stub_1_10 gain" class="gt_row gt_right" style="background-color: #9225AC; color: #FFFFFF;">66,475.00 €</td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub">L (38.1%)</th>
+<td headers="supreme stub_1_11 nb_vendu" class="gt_row gt_right" style="background-color: #8121A5; color: #FFFFFF;">4,564</td>
+<td headers="supreme stub_1_11 gain" class="gt_row gt_right" style="background-color: #661A98; color: #FFFFFF;">94,258.50 €</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="veggie">veggie</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_12" scope="row" class="gt_row gt_left gt_stub">S (22.9%)</th>
+<td headers="veggie stub_1_12 nb_vendu" class="gt_row gt_right" style="background-color: #AD4BBD; color: #FFFFFF;">2,663</td>
+<td headers="veggie stub_1_12 gain" class="gt_row gt_right" style="background-color: #BF74CC; color: #FFFFFF;">32,386.75 €</td></tr>
+    <tr><th id="stub_1_13" scope="row" class="gt_row gt_left gt_stub">M (30.8%)</th>
+<td headers="veggie stub_1_13 nb_vendu" class="gt_row gt_right" style="background-color: #9926AF; color: #FFFFFF;">3,583</td>
+<td headers="veggie stub_1_13 gain" class="gt_row gt_right" style="background-color: #9E2BB1; color: #FFFFFF;">57,101.00 €</td></tr>
+    <tr><th id="stub_1_14" scope="row" class="gt_row gt_left gt_stub">L (46.4%)</th>
+<td headers="veggie stub_1_14 nb_vendu" class="gt_row gt_right" style="background-color: #6B1B9B; color: #FFFFFF;">5,403</td>
+<td headers="veggie stub_1_14 gain" class="gt_row gt_right" style="background-color: #4A148C; color: #FFFFFF;">104,202.70 €</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>manipulation de données</category>
+  <category>table</category>
+  <category>personnalisation</category>
+  <guid>https://romuanalyst.github.io/Website/packages/gt/gt.html</guid>
+  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
+  <media:content url="https://romuanalyst.github.io/Website/packages/gt/gt.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
   <title>leaflet</title>
@@ -186,7 +2853,8 @@ Le package <strong>leaflet</strong> en R est une bibliothèque interactive de ca
 <p>Dans l’exemple ci dessous nous avons ajouté un popup qui donne des informations sur le lieu indiqué, l’IUT Paris Rives de Seine (lien vers le site internet et l’adresse)</p>
 <div class="grid">
 <div class="g-col-6">
-
+<iframe src="iut_leaflet.html" width="100%" height="500px">
+</iframe>
 </div>
 <div class="g-col-6">
 <div class="cell">
@@ -288,7 +2956,7 @@ font-style: inherit;">"iut_leaflet.html"</span>)</span></code></pre></div>
   <category>visualisation de données</category>
   <category>cartographie</category>
   <guid>https://romuanalyst.github.io/Website/packages/leaflet/leaflet.html</guid>
-  <pubDate>Sun, 27 Aug 2023 22:00:16 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/leaflet/leaflet.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
@@ -398,7 +3066,7 @@ font-style: inherit;">library</span>(rvest)</span></code></pre></div>
   <category>web</category>
   <category>table</category>
   <guid>https://romuanalyst.github.io/Website/packages/rvest/rvest.html</guid>
-  <pubDate>Sun, 27 Aug 2023 22:00:16 GMT</pubDate>
+  <pubDate>Sun, 05 Nov 2023 11:20:12 GMT</pubDate>
   <media:content url="https://romuanalyst.github.io/Website/packages/rvest/rvest.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 </channel>

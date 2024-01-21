@@ -26,6 +26,8 @@ website:
         menu: 
           - text: "{{< fa brands r-project >}} et Posit"
             href: R et Posit.qmd
+          - text: "Introduction à {{< fa brands r-project >}}"
+            href: Introduction_R.qmd
           - text: "ggplot2"
             href: test2.qmd
           - text: "les fonctions"
@@ -39,7 +41,7 @@ website:
       - text: Packages
         href: packages.qmd
       - text: Divers
-        href: community.qmd
+        href: TP1.qmd
       - text: Bio
         href: presentation.qmd
       #- icon: github

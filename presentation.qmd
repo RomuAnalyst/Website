@@ -8,16 +8,16 @@ about:
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com/MarvinSchmittML
-    - icon: github
-      text: Github
-      href: https://github.com/marvinschmitt
+      href: https://twitter.com/Romu_Zam
+    #- icon: github
+      #text: Github
+     # href: https://github.com/marvinschmitt
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/marvin-schmitt-a85b321a2/
+      href: https://www.linkedin.com/in/romuald-zami-293a9031/
     - icon: envelope
       text: Email
-      href: "mailto:titi.minet971@gmail.com"
+      href: "mailto:romuanalyst@gmail.com"
 ---
 
 ---------------------------------------------------
@@ -44,7 +44,7 @@ about:
 
 **Chargé d'analyse de données de pilotage** <br> _Direction générale de Pôle emploi | depuis janvier 2019_
 
-**Intervenant sur les cours de programmation R** <br> et de **SAE**[^SAE] **décisionnelle** <br> _IUT Paris Rives-de-Seine | depuis septembre 2022_
+**Intervenant sur les cours de programmation R**, <br> de **Tableur Excel** et de **SAE**[^SAE] **décisionnelle** <br> _IUT Paris Rives-de-Seine | depuis septembre 2022_
 
 [^SAE]: *Situation d'Apprentissage et d'Évaluation*
 
