@@ -718,7 +718,7 @@
     "href": "presentation.html#experiences-actuelles",
     "title": "Romuald ZAMI",
     "section": "Experiences actuelles :",
-    "text": "Experiences actuelles :\nChargé d’analyse de données de pilotage  Direction générale de Pôle emploi | depuis janvier 2019\nIntervenant sur les cours de programmation R,  de Tableur Excel et de SAE5 décisionnelle  IUT Paris Rives-de-Seine | depuis septembre 2022"
+    "text": "Experiences actuelles :\nChargé d’analyse de données de pilotage  Direction régionale de Pôle emploi | depuis février 2024  Direction générale de Pôle emploi | 2019 - 2024\nIntervenant sur les cours de programmation R,  de Tableur Excel et de SAE5 décisionnelle  IUT Paris Rives-de-Seine | depuis septembre 2022"
   },
   {
     "objectID": "presentation.html#footnotes",
@@ -739,14 +739,14 @@
     "href": "packages/rvest/rvest.html",
     "title": "rvest",
     "section": "",
-    "text": "peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche R on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site Cross Validated).\nLe but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de R. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage R (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npeut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche R on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site Cross Validated).\nLe but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de R. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage R (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(rvest)"
+    "text": "::: {.grid} ::: {.g-col-2}\n\n\n\n::: ::: {.g-col-10}\n\n\nEn cours….\n\n::: :::\nlibrary(tidyverse)\nlibrary(rvest)"
   },
   {
     "objectID": "packages/ggplot2/ggplot2.html",
     "href": "packages/ggplot2/ggplot2.html",
     "title": "ggplot2",
     "section": "",
-    "text": "peut aussi trouver énormément d’informations sur le web : par exemple en cherchant à l’aide d’un moteur de recherche un problème lié à une tâche R on trouve presque toujours une réponse (souvent dans des forum ouverts sur le site Cross Validated).\nLe but de cette introduction tutorielle est de vous apprendre l’utilisation élémentaire de R. Bien que les objets et commandes de bases y soient introduits, cette introduction n’est pas une référence complète au langage R (loin de là!), vous serez donc amenés à utiliser l’aide et à chercher des informations sur le web. A chaque étape, vous êtes encouragés à taper les commandes et à en comprendre le résultat : la meilleur façon d’apprendre un langage est d’écrire et débugger beaucoup de lignes de code!\n\n\n\n\nlibrary(tidyverse)\nlibrary(rvest)"
+    "text": "::: {.grid} ::: {.g-col-2}\n\n\n\n::: ::: {.g-col-10}\n\n\nEn cours….\n\n::: :::\nlibrary(tidyverse)\nlibrary(ggplot2)"
   },
   {
     "objectID": "packages/dplyr/dplyr.html",
